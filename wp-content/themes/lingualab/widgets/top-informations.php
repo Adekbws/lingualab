@@ -19,11 +19,31 @@ class TopInformations_Widget extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
+
+		$locationName1 = ! empty( $instance['locationname_1'] ) ? $instance['locationname_1'] : '';
+        $phone1 = ! empty( $instance['phone_1'] ) ? $instance['phone_1'] : '';
+        $locationName2 = ! empty( $instance['locationname_2'] ) ? $instance['locationname_2'] : '';
+        $phone2 = ! empty( $instance['phone_2'] ) ? $instance['phone_2'] : '';
+		$email = ! empty( $instance['email'] ) ? $instance['email'] : '';
+		
 		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-		echo esc_html__( 'Hello, World!', 'lingualab' );
+		echo '<div class="topContact">';
+		
+		echo '<div class="topContactPosition topContactPhone">';
+		echo '<span class="topContactLabel">'.$locationName1 .' </span>';
+		echo $phone1;
+		echo '</div>';
+
+		echo '<div class="topContactPosition">';
+		echo '<span class="topContactLabel">'.$locationName2 .' </span>';
+		echo $phone2;
+		echo '</div>';
+
+		echo '<div class="topContactPosition topContactMail">';
+		echo $email;
+		echo '</div>';
+	
+		echo '</div>';
 		echo $args['after_widget'];
 	}
 

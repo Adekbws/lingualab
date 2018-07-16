@@ -3,6 +3,7 @@ get_header(); ?>
 	
     <main>
         tu będzie treść strony
+        
     </main>
 
 

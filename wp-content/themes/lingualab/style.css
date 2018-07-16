@@ -8,7 +8,7 @@ Author: Heron Art
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import '//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=latin-ext';
+@import '//fonts.googleapis.com/css?family=Montserrat:300,400,700&subset=latin-ext';
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -6731,14 +6731,343 @@ body {
   height: 100%;
 }
 body {
-  background: blue;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
 .wrappPage {
   min-height: 100%;
   padding-bottom: 57px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrappPage .pageHeader {
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrappPage .pageHeader .topBarWrapper {
+  position: relative;
+  background: #f3f1f2;
+  z-index: 2;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent {
+  padding-left: 15px;
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact {
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #e2001a;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  display: inline-block;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition {
+  display: inline-block;
+  padding-left: 17px;
+  padding-right: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition .topContactLabel {
+  display: inline-block;
+  margin-right: 5px;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition.topContactPhone:before {
+  width: 20px;
+  height: 16px;
+  content: '';
+  background-image: url(images/phone.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 8px;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition.topContactMail {
+  text-transform: none;
+  padding-left: 43px;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition.topContactMail:before {
+  width: 20px;
+  height: 16px;
+  content: '';
+  background-image: url(images/mail.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 10px;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch {
+  float: right;
+  margin-bottom: 0;
+  display: inline-block;
+  list-style: none;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch li {
+  display: inline-block;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch li a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #004178;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch li a:hover {
+  text-decoration: none;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch li.current-lang a {
+  color: #e2001a;
+}
+.wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .languagesSwitch li + li:before {
+  content: '|';
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #004178;
+  display: inline-block;
+  margin-right: 5px;
+}
+.wrappPage .pageHeader .pageMenu {
+  position: relative;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0;
+  position: relative;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .siteLogo {
+  display: inline-block;
+  margin-right: 40px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper {
+  padding-right: 0;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li {
+  position: static;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #004178;
+  text-transform: uppercase;
+  padding-left: 0;
+  padding-right: 0;
+  transition: .5s;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a:hover {
+  color: #e2001a;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li.offersMenuPosition a {
+  color: #e2001a;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background: #fff;
+  border-top: 1px #004179 solid;
+  border-bottom: 1px #004179 solid;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul {
+  width: 1270px;
+  padding: 0;
+  padding-left: 10px;
+  margin: auto;
+  display: flex;
+  list-style: none;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li {
+  padding-right: 30px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li > a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e2001a;
+  text-transform: uppercase;
+  display: inline-block;
+  min-height: 16px;
+  margin-bottom: 13px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li > a:hover {
+  text-decoration: none;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -15px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li > ul > li > a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #004178;
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  transition: .3s;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li > ul > li > a:hover {
+  text-decoration: none;
+  background: #ffd334;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > ul > li + li ul {
+  border-left: 1px #d7d7d7 solid;
+  padding-left: 30px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li:hover > .subMenuCustomWrapper {
+  display: block;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li + li a:before {
+  content: '';
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  width: 3px;
+  height: 14px;
+  background: #004178;
+  display: inline-block;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper #topRightMenu {
+  float: right;
+}
+.wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper #topRightMenu li:last-child a {
+  padding-right: 0;
+}
+.wrappPage .titleSection {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  color: #004178;
+}
+.wrappPage .m0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+.wrappPage .rangeOfServices {
+  padding-top: 33px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrappPage .rangeOfServices .titleSection {
+  margin-bottom: 37px;
+}
+.wrappPage .rangeOfServices .serviceWrapper {
+  border: 1px #f9f9f9 solid;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  align-items: flex-end;
+}
+.wrappPage .rangeOfServices .serviceWrapper:first-child {
+  background: #f9f9f9;
+  border: 1px transparent solid;
+}
+.wrappPage .rangeOfServices .serviceWrapper:last-child {
+  background: #f9f9f9;
+  border: 1px transparent solid;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceHeader {
+  width: 40%;
+  text-align: center;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceHeader .serviceImage {
+  width: 88px;
+  height: 91px;
+  display: block;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-position: 0px -91px;
+  margin-bottom: 23px;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceHeader .serviceTitle {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #004178;
+  line-height: 37px;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp {
+  width: 60%;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .serviceContent {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #000;
+  line-height: 17px;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .readMoreService {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 3px #e2001a solid;
+  color: #e2001a;
+  border-radius: 50px;
+  margin-top: 35px;
+  transition: .3s;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .readMoreService:after {
+  display: inline-block;
+  vertical-align: middle;
+  width: 17px;
+  height: 14px;
+  content: url(images/arrow-red.png);
+  margin-top: -8.5px;
+  margin-left: 30px;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .readMoreService:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #e2001a;
+}
+.wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .readMoreService:hover:after {
+  content: url(images/arrow.png);
+}
+.wrappPage .rangeOfServices .serviceWrapper:hover {
+  background: #ffd334;
+}
+.wrappPage .rangeOfServices .serviceWrapper:hover .serviceHeader .serviceImage {
+  background-position: 0px 0px;
 }
 .siteFooter {
   margin-top: -57px;

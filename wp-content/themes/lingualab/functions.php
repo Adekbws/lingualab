@@ -1,4 +1,5 @@
 <?php
+require_once('widgets/menu-walker.php');
 if ( ! function_exists( 'ha_template_setup' ) )
 {
 	function ha_template_setup() 
@@ -8,7 +9,8 @@ if ( ! function_exists( 'ha_template_setup' ) )
 		add_theme_support( 'post-thumbnails' );
 
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'ha_template-menu' ),
+			'top_menu_left' => esc_html__( 'Top Menu Left', 'ha_template-menu' ),
+			'top_menu_right' => esc_html__( 'Top Menu Right', 'ha_template-menu' ),
 		) );
 
 		add_theme_support( 'html5', array(
