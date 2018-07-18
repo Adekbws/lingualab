@@ -3,7 +3,9 @@ get_header(); ?>
 
 <div class="container-fluid rangeOfServices">
     <div class="row m0">
-        <span class="titleSection">Zakres usług</span>
+        <div class="col-md-12">
+            <span class="titleSection">Zakres usług</span>
+        </div>
     </div>
     <div class="row m0">
         <div class="col-md-6 serviceWrapper">
@@ -15,7 +17,7 @@ get_header(); ?>
                 <div class="serviceContent">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
                 </div>
-                <a href="#" class="readMoreService">dowiedz się więcej</a>
+                <a href="#" class="readMoreButton">dowiedz się więcej</a>
             </div>
         </div>
 
@@ -28,7 +30,7 @@ get_header(); ?>
                 <div class="serviceContent">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
                 </div>
-                <a href="#" class="readMoreService">dowiedz się więcej</a>
+                <a href="#" class="readMoreButton">dowiedz się więcej</a>
             </div>
         </div>
 
@@ -51,7 +53,7 @@ get_header(); ?>
                 <div class="serviceContent">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
                 </div>
-                <a href="#" class="readMoreService">dowiedz się więcej</a>
+                <a href="#" class="readMoreButton">dowiedz się więcej</a>
             </div>
         </div>
 
@@ -66,7 +68,7 @@ get_header(); ?>
                 <div class="serviceContent">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
                 </div>
-                <a href="#" class="readMoreService">dowiedz się więcej</a>
+                <a href="#" class="readMoreButton">dowiedz się więcej</a>
             </div>
         </div>
 
@@ -77,6 +79,178 @@ get_header(); ?>
      
     </div>
 </div>
+
+
+<div class="container-fluid textBlock">
+    <div class="container size1">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="titleSection">Zaufaj Specjalistom</span>
+            </div>
+            <div class="col-md-12 contentTextBlock">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid staticBannerWrapper">
+    <div class="row staticBanner">
+        <div class="col-md-7 leftBanner">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/photo2.png" alt="" class="fullColumn">
+        </div>
+        <div class="col-md-5 rightBanner">
+            <div class="rightBannerContentWrapper">
+            <div class="rightBannerContent">
+                    <div class="rightBannerText">
+                        Branże, dla których<br>tłumaczymy
+                    </div>
+                    <a href="#" class="rightBannerLink">dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="container-fluid smallBannersWrapper">
+    <div class="row smallBanners">
+        <div class="col-md-6 smallBanner smallBanner1">
+            <div class="row smallBannerContent">
+                <div class="col-md-5 smallBanner1Image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner1.png" alt="">
+                </div>
+                <div class="col-md-7 smallBannerInfo">
+                    <div>
+                        <span class="smallBannerTitle">Języki</span>
+                        <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 smallBanner smallBanner2">
+        <div class="row smallBannerContent">
+                <div class="col-md-5 smallBanner2Image">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner2.png" alt="">
+                </div>
+                <div class="col-md-7 smallBannerInfo">
+                    <div>
+                        <span class="smallBannerTitle">Jakość</span>
+                        <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid contactArea">
+    <div class="container size1">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="titleSection">Masz pytania?</span>
+            </div>
+            <div class="col-md-12 contentTextBlock">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+            </div>
+        </div>
+        <div class="row contactFormWrapper">
+            <?php echo do_shortcode('[contact-form-7 id="16" title="Contact form 1"]'); ?>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid infoArea">
+    <div class="container size1">
+        <div class="row">
+            <div class="col-md-6 contactInfoWrapp">
+                <span class="contactInfoTitle">Kontakt</span>
+                <div class="contactInfoBoxWrapper">
+                    <div class="contactInfoBoxItem">
+                        <span class="contactInfoBoxItemTitle">Lingua Lab Biuro Tłumaczeń</span>
+                        <div class="contactInfoBoxItemContent">
+                            NIP: 677-235-31-15, REGON: 121429850
+                        </div>
+                    </div>
+                    <div class="contactInfoBoxItem">
+                        <span class="contactInfoBoxItemTitle">Oddział Warszawa:</span>
+                        <div class="contactInfoBoxItemContent">
+                            ul. Nowogrodzka 50 lok. 515, 00-965 Warszawa<br>Godziny otwarcia: Pn-Pt: 08:00 - 16:00
+                        </div>
+                    </div>
+                    <div class="contactInfoBoxItem">
+                        <span class="contactInfoBoxItemTitle">Oddział Kraków</span>
+                        <div class="contactInfoBoxItemContent">
+                        ul. Piastowska 8a lok. 33, 30-213 Kraków<br>Godziny otwarcia: Pn-Pt: 09:00 - 17:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 blogInfoWrapp">
+                <span class="blogInfoTitle">Odwiedź nasz blog</span>
+                <div class="latestPosts">
+                        <a href="#" class="lastPost">
+                            <span class="lastPostTitle">Tytuł najnowszego wpisu z bloga firmowego</span>
+                            <div class="lastPostContent">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust...
+                            </div>
+                        </a>
+                        <a href="#" class="lastPost">
+                            <span class="lastPostTitle">Tytuł kolejnego wpisu z bloga firmowego</span>
+                            <div class="lastPostContent">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust...
+                            </div>
+                        </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bottomMenu">
+    <div class="container size1">
+        <div class="row">
+            <div class="col-md-3">
+                <span class="bottomMenuTitle">Usługi</span>
+                
+                <?php wp_nav_menu(array('theme_location'=>'bottom_menu_1','menu_class'=>'bottom_menu','menu_id'=>'', 'container'=>'')); ?>
+    
+            </div>
+            <div class="col-md-4">
+                <span class="bottomMenuTitle">Specjalizacja</span>
+                <?php wp_nav_menu(array('theme_location'=>'bottom_menu_2','menu_class'=>'bottom_menu','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+            <div class="col-md-5 bottom_menu_columns_wrapp">
+                 <span class="bottomMenuTitle">Języki</span>
+                 <?php wp_nav_menu(array('theme_location'=>'bottom_menu_3','menu_class'=>'bottom_menu bottom_menu_columns3','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="container-fluid bottomInfoWrapp">
+    <div class="container size1">
+        <div class="row bottomInfo">
+            <div class="col-md-3">
+                <span class="bottomInfoTitle">Informacje</span>
+                <?php wp_nav_menu(array('theme_location'=>'info_menu_1','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+            <div class="col-md-4">
+                <span class="bottomInfoTitle">Płatności</span>
+                <?php wp_nav_menu(array('theme_location'=>'info_menu_2','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+            <div class="col-md-5 payLogos">
+                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/paypal.png" alt=""></a>
+                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <?php
 get_footer();
