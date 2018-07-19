@@ -1,6 +1,45 @@
 <?php
 get_header(); ?>
 
+
+<div class="container-fluid mainSliderWrapper">
+    <div class="row m0">
+        <div class="col-md-12 p0">
+            <div id="mainSlider" class="carousel slide mainSlider" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                         <div class="col-md-5 leftItem">
+                            <div class="leftItemContentWrapper">
+                                <div class="leftItemContent">
+                                     <div class="leftItemText">
+                                        Twoje słowo<br>ma znaczenie
+                                    </div>
+                                    <div class="leftItemText2">
+                                        Skorzystaj z naszego formularza<br>i zamów bezpłatną wycenę tłumaczenia
+                                    </div>
+                                    <a href="#" class="leftItemLink">wyślij zapytanie</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 rightItem">
+                          <img src="<?php echo get_template_directory_uri(); ?>/images/mainslider.jpg" alt="" class="fullColumn">
+                         </div>
+                    </div>
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#mainSlider" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#mainSlider" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>  
+</div>
+
 <div class="container-fluid rangeOfServices">
     <div class="row m0">
         <div class="col-md-12">
@@ -114,8 +153,10 @@ get_header(); ?>
     <div class="row smallBanners">
         <div class="col-md-6 smallBanner smallBanner1">
             <div class="row smallBannerContent">
-                <div class="col-md-5 smallBanner1Image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner1.png" alt="">
+                <div class="col-md-5 smallBanner1ImageWrapp">
+                    <div class="smallBanner1Image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner1.png" alt="">
+                    </div>
                 </div>
                 <div class="col-md-7 smallBannerInfo">
                     <div>
@@ -127,8 +168,10 @@ get_header(); ?>
         </div>
         <div class="col-md-6 smallBanner smallBanner2">
         <div class="row smallBannerContent">
-                <div class="col-md-5 smallBanner2Image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner2.png" alt="">
+                <div class="col-md-5 smallBanner2ImageWrapp">
+                    <div class="smallBanner2Image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner2.png" alt="">
+                    </div>
                 </div>
                 <div class="col-md-7 smallBannerInfo">
                     <div>
@@ -142,7 +185,145 @@ get_header(); ?>
     </div>
 </div>
 
+<div class="container-fluid textBlock">
+    <div class="container size1">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="titleSection">Nasze doświadczenie</span>
+            </div>
+            <div class="col-md-12 contentTextBlock">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid portfolioSliderWrapp">
+    <div class="row m0 portfolioSliderRow">
+        <div class="col-md-12 portfolioSliderArea">
+            <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappLeft">
+                <button class="leftArrowPortfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.png" alt=""></button>
+            </div>
+            <div class="portfolioSlider">
+                    <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/4.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/5.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                      <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/4.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 portfolioSliderItemWrapp">
+                        <div class="portfolioSlide">
+                            <div class="row portfolioSlideRow">
+                                <div class="col-md-5 portfolioSlideImageWrapp">
+                                    <div class="portfolioSlideImage">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/5.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7 portfolioSlideContentWrapp">
+                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
+                                        <div class="portfolioSlideContent">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+            <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappRight">
+                <button class="rightArrowPortfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-right.png" alt=""></button>
+            </div>
+        </div>
+    </div>
+    <div class="row m0">
+        <div class="col-md-12 portfolioMoreItemsWrapp">
+             <a href="#" class="portfolioMoreItems">dowiedz się więcej</a>
+        </div>
+    </div>
+</div>
 
 
 <div class="container-fluid contactArea">

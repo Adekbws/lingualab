@@ -13,7 +13,7 @@
 		<header class="container-fluid pageHeader">
         <div class="container-fluid topBarWrapper">
             <div class="row topBar">
-              	<div class="col-md-6 pull-right topBarContent">
+              	<div class="col-md-12 pull-right topBarContent">
 					<?php if ( is_active_sidebar( 'top-info' ) ) : ?>
 					<?php dynamic_sidebar( 'top-info' ); ?>
 					<?php endif; ?>

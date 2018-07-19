@@ -42,7 +42,7 @@ add_action( 'wp_enqueue_scripts', 'ha_template_scripts' );
 
 function add_this_script_footer()
 {
-    wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
+	wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
 } 
 
 add_action('wp_footer', 'add_this_script_footer'); 

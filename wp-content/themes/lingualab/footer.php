@@ -12,7 +12,11 @@
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js" ></script>
+	
+
+
 <?php wp_footer(); ?>
 <script>
   $(document).ready(function()
@@ -25,6 +29,15 @@
         scrollTop: $($.attr(this, 'href')).offset().top
     }, 900);
 });
+
+    $('.portfolioSlider').slick({
+      slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  prevArrow: $('.leftArrowPortfolio'),
+nextArrow: $('.rightArrowPortfolio'),
+    });
+
 
 });
 </script>

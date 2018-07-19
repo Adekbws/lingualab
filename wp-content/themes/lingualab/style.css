@@ -6726,6 +6726,94 @@ button.close {
     display: none !important;
   }
 }
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+  display: none;
+}
 @media (min-width: 1220px) {
   .container.size1 {
     max-width: 1200px;
@@ -6743,6 +6831,10 @@ body {
 .m0 {
   margin-right: 0;
   margin-left: 0;
+}
+.p0 {
+  padding-left: 0;
+  padding-right: 0;
 }
 .readMoreButton {
   display: inline-block;
@@ -6796,7 +6888,7 @@ body {
   padding-right: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact {
   padding-left: 15px;
@@ -6984,7 +7076,7 @@ body {
   padding-left: 30px;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li:hover > .subMenuCustomWrapper {
-  display: block;
+  display: none;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li + li a:before {
   content: '';
@@ -7014,10 +7106,89 @@ body {
 }
 .wrappPage .contentSection {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
   color: #000;
   line-height: 17px;
+}
+.wrappPage .mainSliderWrapper {
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrappPage .mainSliderWrapper .mainSlider .carousel-control {
+  width: 30px;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item {
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .rightItem {
+  padding-left: 0;
+  position: relative;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .rightItem:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-image: url(images/mainslider.png);
+  background-repeat: none;
+  background-size: 100% 100%;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .rightItem .fullColumn {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem {
+  padding-left: 95px;
+  background: #f9f9f9;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemText {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 80px;
+  color: #e2001a;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemText2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: light;
+  font-size: 24px;
+  color: #004178;
+  line-height: 29px;
+  margin-top: 30px;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemLink {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 3px #e2001a solid;
+  color: #fff;
+  background: #e2001a;
+  border-radius: 50px;
+  margin-top: 40px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+.wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemLink:hover {
+  background: #b30015;
+  border: 3px #b30015 solid;
+  text-decoration: none;
 }
 .wrappPage .rangeOfServices {
   padding-top: 33px;
@@ -7071,7 +7242,7 @@ body {
 }
 .wrappPage .rangeOfServices .serviceWrapper .serviceContentWrapp .serviceContent {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
   color: #000;
   line-height: 17px;
@@ -7088,7 +7259,7 @@ body {
 }
 .wrappPage .textBlock .contentTextBlock {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
   color: #000;
   line-height: 17px;
@@ -7144,7 +7315,7 @@ body {
 .wrappPage .staticBannerWrapper .staticBanner .rightBanner .rightBannerContentWrapper .rightBannerContent .rightBannerLink {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 23px;
   padding-left: 20px;
   padding-right: 20px;
@@ -7182,6 +7353,10 @@ body {
   margin-left: 0;
   margin-right: 0;
   display: flex;
+  height: 345px;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner {
+  height: 100%;
 }
 .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerTitle {
   font-family: 'Montserrat', sans-serif;
@@ -7195,22 +7370,45 @@ body {
 }
 .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerContent {
   display: flex;
+  height: 100%;
 }
 .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo {
   display: flex;
   align-items: center;
   padding-left: 20px;
 }
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton {
+  background: #fff;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton:hover {
+  background: #e2001a;
+}
 .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 {
+  height: 100%;
   background: #f9f9f9;
   background-image: url(images/languages.png);
   background-repeat: no-repeat;
   background-position: top -8px right 10px;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1Image {
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp {
   position: relative;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1Image:before {
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: 25px;
+  right: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -7221,21 +7419,32 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1Image img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 {
+  height: 100%;
   background: #dedede;
   background-image: url(images/quality.png);
   background-repeat: no-repeat;
   background-position: top -29px right 10px;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2Image {
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp {
   position: relative;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2Image:before {
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: 25px;
+  right: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -7246,10 +7455,160 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2Image img {
-  display: block;
+.wrappPage .portfolioSliderWrapp {
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderRow {
+  padding-bottom: 45px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 75px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp.portfolioSliderArrowWrappLeft {
+  left: 20px;
+  z-index: 1;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp.portfolioSliderArrowWrappRight {
+  right: 20px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .leftArrowPortfolio,
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .rightArrowPortfolio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  border: 0;
+  background: #e2001a;
+  border-radius: 50%;
+  transition: .3s;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .leftArrowPortfolio img,
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .rightArrowPortfolio img {
+  display: inline-block;
+  width: 22px;
+  height: 32px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .leftArrowPortfolio:hover,
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp .rightArrowPortfolio:hover {
+  background: #b30015;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider {
   width: 100%;
-  height: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide {
+  height: 272px;
+  background: #f9f9f9;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide .portfolioSlideRow {
+  height: 100%;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp {
+  position: relative;
+  height: 100%;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp .portfolioSlideImage {
+  width: 214px;
+  height: 214px;
+  position: absolute;
+  bottom: 25px;
+  left: -5px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp .portfolioSlideImage img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  background-image: url(images/portfolioslidebackground.png);
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 20px;
+  height: 100%;
+  background: #fff;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp {
+  padding-left: 5px;
+  padding-right: 53px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #004178;
+  display: block;
+  padding-right: 10px;
+  padding-bottom: 13px;
+  border-bottom: 1px #e2001a solid;
+  margin-bottom: 15px;
+  margin-top: 40px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideContent {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #000;
+}
+.wrappPage .portfolioSliderWrapp .portfolioMoreItemsWrapp {
+  text-align: center;
+}
+.wrappPage .portfolioSliderWrapp .portfolioMoreItemsWrapp .portfolioMoreItems {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 23px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 3px #fff solid;
+  color: #fff;
+  background: #e2001a;
+  border-radius: 50px;
+  transition: .3s;
+  margin-bottom: 70px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioMoreItemsWrapp .portfolioMoreItems:after {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 16px;
+  content: url(images/bigarrow.png);
+  margin-top: -16px;
+  margin-left: 30px;
+}
+.wrappPage .portfolioSliderWrapp .portfolioMoreItemsWrapp .portfolioMoreItems:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #b30015;
+}
+.wrappPage .portfolioSliderWrapp .portfolioMoreItemsWrapp .portfolioMoreItems:hover:after {
+  content: url(images/bigarrow.png);
 }
 .wrappPage .contactArea {
   background: #f3f3f3;
@@ -7261,7 +7620,7 @@ body {
 }
 .wrappPage .contactArea .contentTextBlock {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
   color: #000;
   line-height: 17px;
@@ -7549,7 +7908,7 @@ body {
 .siteFooter .arrowTopWrap .goToTop img {
   display: inline-block;
   width: 32px;
-  height: 33px;
+  height: 22px;
 }
 .siteFooter .arrowTopWrap .goToTop:hover {
   background: #b30015;
