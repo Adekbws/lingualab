@@ -46,34 +46,38 @@ get_header(); ?>
             <span class="titleSection">Zakres usług</span>
         </div>
     </div>
-    <div class="row m0">
+    <div class="row m0 servicesRow">
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceHeader">
-                <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                <span class="serviceTitle">Tłumaczenie pisemne</span>
-            </div>
-            <div class="serviceContentWrapp">
-                <div class="serviceContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            <div class="serviceWrapperContent">
+                <div class="serviceHeader">
+                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
+                    <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
-                <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                <div class="serviceContentWrapp">
+                    <div class="serviceContent">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    </div>
+                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceHeader">
-                <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                <span class="serviceTitle">Tłumaczenie pisemne</span>
-            </div>
-            <div class="serviceContentWrapp">
-                <div class="serviceContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            <div class="serviceWrapperContent"> 
+                <div class="serviceHeader">
+                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
+                    <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
-                <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                <div class="serviceContentWrapp">
+                    <div class="serviceContent">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    </div>
+                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                </div>
             </div>
         </div>
-
-
+    </div>
+    <div class="row m0 servicesRow">
 
 
 
@@ -84,30 +88,34 @@ get_header(); ?>
 
 
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceHeader">
-                <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                <span class="serviceTitle">Tłumaczenie pisemne</span>
-            </div>
-            <div class="serviceContentWrapp">
-                <div class="serviceContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            <div class="serviceWrapperContent">
+                <div class="serviceHeader">
+                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
+                    <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
-                <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                <div class="serviceContentWrapp">
+                    <div class="serviceContent">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    </div>
+                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                </div>
             </div>
         </div>
 
 
 
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceHeader">
-                <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                <span class="serviceTitle">Tłumaczenie pisemne</span>
-            </div>
-            <div class="serviceContentWrapp">
-                <div class="serviceContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            <div class="serviceWrapperContent"> 
+                <div class="serviceHeader">
+                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
+                    <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
-                <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                <div class="serviceContentWrapp">
+                    <div class="serviceContent">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    </div>
+                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                </div>
             </div>
         </div>
 
@@ -151,14 +159,14 @@ get_header(); ?>
 </div>
 <div class="container-fluid smallBannersWrapper">
     <div class="row smallBanners">
-        <div class="col-md-6 smallBanner smallBanner1">
+        <div class="col-sm-12 col-md-6 smallBanner smallBanner1">
             <div class="row smallBannerContent">
-                <div class="col-md-5 smallBanner1ImageWrapp">
+                <div class="col-md-5 col-sm-5 smallBanner1ImageWrapp">
                     <div class="smallBanner1Image">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner1.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-7 smallBannerInfo">
+                <div class="col-md-7 col-sm-7 smallBannerInfo">
                     <div>
                         <span class="smallBannerTitle">Języki</span>
                         <a href="#" class="readMoreButton">dowiedz się więcej</a>
@@ -166,14 +174,14 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 smallBanner smallBanner2">
+        <div class="col-sm-12 col-md-6 smallBanner smallBanner2">
         <div class="row smallBannerContent">
-                <div class="col-md-5 smallBanner2ImageWrapp">
+                <div class="col-md-5 col-sm-5 smallBanner2ImageWrapp">
                     <div class="smallBanner2Image">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/smallbanner2.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-7 smallBannerInfo">
+                <div class="col-md-7 col-sm-7 smallBannerInfo">
                     <div>
                         <span class="smallBannerTitle">Jakość</span>
                         <a href="#" class="readMoreButton">dowiedz się więcej</a>
@@ -204,7 +212,7 @@ get_header(); ?>
                 <button class="leftArrowPortfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.png" alt=""></button>
             </div>
             <div class="portfolioSlider">
-                    <div class="col-md-4 portfolioSliderItemWrapp">
+                    <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -221,7 +229,8 @@ get_header(); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 portfolioSliderItemWrapp">
+        
+                    <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -239,7 +248,7 @@ get_header(); ?>
                         </div>
                     </div>
 
-                    <div class="col-md-4 portfolioSliderItemWrapp">
+                    <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -257,7 +266,7 @@ get_header(); ?>
                         </div>
                     </div>
 
-                      <div class="col-md-4 portfolioSliderItemWrapp">
+                      <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -274,7 +283,7 @@ get_header(); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 portfolioSliderItemWrapp">
+                    <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -293,7 +302,7 @@ get_header(); ?>
                     </div>
 
 
-                    <div class="col-md-4 portfolioSliderItemWrapp">
+                    <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
                                 <div class="col-md-5 portfolioSlideImageWrapp">
@@ -310,7 +319,7 @@ get_header(); ?>
                             </div>
                         </div>
                     </div>
-
+             
 
             </div>
             <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappRight">

@@ -502,7 +502,7 @@ body
             .leftItemText2
             {
               font-family: 'Montserrat', sans-serif;
-              font-weight:light;
+              font-weight:300;
               font-size:24px;
               color:#004178;
               line-height:29px;
@@ -548,66 +548,104 @@ body
     {
       margin-bottom:37px;
     }
-    .serviceWrapper
+    .servicesRow
     {
-      border:1px #f9f9f9 solid;
-      &:first-child
-      {
-        background:#f9f9f9;
-        border:1px transparent solid;
-      }
-      &:last-child
-      {
-        background:#f9f9f9;
-        border:1px transparent solid;
-      }
-      transition:.3s;
-      padding-left:70px;
-      padding-right:70px;
-      padding-top:70px;
-      padding-bottom:70px;
       display:flex;
-      align-items: flex-end;
-      .serviceHeader
+      .serviceWrapper
       {
-        width:40%;
-        text-align:center;
-        .serviceImage
+        display:flex;
+          align-items: center;
+          padding-left: 0;
+          padding-right: 0;
+        .serviceWrapperContent
         {
-          width:88px;
-          height:91px;
-          display:block;
-          margin:auto;
-          background-repeat: no-repeat;
-          background-position: 0px -91px;
-          margin-bottom:23px;
-        }
-        .serviceTitle
-        {
-          display:inline-block;
-          font-family: 'Montserrat', sans-serif;
-          font-weight:700;
-          font-size:32px;
-          color:#004178;
-          line-height: 37px;
-        }
-      }
-      .serviceContentWrapp
-      {
-        width:60%;
-        .serviceContent
-        {
-          .contentSection;
-        }
-      }
-      &:hover
-      {
-        background:#ffd334;
-        .serviceHeader
-        {
-          .serviceImage
+          transition:.3s;
+          padding-left:70px;
+          padding-right:70px;
+          padding-top:70px;
+          padding-bottom:70px;
+          display:flex;
+          align-items: flex-end;
+          height: 100%;
+          border:1px #f9f9f9 solid;
+          .serviceHeader
           {
-            background-position: 0px 0px;
+            width:40%;
+            text-align:center;
+            .serviceImage
+            {
+              width:88px;
+              height:91px;
+              display:block;
+              margin:auto;
+              background-repeat: no-repeat;
+              background-position: 0px -91px;
+              margin-bottom:23px;
+            }
+            .serviceTitle
+            {
+              display:inline-block;
+              font-family: 'Montserrat', sans-serif;
+              font-weight:700;
+              font-size:32px;
+              color:#004178;
+              line-height: 37px;
+            }
+          }
+          .serviceContentWrapp
+          {
+            width:60%;
+            .serviceContent
+            {
+              .contentSection;
+            }
+          }
+          &:hover
+          {
+            background:#ffd334;
+            .serviceHeader
+            {
+              .serviceImage
+              {
+                background-position: 0px 0px;
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(even)
+      {
+        .serviceWrapper
+        {
+          &:first-child
+          {
+            .serviceWrapperContent
+            {
+              background:#f9f9f9;
+              border:1px transparent solid;
+              &:hover
+              {
+                background:#ffd334;
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(odd)
+      {
+        .serviceWrapper
+        {
+          &:last-child
+          {
+            .serviceWrapperContent
+            {
+              background:#f9f9f9;
+              border:1px transparent solid;
+              &:hover
+              {
+                background:#ffd334;
+              }
+            }
           }
         }
       }
@@ -922,16 +960,18 @@ body
           {
             height:272px;
             background:#f9f9f9;
-            .portfolioSlideRow
-            {
-              height:100%;
-          }
+              .portfolioSlideRow
+              {
+                display:flex;
+                height:100%;
+              }
             }
             .portfolioSlideImageWrapp
             {
+              width:266px;
+              padding-right:0;
               position:relative;
               height:100%;
-
               .portfolioSlideImage
               {
                 width:214px;
@@ -956,7 +996,10 @@ body
                 width:100%;
                 height:100%;
                 background: #f9f9f9;
-                background-image: url(images/portfolioslidebackground.png)
+                background-image: url(images/portfolioslidebackground.png);
+                background-size:cover;
+                background-repeat:no-repeat;
+
               }
               &:after
               {
@@ -971,13 +1014,13 @@ body
             }
             .portfolioSlideContentWrapp
             {
-              padding-left:5px;
+              padding-left:0;
               padding-right:53px;
               .portfolioSlideTitle
               {
                 font-family: 'Montserrat', sans-serif;
                 font-weight:700;
-                font-size:19px;
+                font-size:18px;
                 color:#004178;
                 display:block;
                 padding-right:10px;
@@ -1383,7 +1426,493 @@ body
 }
 
 
-@media only screen and (max-width : 768px)
-{
 
+//portfolio slider
+@media(min-width:1831px) and (max-width:1900px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideTitle
+  {
+    font-size:16.5px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideContent
+  {
+    font-size:12px;
+  }
+}
+@media (min-width:1500px) and (max-width:1830px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide .portfolioSlideRow
+  {
+      justify-content: space-between;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp
+  {
+    padding-right:40px;
+  }
+}
+@media (min-width:1271px) and  (max-width:1350px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideTitle
+  {
+    font-size:16px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideContent
+  {
+    font-size:12px;
+  }
+}
+@media (max-width:1270px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide
+  {
+    height:auto;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide .portfolioSlideRow
+  {
+    display:block;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlide .portfolioSlideRow
+  {
+    height:auto;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp
+  {
+    padding-top:30px;
+    width:100%;
+    height:auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom:0px;
+    text-align:center;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp .portfolioSlideImage
+  {
+    display:inline-block;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp:before, .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp:after
+  {
+    display:none;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp .portfolioSlideImage
+  {
+    position:static;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp
+  {
+    width:100%;
+    padding-left:45px;
+    padding-right:45px;
+    padding-bottom:30px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideTitle
+  {
+    padding-right:0;
+    font-size:16px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideContentWrapp .portfolioSlideContent
+  {
+    font-size:12px;
+  }
+
+
+
+}
+@media (min-width:1650px) and (max-width:1830px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp:before
+  {
+    background-size:contain;
+  }
+}
+@media (max-width:500px)
+{
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider
+  {
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSliderArrowWrapp
+  {
+    display:none;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp .portfolioSlideImageWrapp .portfolioSlideImage
+  {
+    width:150px;
+    height:150px;
+  }
+  .wrappPage .portfolioSliderWrapp .portfolioSliderArea, .wrappPage .portfolioSliderWrapp .portfolioSliderArea .portfolioSlider .portfolioSliderItemWrapp
+  {
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
+
+
+//small banners
+@media (max-width:1750px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners
+  {
+    height: 300px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    width:250px;
+    height:250px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    width:250px;
+    height:250px;
+    right: 65px;
+  }
+}
+@media (min-width:1500px) and (max-width:1600px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    right: 54px;
+  }
+}
+@media (max-width:1499px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners
+  {
+    height: 250px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    width:200px;
+    height:200px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    width:200px;
+    height:200px;
+    right: 54px;
+  }
+}
+@media (max-width:1300px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    right: 34px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    right: 34px;
+  }
+}
+@media (min-width:992px) and (max-width:1150px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners
+  {
+    height: 200px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    width:150px;
+    height:150px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    width:150px;
+    height:150px;
+    right: 34px;
+  }
+  .readMoreButton
+  {
+    font-size:15px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton
+  {
+    font-size:12px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton:after
+  {
+    margin-top: -1.5px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader
+  {
+    width: 45%;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp
+  {
+    width: 55%;
+  }
+}
+@media (max-width:991px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners
+  {
+    display:block;
+    height:auto;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1
+  {
+    height:275px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2
+  {
+    height:275px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp
+  {
+    width:330px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp
+  {
+      width:330px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    width:220px;
+    height:220px;
+    right: 54px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    width:220px;
+    height:220px;
+    right: 54px;
+  }
+}
+@media (max-width:670px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1
+  {
+    height:200px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2
+  {
+    height:200px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp
+  {
+    width:230px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp
+  {
+      width:230px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    width:150px;
+    height:150px;
+    right: 34px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    width:150px;
+    height:150px;
+    right: 34px;
+  }
+
+}
+@media (max-width:600px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerTitle, .wrappPage .titleSection
+  {
+    font-size:35px;
+  }
+
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton
+  {
+    font-size:14px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton:after
+  {
+    margin-left:15px;
+  }
+}
+@media (max-width:500px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerTitle
+  {
+    text-align:center;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerContent
+  {
+    display:block;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp
+  {
+    width:100%;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp
+  {
+      width:100%;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp .smallBanner1Image
+  {
+    position:static;
+    margin:auto;
+    margin-bottom:20px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp .smallBanner2Image
+  {
+    position:static;
+    margin:auto;
+    margin-bottom:20px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1 .smallBanner1ImageWrapp:before, .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2 .smallBanner2ImageWrapp:before
+  {
+    display:none;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner1, .wrappPage .smallBannersWrapper .smallBanners .smallBanner.smallBanner2
+  {
+    height:auto;
+    padding-top:30px;
+    padding-bottom:30px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo
+  {
+    justify-content: center;
+  }
+}
+@media (max-width:300px)
+{
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton
+  {
+    font-size:13px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton:after
+  {
+    margin-left:8px;
+    margin-top: -2px;
+  }
+}
+
+
+//mainslider
+@media (max-width:1550px)
+{
+  .wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemText
+  {
+    font-size: 55px;
+    line-height: 63px;
+  }
+  .wrappPage .staticBannerWrapper .staticBanner .rightBanner
+  {
+    padding-left:40px;
+  }
+  .wrappPage .staticBannerWrapper .staticBanner .rightBanner .rightBannerContentWrapper .rightBannerContent .rightBannerText
+  {
+    font-size:46px;
+    line-height:66px;
+  }
+}
+
+@media(max-width:1450px)
+{
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a
+  {
+    font-size:18px;
+  }
+}
+
+@media(max-width:1350px)
+{
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a
+  {
+    font-size:15.5px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1450px)
+{
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle
+  {
+    font-size:20px;
+    line-height:27px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton:after
+  {
+    margin-left:10px;
+  }
+}
+
+@media (min-width:992px)  and (max-width:1250px)
+{
+  .wrappPage .titleSection
+  {
+    font-size:38px;
+  }
+  .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerTitle
+  {
+    font-size:38px;
+  }
+  .wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemText
+  {
+    font-size: 40px;
+    line-height: 52px;
+  }
+  .wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemText2
+  {
+    font-size: 18px;
+    line-height: 29px;
+  }
+  .wrappPage .mainSliderWrapper .mainSlider .item .leftItem .leftItemContentWrapper .leftItemContent .leftItemLink
+  {
+    font-size:20px;
+  }
+  .wrappPage .staticBannerWrapper .staticBanner .rightBanner .rightBannerContentWrapper .rightBannerContent .rightBannerText
+  {
+    font-size: 34px;
+    line-height: 54px;
+  }
+  .wrappPage .staticBannerWrapper .staticBanner .rightBanner .rightBannerContentWrapper .rightBannerContent .rightBannerLink
+  {
+    font-size:20px;
+  }
+
+}
+
+
+
+//rresponsive menu
+@media (max-width: 1300px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+  .pageMenu .pageMenuWrapper .navbar-header .buttonToggleWrapper
+  {
+    display:inline;
+  }
 }

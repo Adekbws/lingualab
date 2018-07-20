@@ -36,6 +36,22 @@
   autoplay: true,
   prevArrow: $('.leftArrowPortfolio'),
 nextArrow: $('.rightArrowPortfolio'),
+responsive: [
+{
+  breakpoint: 1830,
+  settings: {
+	slidesToShow: 2,
+
+  }
+},
+{
+  breakpoint: 768,
+  settings: {
+	slidesToShow: 1,
+
+  }
+},
+]
     });
 
 
