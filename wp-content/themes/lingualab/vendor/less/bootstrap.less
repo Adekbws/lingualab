@@ -72,6 +72,19 @@ Author: Heron Art
   }
 }
 
+
+@media(min-width:1600px)
+{
+  .container.formcontainer
+  {
+    width:1560px;
+  }
+}
+
+
+
+
+
 html, body
 {
     height:100%;
@@ -1381,6 +1394,78 @@ body
       }
     }
   }
+
+  .formcontainer
+  {
+    form
+    {
+        fieldset
+        {
+          margin-top:45px;
+          border:2px #b3c6d5 solid;
+          border-radius:8px;
+          padding-left:32.5px;
+          padding-right:32.5px;
+          legend
+          {
+            display:inline-block;
+            width:auto;
+            border:0;
+            padding-left:15px;
+            padding-right:15px;
+            margin-left:180px;
+            color:#004178;
+            font-weight:700;
+            font-size:18px;
+          }
+          .efFieldRow
+          {
+            margin-left:-7.5px;
+            margin-right:-7.5px;
+            display:flex;
+            .efField
+            {
+              padding-left:7.5px;
+              padding-right:7.5px;
+              .efFieldContent
+              {
+                height:100%;
+                background:#f9fafc;
+                display:flex;
+                align-items:center;
+                padding-top:10px;
+                padding-bottom:10px;
+                padding-left:20px;
+                padding-right:20px;
+              }
+            }
+          }
+        }
+    }
+  }
+
+  .evaluationFormArea
+  {
+    padding-bottom:75px;
+    .titleSection
+    {
+      margin-top:57px;
+      margin-bottom:18px;
+    }
+    .contentTextBlock
+    {
+      .contentSection;
+      text-align:center;
+      margin-bottom:20px;
+      font-size: 14px;
+      text-align:center;
+    }
+    #evaluationForm
+    {
+
+    }
+  }
+
 }
 .siteFooter
 {

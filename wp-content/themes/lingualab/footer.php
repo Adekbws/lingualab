@@ -55,6 +55,25 @@ responsive: [
     });
 
 
+    $('#evaluationFormService').change(function()
+    {
+      evaluationFormServiceTab=$(this).val();
+
+      $.ajax({
+        method: "POST",
+        url:"<?php echo admin_url( 'admin-ajax.php' );?>",
+        data: { action: "evaluationformtab_action", idformtab: evaluationFormServiceTab },
+        dataType: 'json',
+			})
+			.done(function( msg ) 
+			{
+        if(msg.status==1)
+        {
+          $('#evaluationFormContent').html(msg.html);
+        }
+			});  
+    });
+
 });
 </script>
 </body>

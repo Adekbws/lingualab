@@ -147,6 +147,13 @@ function df_disable_comments_admin_bar() {
 add_action('init', 'df_disable_comments_admin_bar');
 
 
+add_action( 'wp_ajax_evaluationformtab_action', 'evaluationFormTab' );
+add_action( 'wp_ajax_nopriv_evaluationformtab_action', 'evaluationFormTab' );
 
+function evaluationFormTab()
+{
+	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));	
+	die();
+}
 
 ?>
