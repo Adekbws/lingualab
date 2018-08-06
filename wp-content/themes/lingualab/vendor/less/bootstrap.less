@@ -77,7 +77,7 @@ Author: Heron Art
 {
   .container.formcontainer
   {
-    width:1560px;
+    width:1580px;
   }
 }
 
@@ -1401,11 +1401,12 @@ body
     {
         fieldset
         {
-          margin-top:45px;
+          margin-top:35px;
           border:2px #b3c6d5 solid;
           border-radius:8px;
-          padding-left:32.5px;
-          padding-right:32.5px;
+          padding-left:40px;
+          padding-right:40px;
+          padding-bottom:22px;
           legend
           {
             display:inline-block;
@@ -1415,6 +1416,7 @@ body
             padding-right:15px;
             margin-left:180px;
             color:#004178;
+            font-family: 'Montserrat', sans-serif;
             font-weight:700;
             font-size:18px;
           }
@@ -1423,6 +1425,8 @@ body
             margin-left:-7.5px;
             margin-right:-7.5px;
             display:flex;
+            margin-top: 10px;
+            margin-bottom: 20px;
             .efField
             {
               padding-left:7.5px;
@@ -1431,12 +1435,135 @@ body
               {
                 height:100%;
                 background:#f9fafc;
-                display:flex;
+                padding-top:15px;
+                padding-bottom:15px;
+                .efFieldContentRow
+                {
+                  display:flex;
                 align-items:center;
-                padding-top:10px;
-                padding-bottom:10px;
-                padding-left:20px;
-                padding-right:20px;
+                  margin-left:0;
+                  padding-right:0;
+                  width:100%;
+                  height:100%;
+
+
+
+                  .label
+                  {
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight:300;
+                    font-size:13px;
+                    color:#242424;
+                    text-align:left;
+                    padding-left:20px;
+                    padding-right:0;
+                    white-space: normal;
+                  }
+                  .input
+                  {
+                    padding-right:30px;
+                    padding-left:30px;
+                    position:relative;
+                    input
+                    {
+                        width:100%;
+                        height:40px;
+                        padding-left:20px;
+                        padding-right:20px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight:300;
+                        font-size:13px;
+                        color:#242424;
+                        border-radius:5px;
+                        border:1px #cccccc solid;
+                        outline:0;
+
+                        -moz-box-shadow:   0px 5px 7px -3px #cccccc inset;
+                        -webkit-box-shadow: 0px 5px 7px -3px #cccccc inset;
+                        box-shadow:    0px 5px 7px -3px #cccccc inset;
+                    }
+                    select
+                    {
+                      width:100%;
+                      height:40px;
+                      font-family: 'Montserrat', sans-serif;
+                      font-weight:300;
+                      font-size:13px;
+                      color:#242424;
+                      padding-left:20px;
+                      padding-right:20px;
+                      outline:0;
+                      border-radius:5px;
+                      border:1px #cccccc solid;
+                      -moz-box-shadow: 0px 2px 7px 0px #cccccc;
+                        -webkit-box-shadow: 0px 2px 7px 0px #cccccc;
+                        box-shadow:    0px 2px 7px 0px #cccccc;
+                        background:#fff;
+                        background-image:url(images/red_button.png);
+                        background-repeat:no-repeat;
+                        background-position: top 0 right 0;
+
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                    }
+                    &.requiredField:after
+                    {
+                      content:'*';
+                      display:inline-block;
+                      line-height: 0;
+                      color:#e2001a;
+                      vertical-align: baseline;
+                      position: absolute;
+                      right:12px;
+                      top: 18px;
+                      font-size: 30px;
+                      font-family: 'Montserrat', sans-serif;
+                      font-weight:300;
+                    }
+                  }
+                }
+
+              }
+            }
+
+            &.oneInputRow
+            {
+              .label
+              {
+                width:12%;
+              }
+              .input
+              {
+                padding-left:27px !important;
+                width:89%;
+              }
+            }
+            &.twoInputRow
+            {
+              .label
+              {
+                width:23.7%;
+              }
+              .input
+              {
+                width:76.3%;
+              }
+            }
+            &.threeColumn
+            {
+              .efField
+              {
+                .efFieldContent
+                {
+                  .efFieldContentRow
+                  {
+                    .label.col-md-4
+                    {
+                      width: 37.333333% !important;
+                    }
+                  }
+                }
               }
             }
           }
@@ -1457,7 +1584,6 @@ body
       .contentSection;
       text-align:center;
       margin-bottom:20px;
-      font-size: 14px;
       text-align:center;
     }
     #evaluationForm
