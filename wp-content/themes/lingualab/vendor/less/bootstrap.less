@@ -1458,6 +1458,15 @@ body
                     padding-left:20px;
                     padding-right:0;
                     white-space: normal;
+                    line-height: 15px;
+                    &.filelabel
+                    {
+                      img
+                      {
+                        display:inline-block;
+                        margin-left:25px;
+                      }
+                    }
                   }
                   .input
                   {
@@ -1477,10 +1486,27 @@ body
                         border-radius:5px;
                         border:1px #cccccc solid;
                         outline:0;
-
+                        background:#fff;
                         -moz-box-shadow:   0px 5px 7px -3px #cccccc inset;
                         -webkit-box-shadow: 0px 5px 7px -3px #cccccc inset;
                         box-shadow:    0px 5px 7px -3px #cccccc inset;
+
+                        &::-webkit-input-placeholder
+                        {
+                          color: #242424;
+                        }
+                        &::-moz-placeholder
+                        {
+                          color: #242424;
+                        }
+                        &:-ms-input-placeholder
+                        {
+                          color: #242424;
+                        }
+                        &:-moz-placeholder
+                        {
+                          color: #242424;
+                        }
                     }
                     select
                     {
@@ -1520,6 +1546,67 @@ body
                       font-size: 30px;
                       font-family: 'Montserrat', sans-serif;
                       font-weight:300;
+                    }
+
+                    &.fileInputWrapper
+                    {
+                      input
+                      {
+                        width: 0.1px;
+                        height: 0.1px;
+                        opacity: 0;
+                        overflow: hidden;
+                        position: absolute;
+                        z-index: -1;
+                      }
+                      label
+                      {
+                        width:100%;
+                        height:40px;
+                        padding-left:15px;
+                        padding-right:15px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight:300;
+                        font-size:13px;
+                        color:#242424;
+                        border-radius:5px;
+                        border:1px #cccccc solid;
+                        outline:0;
+                        background:#fff;
+                        -moz-box-shadow:   0px 5px 7px -3px #cccccc inset;
+                        -webkit-box-shadow: 0px 5px 7px -3px #cccccc inset;
+                        box-shadow:    0px 5px 7px -3px #cccccc inset;
+                        cursor:pointer;
+                        display:flex;
+                        align-items: center;
+
+                        span
+                        {
+                          font-family: 'Montserrat', sans-serif;
+                          font-weight:300;
+                          font-size:13px;
+                          color:#242424;
+                        }
+                        .fileButton
+                        {
+                          display:flex;
+                          align-items: center;
+                          width:50%;
+                          border:1px #cccccc solid;
+                          -moz-box-shadow: 0px 2px 7px 0px #cccccc;
+                          -webkit-box-shadow: 0px 2px 7px 0px #cccccc;
+                          box-shadow:    0px 2px 7px 0px #cccccc;
+                          background:#fff;
+                          height:28px;
+                          padding-left:20px;
+                        }
+                        .fileName
+                        {
+                          display:inline-block;
+                          padding-left:35px;
+                        }
+                      }
+
                     }
                   }
                 }
@@ -1566,6 +1653,16 @@ body
                 }
               }
             }
+            .filelabel
+            {
+              width:40% !important;
+              display:flex;
+              align-items: center;
+            }
+            .fileInputWrapper
+            {
+              width:60% !important;
+            }
           }
         }
     }
@@ -1592,6 +1689,12 @@ body
     }
   }
 
+}
+
+.infoToolTip + .tooltip > .tooltip-inner
+{
+  min-width:290px;
+  padding:15px;
 }
 .siteFooter
 {

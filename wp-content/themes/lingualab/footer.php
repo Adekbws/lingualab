@@ -11,13 +11,15 @@
 		</div>
 	</div>
 </div>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-	crossorigin="anonymous"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js" ></script>
-	
-
-
 <?php wp_footer(); ?>
+
+<script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js" ></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/flatpickr.js" ></script>
+
+<?php 
+if (pll_current_language()=='pl')
+  echo '<script src="'.get_template_directory_uri() .'/js/flatpickr-pl.js" ></script>';
+?>
 <script>
   $(document).ready(function()
   {
@@ -54,6 +56,15 @@ responsive: [
 ]
     });
 
+    $('.infoToolTip').tooltip({html: true});  
+
+   $(".dateInput").flatpickr({
+      dateFormat: "d , m , Y",
+        <?php 
+      if (pll_current_language()=='pl')
+        echo '"locale": "pl",';
+      ?>
+   });
 
     $('#evaluationFormService').change(function()
     {
@@ -73,6 +84,22 @@ responsive: [
         }
 			});  
     });
+
+
+    $( document ).on('change','#evaluationForm .fileInput' , function(e)
+    {
+      id=$(this).attr('id');
+      fileInputText=$('#evaluationForm #'+id+'_fileName');
+      console.log(fileInputText);
+      if(e.target.files.length)
+      {
+        fileInputText.text( e.target.files[0].name);
+      }
+      else 
+      {
+        fileInputText.text( fileInputText.data('label'));
+      }
+  });
 
 });
 </script>

@@ -33,6 +33,7 @@ add_action( 'after_setup_theme', 'ha_template_setup' );
 function ha_template_scripts() {
     
     wp_enqueue_style( 'ha_template-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'ha_template-flatpickr', get_template_directory_uri() . '/css/flatpickr.min.css' );
 	wp_enqueue_style( 'ha_template-style', get_stylesheet_uri() );
 
 }
@@ -42,6 +43,7 @@ add_action( 'wp_enqueue_scripts', 'ha_template_scripts' );
 
 function add_this_script_footer()
 {
+	wp_enqueue_script('ha_template-jquery', get_template_directory_uri() . '/js/jquery-2.2.4.min.js', array() );
 	wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
 } 
 
