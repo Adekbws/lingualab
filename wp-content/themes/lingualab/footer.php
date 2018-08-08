@@ -101,6 +101,17 @@ responsive: [
       }
   });
 
+$( document ).on('click','#evaluationForm .addNextDay' , function()
+  {
+     console.log('klikk');
+      return false;
+  });
+
+
+  
+
+
+
 });
 </script>
 </body>

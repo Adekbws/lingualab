@@ -92,7 +92,7 @@
                             <div class="col-md-12 efField">
                                 <div class="efFieldContent">
                                     <div class="row efFieldContentRow">
-                                        <label class="col-md-4 label" for="evaluationFormService">Wybierz usługę.</label>
+                                        <label class="col-md-4 label" for="evaluationFormService">Wybierz usługę:</label>
                                         <div class="col-md-8 input">
                                         <select name="service_type" id="evaluationFormService">
                                             <option value="1">Tłumaczenia pisemne specjalistyczne</option>
@@ -113,8 +113,27 @@
                         </div>
                     </fieldset>
                     <div id="evaluationFormContent">
-                        <fieldset>
-                            <legend>Szczegóły - Tłumaczenia pisemne specjalistyczne</legend>
+                        
+
+
+                      <fieldset>
+                            <legend>Szczegóły - Tłumaczenia ustne</legend>
+                        <div class="row efFieldRow oneInputRow">
+                            <div class="col-md-12 efField">
+                                <div class="efFieldContent">
+                                    <div class="row efFieldContentRow">
+                                        <label class="col-md-4 label" for="evaluationFormService">Rodzaj tłumaczenia:</label>
+                                        <div class="col-md-8 input">
+                                        <select name="service_type" id="evaluationFormService">
+                                            <option value="konsekutywne">konsekutywne</option>
+                                            <option value="symultaniczne">symultaniczne</option>
+                                            <option value="oba rodzaje">oba rodzaje</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                             <div class="row efFieldRow twoInputRow">
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
@@ -221,33 +240,93 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="deadline">Termin realizacji:</label>
+                                            <label class="col-md-4 label" for="client_company">Miasto / Miejsce:</label>
                                             <div class="col-md-8 input">
-                                                <input id="deadline" class="dateInput" type="text" name="deadline" autocomplete="off" placeholder="dd , mm , rrrr">
+                                                <input id="client_company" class="" type="text" name="client_company" autocomplete="off" >
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 efField">
-                                <div class="efFieldContent">
-                                    <div class="row efFieldContentRow">
-                                        <div class="col-md-4 label filelabel" for="client_q">
-                                            <span>Dodaj jeden dokument<br>lub folder ZIP z wieloma plikami.</span>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/info-icon.png" alt="" title="W przypadku większej ilości plików prosimy o spakowanie ich do formatu .zip lub .rar. <br><br> Jeśli załącznik przekracza 30 MB, prosimy o kontakt na adres info@lingualab.pl" class="infoToolTip" >
-                                        </div>
-                                        <div class="col-md-8 input fileInputWrapper">
-
-                                            <input id="attachment" class="fileInput" type="file" name="file" autocomplete="off">
-                                            <label for="attachment">
-                                                <span class="fileButton">Przeglądaj...</span>
-                                                <span class="fileName" id="attachment_fileName" data-label="Nie wybrano pliku">Nie wybrano pliku</span>
-                                            </label>
-
+                                    <div class="efFieldContent">
+                                        <div class="row efFieldContentRow">
+                                            <label class="col-md-4 label" for="client_company">Tematyka tłumaczenia:</label>
+                                            <div class="col-md-8 input">
+                                                <input id="client_company" class="" type="text" name="client_company" autocomplete="off">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="daysList">
+                                <div class="row efFieldRow dayRow">
+                                    <div class="col-md-4 efField dayDate">
+                                        <div class="efFieldContent">
+                                            <div class="row efFieldContentRow">
+                                                <label class="col-md-4 label" for="optional_comment">Pierwszy dzień: <span>Data:</span></label>
+                                                <div class="col-md-8 input">
+                                                    <input id="deadline" class="dateInput" type="text" name="deadline" autocomplete="off" placeholder="dd , mm , rrrr">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 efField dayTime">
+                                        <div class="efFieldContent">
+                                            <div class="row efFieldContentRow">
+                                                <label class="col-md-4 label" for="optional_comment">Od:</label>
+                                                <div class="col-md-8 input">
+                                                <select name="service_type" id="evaluationFormService">
+                                                    <option value="00:00">00:00</option>
+                                                    <?php 
+                                                    $timePosition = '00:15';
+                                                    while($timePosition!='00:00')
+                                                    {
+                                                        echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
+                                                        $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
+                                                    }
+                                                    
+
+                                                    ?>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 efField dayTime">
+                                        <div class="efFieldContent">
+                                            <div class="row efFieldContentRow">
+                                                <label class="col-md-4 label" for="optional_comment">Do:</label>
+                                                <div class="col-md-8 input">
+                                                <select name="service_type" id="evaluationFormService">
+                                                    <option value="00:00">00:00</option>
+                                                    <?php 
+                                                    $timePosition = '00:15';
+                                                    while($timePosition!='00:00')
+                                                    {
+                                                        echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
+                                                        $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
+                                                    }
+                                                    
+
+                                                    ?>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 efField addDay">
+                                        <div class="efFieldContent">
+                                            <div class="row efFieldContentRow">
+                                                   <span class="col-md-5 addNextDayLabel">Kolejny<br>dzień:</span>
+                                                    <button class="col-md-7 addNextDay">Dodaj</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                          
                             <div class="row efFieldRow oneInputRow">
                                 <div class="col-md-12 efField">
                                     <div class="efFieldContent">
@@ -261,195 +340,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        
-                        
-
-
-
-
-                        <fieldset>
-                            <legend>Szczegóły - Tłumaczenia przysięłe</legend>
-                            <div class="row efFieldRow twoInputRow">
-                                <div class="col-md-6 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="">Z języka:</label>
-                                            <div class="col-md-8 input">
-                                            <select name="service_type">
-                                                <option value="polski">polski</option>
-                                                <option value="angielski">angielski</option>
-                                                <option value="arabski">arabski</option>
-                                                <option value="bułgarski">bułgarski</option>
-                                                <option value="chiński">chiński</option>
-                                                <option value="chorwacki">chorwacki</option>
-                                                <option value="czeski">czeski</option>
-                                                <option value="duński">duński</option>
-                                                <option value="estoński">estoński</option>
-                                                <option value="fiński">fiński</option>
-                                                <option value="flamandzki">flamandzki</option>
-                                                <option value="francuski">francuski</option>
-                                                <option value="grecki">grecki</option>
-                                                <option value="hebrajski">hebrajski</option>
-                                                <option value="hiszpański">hiszpański</option>
-                                                <option value="japoński">japoński</option>
-                                                <option value="kazachski">kazachski</option>
-                                                <option value="koreański">koreański</option>
-                                                <option value="litewski">litewski</option>
-                                                <option value="łaciński">łaciński</option>
-                                                <option value="łotewski">łotewski</option>
-                                                <option value="macedoński">macedoński</option>
-                                                <option value="mołdawski">mołdawski</option>
-                                                <option value="niderlandzki">niderlandzki</option>
-                                                <option value="niemiecki">niemiecki</option>
-                                                <option value="norweski">norweski</option>
-                                                <option value="portugalski">portugalski</option>
-                                                <option value="rosyjski">rosyjski</option>
-                                                <option value="rumuński">rumuński</option>
-                                                <option value="serbski">serbski</option>
-                                                <option value="słowacki">słowacki</option>
-                                                <option value="słoweński">słoweński</option>
-                                                <option value="szwedzki">szwedzki</option>
-                                                <option value="turecki">turecki</option>
-                                                <option value="ukraiński">ukraiński</option>
-                                                <option value="węgierski">węgierski</option>
-                                                <option value="włoski">włoski</option>
-                                                <option value="-----">-----</option>
-                                                <option value="inny">inny</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="">Na język:</label>
-                                            <div class="col-md-8 input">
-                                            <select name="service_type">
-                                                <option value="polski">polski</option>
-                                                <option value="angielski">angielski</option>
-                                                <option value="arabski">arabski</option>
-                                                <option value="bułgarski">bułgarski</option>
-                                                <option value="chiński">chiński</option>
-                                                <option value="chorwacki">chorwacki</option>
-                                                <option value="czeski">czeski</option>
-                                                <option value="duński">duński</option>
-                                                <option value="estoński">estoński</option>
-                                                <option value="fiński">fiński</option>
-                                                <option value="flamandzki">flamandzki</option>
-                                                <option value="francuski">francuski</option>
-                                                <option value="grecki">grecki</option>
-                                                <option value="hebrajski">hebrajski</option>
-                                                <option value="hiszpański">hiszpański</option>
-                                                <option value="japoński">japoński</option>
-                                                <option value="kazachski">kazachski</option>
-                                                <option value="koreański">koreański</option>
-                                                <option value="litewski">litewski</option>
-                                                <option value="łaciński">łaciński</option>
-                                                <option value="łotewski">łotewski</option>
-                                                <option value="macedoński">macedoński</option>
-                                                <option value="mołdawski">mołdawski</option>
-                                                <option value="niderlandzki">niderlandzki</option>
-                                                <option value="niemiecki">niemiecki</option>
-                                                <option value="norweski">norweski</option>
-                                                <option value="portugalski">portugalski</option>
-                                                <option value="rosyjski">rosyjski</option>
-                                                <option value="rumuński">rumuński</option>
-                                                <option value="serbski">serbski</option>
-                                                <option value="słowacki">słowacki</option>
-                                                <option value="słoweński">słoweński</option>
-                                                <option value="szwedzki">szwedzki</option>
-                                                <option value="turecki">turecki</option>
-                                                <option value="ukraiński">ukraiński</option>
-                                                <option value="węgierski">węgierski</option>
-                                                <option value="włoski">włoski</option>
-                                                <option value="-----">-----</option>
-                                                <option value="inny">inny</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row efFieldRow twoInputRow">
-                                <div class="col-md-6 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="">tłumaczenie<br>z oryginału / kopii</label>
-                                            <div class="col-md-8 input">
-                                            <select name="service_type">
-                                                <option value="TAK, dostarczę oryginał dokumentu ">TAK, dostarczę oryginał dokumentu </option>
-                                                <option value="NIE, nie dostarczę oryginału dokumentu">NIE, nie dostarczę oryginału dokumentu</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="deadline">Termin realizacji:</label>
-                                            <div class="col-md-8 input">
-                                                <input id="deadline" class="dateInput" type="text" name="deadline" autocomplete="off" placeholder="dd , mm , rrrr">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                            </div>
-
-                             <div class="row efFieldRow twoInputRow">
-                             <div class="col-md-6 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="">Sposób dostawy:</label>
-                                            <div class="col-md-8 input">
-                                            <select name="service_type">
-                                                <option value="kurier">kurier</option>
-                                                <option value="piorytet polecony">piorytet polecony</option>
-                                                <option value="odbiór osobisty w Warszawie">odbiór osobisty w Warszawie</option>
-                                                <option value="odbiór osobisty w Krakowie">odbiór osobisty w Krakowie</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 efField">
-                                <div class="efFieldContent">
-                                    <div class="row efFieldContentRow">
-                                        <div class="col-md-4 label filelabel" for="client_q">
-                                            <span>Dodaj jeden dokument<br>lub folder ZIP z wieloma plikami.</span>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/images/info-icon.png" alt="" title="W przypadku większej ilości plików prosimy o spakowanie ich do formatu .zip lub .rar. <br><br> Jeśli załącznik przekracza 30 MB, prosimy o kontakt na adres info@lingualab.pl" class="infoToolTip" >
-                                        </div>
-                                        <div class="col-md-8 input fileInputWrapper">
-
-                                            <input id="attachment" class="fileInput" type="file" name="file" autocomplete="off">
-                                            <label for="attachment">
-                                                <span class="fileButton">Przeglądaj...</span>
-                                                <span class="fileName" id="attachment_fileName" data-label="Nie wybrano pliku">Nie wybrano pliku</span>
-                                            </label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <div class="row efFieldRow oneInputRow">
-                                <div class="col-md-12 efField">
-                                    <div class="efFieldContent">
-                                        <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="optional_comment">Dodatkowy komentarz</label>
-                                            <div class="col-md-8 input">
-                                                <input id="optional_comment" class="" type="text" name="optional_comment" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>    
-
-
+            
 
 
 
