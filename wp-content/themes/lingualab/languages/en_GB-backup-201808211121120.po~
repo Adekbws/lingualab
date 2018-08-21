@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Lingualab\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-21 10:44+0000\n"
-"PO-Revision-Date: 2018-08-21 11:21+0000\n"
+"PO-Revision-Date: 2018-08-21 10:44+0000\n"
 "Last-Translator: admin <krystian.w@seoheroes.pl>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -53,7 +53,7 @@ msgstr "languages"
 #: functions.php:85
 msgctxt "URL slug"
 msgid "branze"
-msgstr "en/branzes"
+msgstr "branzes"
 
 #. Base ID
 #: widgets/top-informations.php:8 widgets/top-informations.php:106
