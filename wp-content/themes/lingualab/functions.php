@@ -78,9 +78,11 @@ function create_posttype() {
                 'name' => __( 'Branże' ),
                 'singular_name' => __( 'Branża' )
             ),
+            // Features this CPT supports in Post Editor
+        	'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
             'public' => true,
-            'has_archive' => false,
-			'rewrite' => array('slug' => _x( 'branze', 'URL slug', 'lingualab' )), 
+            'has_archive' => true,
+			'rewrite' => array('slug' => 'branze'), 
 			'hierarchical' => TRUE, 
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
@@ -162,5 +164,30 @@ function evaluationFormTab()
 	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));	
 	die();
 }
+
+
+///////////////////tlumacznia custom postow
+
+add_filter('pll_translated_post_type_rewrite_slugs', function($post_type_translated_slugs) {
+	// Add translation for "product" post type.
+	$post_type_translated_slugs = array(
+		'branze' => array(
+			'pl' => array(
+				'has_archive' => true,
+				'rewrite' => array(
+					'slug' => 'branze',
+				),
+			),
+			'en' => array(
+				'has_archive' => true,
+				'rewrite' => array(
+					'slug' => 'specializations',
+				),
+			),
+		),
+	);
+	return $post_type_translated_slugs;
+});
+
 
 ?>
