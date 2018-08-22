@@ -37,7 +37,7 @@ get_header(); ?>
                 </a>
             </div>
         </div>
-    </div>  
+    </div>
 </div>
 
 <div class="container-fluid rangeOfServices">
@@ -55,7 +55,7 @@ get_header(); ?>
                 </div>
                 <div class="serviceContentWrapp">
                     <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                     </div>
                     <a href="#" class="readMoreButton">dowiedz się więcej</a>
                 </div>
@@ -63,14 +63,14 @@ get_header(); ?>
         </div>
 
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent"> 
+            <div class="serviceWrapperContent">
                 <div class="serviceHeader">
                     <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
                     <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
                 <div class="serviceContentWrapp">
                     <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                     </div>
                     <a href="#" class="readMoreButton">dowiedz się więcej</a>
                 </div>
@@ -95,7 +95,7 @@ get_header(); ?>
                 </div>
                 <div class="serviceContentWrapp">
                     <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                     </div>
                     <a href="#" class="readMoreButton">dowiedz się więcej</a>
                 </div>
@@ -105,14 +105,14 @@ get_header(); ?>
 
 
         <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent"> 
+            <div class="serviceWrapperContent">
                 <div class="serviceHeader">
                     <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
                     <span class="serviceTitle">Tłumaczenie pisemne</span>
                 </div>
                 <div class="serviceContentWrapp">
                     <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                     </div>
                     <a href="#" class="readMoreButton">dowiedz się więcej</a>
                 </div>
@@ -122,8 +122,8 @@ get_header(); ?>
 
 
 
-        
-     
+
+
     </div>
 </div>
 
@@ -155,7 +155,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </div>
 <div class="container-fluid smallBannersWrapper">
     <div class="row smallBanners">
@@ -229,7 +229,7 @@ get_header(); ?>
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="portfolioSliderItemWrapp">
                         <div class="portfolioSlide">
                             <div class="row portfolioSlideRow">
@@ -319,7 +319,7 @@ get_header(); ?>
                             </div>
                         </div>
                     </div>
-             
+
 
             </div>
             <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappRight">
@@ -405,9 +405,9 @@ get_header(); ?>
         <div class="row">
             <div class="col-md-3">
                 <span class="bottomMenuTitle">Usługi</span>
-                
+
                 <?php wp_nav_menu(array('theme_location'=>'bottom_menu_1','menu_class'=>'bottom_menu','menu_id'=>'', 'container'=>'')); ?>
-    
+
             </div>
             <div class="col-md-4">
                 <span class="bottomMenuTitle">Specjalizacja</span>
@@ -419,7 +419,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
-</div> 
+</div>
 <div class="container-fluid bottomInfoWrapp">
     <div class="container size1">
         <div class="row bottomInfo">

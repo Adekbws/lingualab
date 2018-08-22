@@ -2,9 +2,9 @@
 require_once('widgets/menu-walker.php');
 if ( ! function_exists( 'ha_template_setup' ) )
 {
-	function ha_template_setup() 
+	function ha_template_setup()
 	{
-		
+
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
@@ -31,7 +31,7 @@ add_action( 'after_setup_theme', 'ha_template_setup' );
 
 
 function ha_template_scripts() {
-    
+
     wp_enqueue_style( 'ha_template-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'ha_template-flatpickr', get_template_directory_uri() . '/css/flatpickr.min.css' );
 	wp_enqueue_style( 'ha_template-style', get_stylesheet_uri() );
@@ -45,9 +45,9 @@ function add_this_script_footer()
 {
 	wp_enqueue_script('ha_template-jquery', get_template_directory_uri() . '/js/jquery-2.2.4.min.js', array() );
 	wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
-} 
+}
 
-add_action('wp_footer', 'add_this_script_footer'); 
+add_action('wp_footer', 'add_this_script_footer');
 
 //widgets
 require_once('widgets/top-informations.php');
@@ -65,8 +65,8 @@ function create_posttype() {
             ),
             'public' => true,
             'has_archive' => false,
-			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )), 
-			'hierarchical' => TRUE, 
+			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )),
+			'hierarchical' => TRUE,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
@@ -82,12 +82,71 @@ function create_posttype() {
         	'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
             'public' => true,
             'has_archive' => true,
-			'rewrite' => array('slug' => 'branze'), 
-			'hierarchical' => TRUE, 
+			'rewrite' => array('slug' => 'branze'),
+			'hierarchical' => TRUE,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
 	);
+
+	register_post_type( 'blog',
+				array(
+						'labels' => array(
+								'name' => __( 'Blog' ),
+								'singular_name' => __( 'Blog' ),
+							'add_new'            => __( 'Dodaj nowy' ),
+							'add_new_item'       => __( 'Dodaj nowy wpis' ),
+							'new_item'           => __( 'Nowy wpis'),
+							'edit_item'          => __( 'Edytuj wpis' ),
+							'view_item'          => __( 'Zobacz wpis' ),
+							'all_items'          => __( 'Wszystkie wpisy'),
+							'search_items'       => __( 'Szukaj wpisów'),
+							'not_found'          => __( 'Brak wpisów' ),
+							'not_found_in_trash' => __( 'Brak wpisów w koszu')
+						),
+						// Features this CPT supports in Post Editor
+					'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+						'public' => true,
+						'has_archive' => true,
+			'rewrite' => array('slug' => 'blog'),
+			'hierarchical' => TRUE,
+			'with_front' =>false,
+			'show_in_nav_menus'=>true,
+				)
+	);
+
+
+register_taxonomy("blog_categories", array("blog"), array("hierarchical" => true, "label" => "Kategorie", "singular_label" => "Kategoria", "rewrite" => array( 'slug' => 'blog', 'with_front'=> false ,'hierarchical' => true)));
+
+
+//add tags to blog
+$labels = array(
+    'name' =>  __( 'Tagi' ),
+    'singular_name' =>  __( 'Tag' ),
+    'search_items' =>  __( 'Szukaj tagów' ),
+    'popular_items' => __( 'Popularne tagi' ),
+    'all_items' => __( 'Wszystkie tagi' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edytuj tag' ),
+    'update_item' => __( 'Edytuj tag' ),
+    'add_new_item' => __( 'Dodaj nowy tag' ),
+    'new_item_name' => __( 'Dodaj nowy tag' ),
+    'separate_items_with_commas' => __( 'Oddzielaj tagi przecinkami' ),
+    'add_or_remove_items' => __( 'Dodaj lub usuń tagi' ),
+    'choose_from_most_used' => __( 'Wybierz z najczęściej używanych tagów' ),
+    'menu_name' => __( 'Tags' ),
+  );
+
+  register_taxonomy('blog_tag','blog',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tag' ),
+  ));
+
 
 	flush_rewrite_rules( false );
 }
@@ -161,7 +220,7 @@ add_action( 'wp_ajax_nopriv_evaluationformtab_action', 'evaluationFormTab' );
 
 function evaluationFormTab()
 {
-	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));	
+	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));
 	die();
 }
 
