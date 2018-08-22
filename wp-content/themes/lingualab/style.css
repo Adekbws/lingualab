@@ -8823,4 +8823,7 @@ body {
     display: inline;
   }
 }
+.wrappPage {
+  background-color: yellow;
+}
 /*# sourceMappingURL=bootstrap.css.map */
