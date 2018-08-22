@@ -6832,7 +6832,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  background: red;
 }
 .m0 {
   margin-right: 0;
@@ -8823,8 +8822,5 @@ body {
   .pageMenu .pageMenuWrapper .navbar-header .buttonToggleWrapper {
     display: inline;
   }
-}
-.wrappPage {
-  background-color: yellow;
 }
 /*# sourceMappingURL=bootstrap.css.map */
