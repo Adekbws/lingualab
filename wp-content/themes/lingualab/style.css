@@ -8466,7 +8466,8 @@ body {
   padding-top: 50px;
   padding-bottom: 25px;
 }
-.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem a:hover {
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem a:hover,
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem a:focus {
   text-decoration: none;
 }
 .wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .thumbWrapper {

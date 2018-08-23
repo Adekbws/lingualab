@@ -89,69 +89,112 @@ function create_posttype() {
         )
 	);
 
-	register_post_type( 'blog',
-				array(
-						'labels' => array(
-								'name' => __( 'Blog' ),
-								'singular_name' => __( 'Blog' ),
-							'add_new'            => __( 'Dodaj nowy' ),
-							'add_new_item'       => __( 'Dodaj nowy wpis' ),
-							'new_item'           => __( 'Nowy wpis'),
-							'edit_item'          => __( 'Edytuj wpis' ),
-							'view_item'          => __( 'Zobacz wpis' ),
-							'all_items'          => __( 'Wszystkie wpisy'),
-							'search_items'       => __( 'Szukaj wpisów'),
-							'not_found'          => __( 'Brak wpisów' ),
-							'not_found_in_trash' => __( 'Brak wpisów w koszu')
-						),
-						// Features this CPT supports in Post Editor
-					'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-						'public' => true,
-						'has_archive' => true,
-			'rewrite' => array('slug' => 'blog'),
-			'hierarchical' => TRUE,
-			'with_front' =>false,
-			'show_in_nav_menus'=>true,
-				)
-	);
 
 
-register_taxonomy("blog_categories", array("blog"), array("hierarchical" => true, "label" => "Kategorie", "singular_label" => "Kategoria", "rewrite" => array( 'slug' => 'blog', 'with_front'=> false ,'hierarchical' => true)));
 
 
-//add tags to blog
-$labels = array(
-    'name' =>  __( 'Tagi' ),
-    'singular_name' =>  __( 'Tag' ),
-    'search_items' =>  __( 'Szukaj tagów' ),
-    'popular_items' => __( 'Popularne tagi' ),
-    'all_items' => __( 'Wszystkie tagi' ),
-    'parent_item' => null,
-    'parent_item_colon' => null,
-    'edit_item' => __( 'Edytuj tag' ),
-    'update_item' => __( 'Edytuj tag' ),
-    'add_new_item' => __( 'Dodaj nowy tag' ),
-    'new_item_name' => __( 'Dodaj nowy tag' ),
-    'separate_items_with_commas' => __( 'Oddzielaj tagi przecinkami' ),
-    'add_or_remove_items' => __( 'Dodaj lub usuń tagi' ),
-    'choose_from_most_used' => __( 'Wybierz z najczęściej używanych tagów' ),
-    'menu_name' => __( 'Tags' ),
-  );
+//blog types
 
-  register_taxonomy('blog_tag','blog',array(
-    'hierarchical' => false,
-    'labels' => $labels,
-    'show_ui' => true,
-    'update_count_callback' => '_update_post_term_count',
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'tag' ),
-  ));
+
+
+register_post_type( 'blog-post',
+        array(
+            'labels' => array(
+                'name' => 'Blog',
+                'menu_name' => 'Blog',
+                'singular_name' => 'Wpis',
+                'all_items' => 'Wszystkie wpisy'
+            ),
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'show_in_nav_menus' => true,
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'hierarchical' => false,
+            'has_archive' => 'blog',
+            'taxonomies' => array('blog-category','blog-tag'),
+            'rewrite' => array( 'slug' => 'blog/%blog_category%', 'hierarchical' => true, 'with_front' => false )
+        )
+    );
+    register_taxonomy( 'blog-category', array( 'blog-post' ),
+        array(
+            'labels' => array(
+                'name' => 'Kategorie',
+                'menu_name' => 'Kategorie',
+                'singular_name' => 'Kategoria',
+                'all_items' => 'Wszystkie kategorie'
+            ),
+            'public' => true,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false ),
+        )
+    );
+
+		register_taxonomy('blog_tag',array( 'blog-post' ),array(
+		    'hierarchical' => false,
+				'labels' => array(
+						'name' => 'Tagi',
+						'menu_name' => 'Tagi',
+						'singular_name' => 'Tag',
+						'all_items' => 'Wszystkie tagi'
+				),
+		    'show_ui' => true,
+		    'update_count_callback' => '_update_post_term_count',
+		    'query_var' => true,
+		    'rewrite' => array( 'slug' => 'blog/tag', 'hierarchical' => true, 'with_front' => false  ),
+		  ));
 
 
 	flush_rewrite_rules( false );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
+
+
+
+add_action( 'init', 'my_custom_page_word' );
+    function my_custom_page_word() {
+      global $wp_rewrite;  //
+
+
+      $wp_rewrite->pagination_base = '';
+    }
+
+/*
+function set_pagination_base () {
+
+    global $wp_rewrite;
+
+    $wp_rewrite->pagination_base = 'p';
+
+}
+add_action( 'init', 'set_pagination_base' );
+
+
+*/
+
+add_action( 'wp_loaded', 'add_clinic_permastructure' );
+function add_clinic_permastructure() {
+	global $wp_rewrite;
+	add_permastruct( 'blog_tag', 'blog/tag/%blog_tag%', false );
+}
+
+
+
+add_action( 'generate_rewrite_rules', 'register_product_rewrite_rules' );
+function register_product_rewrite_rules( $wp_rewrite ) {
+    $new_rules = array(
+        'blog/tag/([^/]+)/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ), // 'products/any-character/'
+				'blog/tag/([^/]+)/(\d{1,})/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2),
+  );
+    $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+}
+
+
+
+
 
 
 
