@@ -6819,6 +6819,12 @@ button.close {
     max-width: 1200px;
   }
 }
+@media (min-width: 1300px) {
+  .subHeaderBlog .container,
+  .blogPageWrapper .blogPageContent {
+    width: 1280px;
+  }
+}
 @media (min-width: 1600px) {
   .container.formcontainer {
     width: 1580px;
@@ -6991,6 +6997,7 @@ body {
   box-shadow: 0px 0.5px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 0;
   position: relative;
+  z-index: 1;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .siteLogo {
   display: inline-block;
@@ -7129,6 +7136,26 @@ body {
 .wrappPage .subHeader .subHeaderBottom a:hover {
   color: #fff;
   text-decoration: underline;
+}
+.wrappPage .subHeader.subHeaderBlog .subHeaderTop {
+  background: #f3f1f2;
+  padding: 0px;
+}
+.wrappPage .subHeader.subHeaderBlog .subHeaderTop .subHeaderContent {
+  background-image: url(images/blog-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 239px;
+}
+.wrappPage .subHeader.subHeaderBlog .subHeaderBottom {
+  background: #dfdfdf;
+  color: #000;
+}
+.wrappPage .subHeader.subHeaderBlog .subHeaderBottom a {
+  color: #000;
+}
+.wrappPage .subHeader.subHeaderBlog .subHeaderBottom a:hover {
+  color: #000;
 }
 .wrappPage .titleSection {
   font-family: 'Montserrat', sans-serif;
@@ -8410,6 +8437,182 @@ body {
 }
 .wrappPage .defaultPageWrapper .defaultPageRight.leftColumnExist {
   padding-left: 45px;
+}
+.wrappPage .branchesPageWrapper {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrappPage .branchesPageWrapper .branches-container {
+  display: flex;
+}
+.wrappPage .branchesPageWrapper .branches-container .branch {
+  background-color: #ffd334;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #004177;
+  font-size: 28px;
+}
+.wrappPage .branchesPageWrapper .branches-container .branch div div {
+  background-repeat: no-repeat;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog {
+  padding-left: 0;
+  padding-right: 37.5px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem {
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem a:hover,
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem a:focus {
+  text-decoration: none;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .thumbWrapper {
+  position: relative;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .thumbWrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .thumbWrapper .postCategories {
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  background: #e2001a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #fff;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-top: 9px;
+  padding-bottom: 10px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .postItemTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #e2001a;
+  display: block;
+  line-height: 38px;
+  margin-top: 31px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem .postExcerpt {
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #000;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog {
+  padding-top: 50px;
+  padding-left: 37.5px;
+  padding-right: 0;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .boxTitle {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #004177;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogCategoriesWrapper .blogCategories {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogCategoriesWrapper .blogCategories li a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #e2001a;
+  line-height: 29px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogCategoriesWrapper .blogCategories li a:hover {
+  text-decoration: none;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea {
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #004177;
+  outline: 0;
+  border: 3px #004177 solid;
+  padding-left: 30px;
+  padding-right: 15px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  margin-bottom: 20px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea {
+  height: 190px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input::-webkit-input-placeholder,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea::-webkit-input-placeholder {
+  color: #004177;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input::-moz-placeholder,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea::-moz-placeholder {
+  color: #004177;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input:-ms-input-placeholder,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea:-ms-input-placeholder {
+  color: #004177;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input:-moz-placeholder,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm textarea:-moz-placeholder {
+  color: #004177;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input[type="submit"] {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  background: #e2001a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  color: #fff;
+  text-align: center;
+  padding-top: 9px;
+  padding-bottom: 12px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogTagsWrapper .blogTags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogTagsWrapper .blogTags li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-top: 3px;
+  margin-bottom: 4px;
+  margin-right: 6px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogTagsWrapper .blogTags li a {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  background: #f9f9f9;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 9px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogTagsWrapper .blogTags li a:hover {
+  text-decoration: none;
 }
 .infoToolTip + .tooltip > .tooltip-inner {
   min-width: 290px;

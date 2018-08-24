@@ -16,7 +16,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js" ></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/flatpickr.js" ></script>
 
-<?php 
+<?php
 if (pll_current_language()=='pl')
   echo '<script src="'.get_template_directory_uri() .'/js/flatpickr-pl.js" ></script>';
 ?>
@@ -56,11 +56,11 @@ responsive: [
 ]
     });
 
-    $('.infoToolTip').tooltip({html: true});  
+    $('.infoToolTip').tooltip({html: true});
 
    $(".dateInput").flatpickr({
       dateFormat: "d , m , Y",
-        <?php 
+        <?php
       if (pll_current_language()=='pl')
         echo '"locale": "pl",';
       ?>
@@ -76,13 +76,13 @@ responsive: [
         data: { action: "evaluationformtab_action", idformtab: evaluationFormServiceTab },
         dataType: 'json',
 			})
-			.done(function( msg ) 
+			.done(function( msg )
 			{
         if(msg.status==1)
         {
           $('#evaluationFormContent').html(msg.html);
         }
-			});  
+			});
     });
 
 
@@ -95,7 +95,7 @@ responsive: [
       {
         fileInputText.text( e.target.files[0].name);
       }
-      else 
+      else
       {
         fileInputText.text( fileInputText.data('label'));
       }
@@ -108,7 +108,7 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
   });
 
 
-  
+
 
 
 

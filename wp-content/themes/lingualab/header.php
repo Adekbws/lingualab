@@ -39,11 +39,11 @@
                     </button>
                 </div>
 			</div>
-			
+
             <div class="collapse navbar-collapse menuWrapper" id="bs-example-navbar-collapse-1">
 				<?php wp_nav_menu(array('theme_location'=>'top_menu_left','menu_class'=>'nav navbar-nav siteMenu','menu_id'=>'topLeftMenu', 'container'=>'','walker'=> new LinguaLab_Menu_Walker)); ?>
 				<?php wp_nav_menu(array('theme_location'=>'top_menu_right','menu_class'=>'nav navbar-nav siteMenu','menu_id'=>'topRightMenu', 'container'=>'','walker'=> new LinguaLab_Menu_Walker)); ?>
             </div>
           </nav>
-      </div>		
+      </div>
     </header>

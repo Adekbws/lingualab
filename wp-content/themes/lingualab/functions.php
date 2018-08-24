@@ -2,9 +2,9 @@
 require_once('widgets/menu-walker.php');
 if ( ! function_exists( 'ha_template_setup' ) )
 {
-	function ha_template_setup() 
+	function ha_template_setup()
 	{
-		
+
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
@@ -31,7 +31,7 @@ add_action( 'after_setup_theme', 'ha_template_setup' );
 
 
 function ha_template_scripts() {
-    
+
     wp_enqueue_style( 'ha_template-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'ha_template-flatpickr', get_template_directory_uri() . '/css/flatpickr.min.css' );
 	wp_enqueue_style( 'ha_template-style', get_stylesheet_uri() );
@@ -45,9 +45,9 @@ function add_this_script_footer()
 {
 	wp_enqueue_script('ha_template-jquery', get_template_directory_uri() . '/js/jquery-2.2.4.min.js', array() );
 	wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
-} 
+}
 
-add_action('wp_footer', 'add_this_script_footer'); 
+add_action('wp_footer', 'add_this_script_footer');
 
 //widgets
 require_once('widgets/top-informations.php');
@@ -65,8 +65,8 @@ function create_posttype() {
             ),
             'public' => true,
             'has_archive' => false,
-			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )), 
-			'hierarchical' => TRUE, 
+			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )),
+			'hierarchical' => TRUE,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
@@ -82,17 +82,120 @@ function create_posttype() {
         	'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
             'public' => true,
             'has_archive' => true,
-			'rewrite' => array('slug' => 'branze'), 
-			'hierarchical' => TRUE, 
+			'rewrite' => array('slug' => 'branze'),
+			'hierarchical' => TRUE,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
 	);
 
+
+
+
+
+//blog types
+
+
+
+register_post_type( 'blog_post',
+        array(
+            'labels' => array(
+                'name' => 'Blog',
+                'menu_name' => 'Blog',
+                'singular_name' => 'Wpis',
+                'all_items' => 'Wszystkie wpisy'
+            ),
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'show_in_nav_menus' => true,
+            'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'hierarchical' => false,
+            'has_archive' => 'blog',
+            'taxonomies' => array('blog_category','blog-tag'),
+            'rewrite' => array( 'slug' => 'blog/%blog_category%', 'hierarchical' => true, 'with_front' => false )
+        )
+    );
+    register_taxonomy( 'blog_category', array( 'blog_post' ),
+        array(
+            'labels' => array(
+                'name' => 'Kategorie',
+                'menu_name' => 'Kategorie',
+                'singular_name' => 'Kategoria',
+                'all_items' => 'Wszystkie kategorie'
+            ),
+            'public' => true,
+            'hierarchical' => true,
+            'show_ui' => true,
+            'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false ),
+        )
+    );
+
+		register_taxonomy('blog_tag',array( 'blog_post' ),array(
+		    'hierarchical' => false,
+				'labels' => array(
+						'name' => 'Tagi',
+						'menu_name' => 'Tagi',
+						'singular_name' => 'Tag',
+						'all_items' => 'Wszystkie tagi'
+				),
+		    'show_ui' => true,
+		    'update_count_callback' => '_update_post_term_count',
+		    'query_var' => true,
+		    'rewrite' => array( 'slug' => 'blog/tag', 'hierarchical' => true, 'with_front' => false  ),
+		  ));
+
+
 	flush_rewrite_rules( false );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
+
+
+
+add_action( 'init', 'my_custom_page_word' );
+    function my_custom_page_word() {
+      global $wp_rewrite;  //
+
+
+      $wp_rewrite->pagination_base = '';
+    }
+
+/*
+function set_pagination_base () {
+
+    global $wp_rewrite;
+
+    $wp_rewrite->pagination_base = 'p';
+
+}
+add_action( 'init', 'set_pagination_base' );
+
+
+*/
+
+add_action( 'wp_loaded', 'add_clinic_permastructure' );
+function add_clinic_permastructure() {
+	global $wp_rewrite;
+	add_permastruct( 'blog_tag', 'blog/tag/%blog_tag%', false );
+}
+
+
+
+add_action( 'generate_rewrite_rules', 'register_product_rewrite_rules' );
+function register_product_rewrite_rules( $wp_rewrite ) {
+    $new_rules = array(
+        'blog/tag/([^/]+)/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ), // 'products/any-character/'
+				'blog/tag/([^/]+)/(\d{1,})/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2),
+				'blog/(\d{1,})/?$' => 'index.php?post_type=blog_post&paged=' . $wp_rewrite->preg_index( 1),
+  );
+    $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+}
+
+
+
+
 
 
 
@@ -161,7 +264,7 @@ add_action( 'wp_ajax_nopriv_evaluationformtab_action', 'evaluationFormTab' );
 
 function evaluationFormTab()
 {
-	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));	
+	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));
 	die();
 }
 

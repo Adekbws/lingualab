@@ -72,6 +72,15 @@ Author: Heron Art
   }
 }
 
+@media(min-width:1300px)
+{
+  .subHeaderBlog .container, .blogPageWrapper .blogPageContent
+  {
+    width:1280px;
+  }
+}
+
+
 
 @media(min-width:1600px)
 {
@@ -80,9 +89,6 @@ Author: Heron Art
     width:1580px;
   }
 }
-
-
-
 
 
 html, body
@@ -285,6 +291,7 @@ body
             box-shadow: 0px 0.5px 10px rgba(0,0,0,0.15);
             margin-bottom:0;
             position:relative;
+            z-index:1;
             .siteLogo
             {
               display:inline-block;
@@ -475,6 +482,34 @@ body
           }
         }
 
+      }
+      &.subHeaderBlog
+      {
+        .subHeaderTop
+        {
+          background:#f3f1f2;
+          padding:0px;
+          .subHeaderContent
+          {
+            background-image:url(images/blog-header.jpg);
+            background-repeat: no-repeat;
+            background-size:cover;
+            height:239px;
+          }
+        }
+        .subHeaderBottom
+        {
+          background:#dfdfdf;
+          color:#000;
+          a
+          {
+            color:#000;
+            &:hover
+            {
+              color:#000;
+            }
+          }
+        }
       }
     }
 
@@ -2076,7 +2111,226 @@ body
       }
     }
   }
+  //branches page
+  .branchesPageWrapper{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .branches-container{
+      display: flex;
+      .branch{
+        background-color: #ffd334;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #004177;
+        font-size: 28px;
+        div div{
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+  ///END WrappPAGE
+  .blogPageWrapper
+  {
+    .blogPageContent
+    {
 
+      .leftBlog
+      {
+        padding-left:0;
+        padding-right:37.5px;
+          .postsList
+          {
+            .postItem
+            {
+              a:hover, a:focus
+              {
+                text-decoration:none;
+              }
+              padding-top:50px;
+              padding-bottom:25px;
+              .thumbWrapper
+              {
+                position:relative;
+                img
+                {
+                  display:block;
+                  width:100%;
+                  height:auto;
+                }
+                .postCategories
+                {
+                  position:absolute;
+                  top:17px;
+                  right:16px;
+                  background:#e2001a;
+                  font-family: 'Montserrat', sans-serif;
+                  font-weight:300;
+                  font-size:13px;
+                  color:#fff;
+                  padding-left:23px;
+                  padding-right:23px;
+                  padding-top:9px;
+                  padding-bottom:10px;
+                }
+              }
+              .postItemTitle
+              {
+                font-family: 'Montserrat', sans-serif;
+                font-weight:700;
+                font-size:32px;
+                color:#e2001a;
+                display:block;
+                line-height: 38px;
+                margin-top:31px;
+              }
+              .postExcerpt
+              {
+                margin-top:15px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight:300;
+                font-size:13px;
+                color:#000;
+              }
+
+            }
+          }
+      }
+      .rightBlog
+      {
+        padding-top:50px;
+        padding-left:37.5px;
+        padding-right:0;
+        .boxTitle
+        {
+          display:block;
+          font-family: 'Montserrat', sans-serif;
+          font-weight:700;
+          font-size:16px;
+          color: #004177;
+          text-transform: uppercase;
+          margin-bottom:2px;
+
+        }
+        .blogCategoriesWrapper
+        {
+          .blogCategories
+          {
+            padding:0;
+            margin:0;
+            list-style:none;
+            li
+            {
+              a
+              {
+                font-family: 'Montserrat', sans-serif;
+                font-weight:300;
+                font-size:16px;
+                color:#e2001a;
+                line-height:29px;
+                &:hover
+                {
+                  text-decoration:none;
+                }
+              }
+            }
+          }
+        }
+        .blogContactForm
+        {
+          input, textarea
+          {
+            display:block;
+            width:100%;
+            border-radius:30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight:400;
+            font-size:18px;
+            color:#004177;
+            outline:0;
+            border:3px #004177 solid;
+            padding-left:30px;
+            padding-right:15px;
+            padding-top:21px;
+            padding-bottom:21px;
+            margin-bottom:20px;
+          }
+          textarea
+          {
+            height:190px;
+          }
+          input::-webkit-input-placeholder, textarea::-webkit-input-placeholder
+          {
+            color: #004177;
+          }
+          input::-moz-placeholder, textarea::-moz-placeholder
+          {
+            color: #004177;
+          }
+          input:-ms-input-placeholder, textarea:-ms-input-placeholder
+          {
+            color: #004177;
+          }
+          input:-moz-placeholder, textarea:-moz-placeholder
+          {
+            color: #004177;
+          }
+          input[type="submit"]
+          {
+            padding-left:0;
+            padding-right:0;
+            border:0;
+            background:#e2001a;
+            font-family: 'Montserrat', sans-serif;
+            font-weight:400;
+            font-size:23px;
+            color:#fff;
+            text-align: center;
+            padding-top:9px;
+            padding-bottom:12px;
+          }
+        }
+        .blogTagsWrapper
+        {
+          .blogTags
+          {
+            list-style:none;
+            padding:0;
+            margin:0;
+            li
+            {
+              display:inline-block;
+              margin:0;
+              padding:0;
+              margin-top:3px;
+              margin-bottom:4px;
+              margin-right:6px;
+              a
+              {
+                display:inline-block;
+                font-family: 'Montserrat', sans-serif;
+                font-weight:400;
+                font-size:16px;
+                color:#000;
+                background:#f9f9f9;
+                padding-left:15px;
+                padding-right:15px;
+                padding-top:10px;
+                padding-bottom:9px;
+                &:hover
+                {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .infoToolTip + .tooltip > .tooltip-inner
