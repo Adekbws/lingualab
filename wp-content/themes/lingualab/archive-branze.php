@@ -1,28 +1,28 @@
 <?php
 get_header(); ?>
 <?php
-    
-        
+
+
         get_template_part( 'content', 'subheader' );
         //contact content
         ?>
 
-        <div class="container-fluid contactPageWrapper">
-        
-            <?php if(have_posts()) : while (have_posts() ) : the_post(); ?>
+        <div class="container-fluid branchesPageWrapper">
+            <div class="container branches-container">
+                <?php if(have_posts()) : while (have_posts() ) : the_post(); ?>
 
-            <div class="featArtistSmSng white">
-                
-                <?php if (get_field("branze_min")) { ?>
-                    <div>   
-                        <div style='background-image:url("<?php the_field("branze_min"); ?>");'>
-                            <?php the_title(); ?>
+                <div class="branch">
+                    <?php if (get_field("branze_min")) { ?>
+                        <div>
+                            <div style='background-image:url("<?php the_field("branze_min"); ?>");'>
+                                <?php the_title(); ?>
+                            </div>
                         </div>
-                    </div> 
-                 <?php } ?>
-            </div>
+                     <?php } ?>
+                </div>
 
-            <?php endwhile; endif; // end of featured small loop ?>
+                <?php endwhile; endif; // end of featured small loop ?>
+            </div>
         </div>
 
 
@@ -34,5 +34,5 @@ get_header(); ?>
         {
             get_template_part( 'content', 'evaluationform' );
         }
-    
+
 get_footer();
