@@ -189,11 +189,29 @@ function register_product_rewrite_rules( $wp_rewrite ) {
         'blog/tag/([^/]+)/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ), // 'products/any-character/'
 				'blog/tag/([^/]+)/(\d{1,})/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2),
 				'blog/(\d{1,})/?$' => 'index.php?post_type=blog_post&paged=' . $wp_rewrite->preg_index( 1),
+				'blog/([^/]+)/(\d{1,})/?$' => 'index.php?blog_category=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index(2),
   );
     $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 }
 
 
+/*
+function filter_post_type_link($link, $post)
+{
+    if ($post->post_type != 'blog_post')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'blog_category'))
+    {
+			var_dump($cats[0]['name']);
+			exit;
+
+        $link = str_replace('%blog_category%', 'uuuuu', $link); // see custom function defined below\
+    }
+    return $link;
+}
+add_filter('post_type_link', 'filter_post_type_link', 10, 2);
+*/
 
 
 
