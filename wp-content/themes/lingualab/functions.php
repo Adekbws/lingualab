@@ -97,7 +97,7 @@ function create_posttype() {
 
 
 
-register_post_type( 'blog-post',
+register_post_type( 'blog_post',
         array(
             'labels' => array(
                 'name' => 'Blog',
@@ -113,11 +113,11 @@ register_post_type( 'blog-post',
             'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
             'hierarchical' => false,
             'has_archive' => 'blog',
-            'taxonomies' => array('blog-category','blog-tag'),
+            'taxonomies' => array('blog_category','blog-tag'),
             'rewrite' => array( 'slug' => 'blog/%blog_category%', 'hierarchical' => true, 'with_front' => false )
         )
     );
-    register_taxonomy( 'blog-category', array( 'blog-post' ),
+    register_taxonomy( 'blog_category', array( 'blog_post' ),
         array(
             'labels' => array(
                 'name' => 'Kategorie',
@@ -132,7 +132,7 @@ register_post_type( 'blog-post',
         )
     );
 
-		register_taxonomy('blog_tag',array( 'blog-post' ),array(
+		register_taxonomy('blog_tag',array( 'blog_post' ),array(
 		    'hierarchical' => false,
 				'labels' => array(
 						'name' => 'Tagi',
@@ -188,6 +188,7 @@ function register_product_rewrite_rules( $wp_rewrite ) {
     $new_rules = array(
         'blog/tag/([^/]+)/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ), // 'products/any-character/'
 				'blog/tag/([^/]+)/(\d{1,})/?$' => 'index.php?blog_tag=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2),
+				'blog/(\d{1,})/?$' => 'index.php?post_type=blog_post&paged=' . $wp_rewrite->preg_index( 1),
   );
     $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 }

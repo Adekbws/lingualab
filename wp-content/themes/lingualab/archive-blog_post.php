@@ -30,7 +30,7 @@ get_header(); ?>
                                   echo '<img src="' . get_template_directory_uri() . '/images/blog-photo.jpg">';
                                 }
 
-                                $categories=wp_get_post_terms(get_the_ID(),'blog_categories');
+                                $categories=wp_get_post_terms(get_the_ID(),'blog_category');
                                 if(!empty($categories))
                                 {
                                   echo '<div class="postCategories">';
@@ -71,7 +71,7 @@ get_header(); ?>
                         <div class="col-md-12">
                           <span class="boxTitle">Kategorie</span>
                           <?php
-                                $taxonomy = 'blog_categories';
+                                $taxonomy = 'blog_category';
                                 $terms = get_terms(array('taxonomy' => $taxonomy));
 
                                 if ( $terms && !is_wp_error( $terms ) )
