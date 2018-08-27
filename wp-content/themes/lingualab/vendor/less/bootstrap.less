@@ -2099,15 +2099,97 @@ body
   .defaultPageWrapper
   {
     padding-top:45px;
+    padding-bottom:70px;
     .defaultPageLeft
     {
-
+        .groupName
+        {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size:18px;
+            color:#004178;
+            padding-left:10px;
+            padding-bottom:13px;
+            //border-bottom:1px #004179 solid;
+            display:block;
+        }
+        .groupPostsList
+        {
+          list-style:none;
+          padding:0;
+          margin:0;
+          display:block;
+          width:100%;
+          li
+          {
+            display:block;
+            a
+            {
+              border-top:1px #d7d7d7 solid;
+              display:block;
+              padding-top:14px;
+              padding-bottom:10px;
+              padding-left:30px;
+              font-family: 'Montserrat', sans-serif;
+              font-weight: 400;
+              font-size:18px;
+              color:#004178;
+              &:hover
+              {
+                border-top:1px #004179 solid;
+                background:#ffd334;
+                text-decoration: none;
+              }
+              &:focus
+              {
+                text-decoration: none;
+              }
+            }
+            &:last-child
+            {
+              a
+              {
+                border-bottom:1px #d7d7d7 solid;
+              }
+            }
+            &.currentGroupPost
+            {
+              a
+              {
+                border-top:1px #004179 solid;
+                background:#ffd334;
+              }
+            }
+          }
+        }
     }
     .defaultPageRight
     {
       &.leftColumnExist
       {
         padding-left:45px;
+      }
+      .contentTitle
+      {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size:32px;
+        color:#e2001a;
+        display:block;
+        margin-bottom:7px;
+      }
+      img
+      {
+        display:inline-block;
+        max-width:100%;
+        height:auto;
+      }
+      .contentBox
+      {
+        font-family: 'Montserrat', sans-serif;
+        font-weight:300;
+        font-size:13px;
+        color:#000;
       }
     }
   }

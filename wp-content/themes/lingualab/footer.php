@@ -1,3 +1,21 @@
+<div class="container-fluid bottomInfoWrapp">
+    <div class="container size1">
+        <div class="row bottomInfo">
+            <div class="col-md-3">
+                <span class="bottomInfoTitle">Informacje</span>
+                <?php wp_nav_menu(array('theme_location'=>'info_menu_1','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+            <div class="col-md-4">
+                <span class="bottomInfoTitle">Płatności</span>
+                <?php wp_nav_menu(array('theme_location'=>'info_menu_2','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
+            </div>
+            <div class="col-md-5 payLogos">
+                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/paypal.png" alt=""></a>
+                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <div class="container-fluid siteFooter">
   	<div class="row m0">

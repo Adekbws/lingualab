@@ -12,11 +12,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                <?php
+                  <?php
+                  $breadcrumbs_code = get_field( "breadcrumbs_code" );
+                  if($breadcrumbs_code)
+                  {
+                      echo $breadcrumbs_code;
+                  }
+                  else
+                  {
                     if(function_exists('bcn_display'))
                     {
                         bcn_display();
-                    }?>
+                    }
+                  }
+                  ?>
                 </div>
             </div>
         </div>

@@ -3,14 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 subHeaderContent">
-                    <?php 
+                    <?php
                         $header_text = get_field( "header_text" );
                         if($header_text)
                         {
                             echo '<span class="subHeaderTitle">'.$header_text.'</span>';
                         }
                     ?>
-                        
+
                 </div>
             </div>
         </div>
@@ -19,11 +19,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                <?php 
-                    if(function_exists('bcn_display'))
-                    {
-                        bcn_display();
-                    }?>
+                <?php
+                $breadcrumbs_code = get_field( "breadcrumbs_code" );
+                if($breadcrumbs_code)
+                {
+                    echo $breadcrumbs_code;
+                }
+                else
+                {
+                  if(function_exists('bcn_display'))
+                  {
+                      bcn_display();
+                  }
+                }
+                ?>
                 </div>
             </div>
         </div>

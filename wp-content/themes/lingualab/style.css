@@ -8434,9 +8434,74 @@ body {
 }
 .wrappPage .defaultPageWrapper {
   padding-top: 45px;
+  padding-bottom: 70px;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupName {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #004178;
+  padding-left: 10px;
+  padding-bottom: 13px;
+  display: block;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li {
+  display: block;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li a {
+  border-top: 1px #d7d7d7 solid;
+  display: block;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #004178;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li a:hover {
+  border-top: 1px #004179 solid;
+  background: #ffd334;
+  text-decoration: none;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li a:focus {
+  text-decoration: none;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li:last-child a {
+  border-bottom: 1px #d7d7d7 solid;
+}
+.wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li.currentGroupPost a {
+  border-top: 1px #004179 solid;
+  background: #ffd334;
 }
 .wrappPage .defaultPageWrapper .defaultPageRight.leftColumnExist {
   padding-left: 45px;
+}
+.wrappPage .defaultPageWrapper .defaultPageRight .contentTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #e2001a;
+  display: block;
+  margin-bottom: 7px;
+}
+.wrappPage .defaultPageWrapper .defaultPageRight img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+.wrappPage .defaultPageWrapper .defaultPageRight .contentBox {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #000;
 }
 .wrappPage .branchesPageWrapper {
   padding: 50px;
