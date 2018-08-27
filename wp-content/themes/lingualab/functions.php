@@ -51,7 +51,7 @@ add_action('wp_footer', 'add_this_script_footer');
 
 //widgets
 require_once('widgets/top-informations.php');
-
+require_once('widgets/contact-informations.php');
 
 
 //languages post type
