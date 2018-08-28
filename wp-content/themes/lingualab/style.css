@@ -7088,7 +7088,7 @@ body {
   padding-left: 30px;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li:hover > .subMenuCustomWrapper {
-  display: none;
+  display: block;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li + li a:before {
   content: '';
@@ -8233,6 +8233,64 @@ body {
   text-align: center;
   color: #004177;
 }
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy {
+  padding-bottom: 45px;
+  border-bottom: 1px #d7d7d7 solid;
+  margin-bottom: 50px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy:first-child {
+  padding-top: 50px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyImg {
+  padding-right: 30px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyImg img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper {
+  padding-left: 30px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #e2001a;
+  line-height: 38px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent .leadStudy {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 30px;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent .featuresTitle {
+  display: block;
+  margin-top: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #004178;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent .features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 1em;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent .features li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #004178;
+}
+.wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent .features li:before {
+  content: "–";
+  /* en dash */
+  position: absolute;
+  margin-left: -1em;
+}
 .wrappPage .contactPageWrapper .contactPageContent .pageTitleWrapper .contactTitle {
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
@@ -8527,6 +8585,13 @@ body {
   padding-left: 0;
   padding-right: 37.5px;
 }
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postListHeader span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #004178;
+  display: block;
+}
 .wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList .postItem {
   padding-top: 50px;
   padding-bottom: 25px;
@@ -8572,6 +8637,9 @@ body {
   font-weight: 300;
   font-size: 13px;
   color: #000;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postsList.inPost .postItem {
+  padding-top: 30px;
 }
 .wrappPage .blogPageWrapper .blogPageContent .rightBlog {
   padding-top: 50px;

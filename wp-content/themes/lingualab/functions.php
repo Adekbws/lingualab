@@ -114,7 +114,8 @@ register_post_type( 'blog_post',
             'hierarchical' => false,
             'has_archive' => 'blog',
             'taxonomies' => array('blog_category','blog-tag'),
-            'rewrite' => array( 'slug' => 'blog/%blog_category%', 'hierarchical' => true, 'with_front' => false )
+            'rewrite' => array( 'slug' => 'blog-zobacz', 'hierarchical' => true, 'with_front' => false )
+						//blog/%blog_category%
         )
     );
     register_taxonomy( 'blog_category', array( 'blog_post' ),

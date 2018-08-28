@@ -1,4 +1,4 @@
-<?php 
+<?php
 class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * What the class handles.
@@ -55,7 +55,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		 */
 		$class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-		
+
 		if((int)$depth==0)
 		$output .='<div class="subMenuCustomWrapper">';
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";

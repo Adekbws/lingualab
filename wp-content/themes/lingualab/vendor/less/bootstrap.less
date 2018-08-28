@@ -408,7 +408,7 @@ body
                     }
                     &:hover>.subMenuCustomWrapper
                     {
-                      display:none;
+                      display:block;
                     }
                 }
                 &>li + li
@@ -1842,6 +1842,86 @@ body
     text-align:center;
     color:#004177;
   }
+//case studies page
+.caseStudiesPageWrapper
+{
+  .caseStudiesList
+  {
+    .caseStudy
+    {
+      &:first-child
+      {
+        padding-top:50px;
+      }
+      padding-bottom:45px;
+      border-bottom:1px #d7d7d7 solid;
+      margin-bottom:50px;
+      .caseStudyImg
+      {
+        padding-right:30px;
+          img
+          {
+            display:block;
+            width:100%;
+            height:auto;
+          }
+      }
+      .caseStudyContentWrapper
+      {
+        padding-left:30px;
+        .caseStudyTitle
+        {
+            font-family: 'Montserrat', sans-serif;
+            font-weight:700;
+            font-size:32px;
+            color:#e2001a;
+            line-height:38px;
+        }
+        .caseStudyContent
+        {
+          .leadStudy
+          {
+            font-family: 'Montserrat', sans-serif;
+            font-weight:500;
+            font-size:13px;
+            margin-top:30px;
+          }
+          .featuresTitle
+          {
+            display:block;
+            margin-top:30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size:18px;
+            color:#004178;
+
+          }
+          .features
+          {
+            list-style:none;
+            padding:0;
+            margin:0;
+            margin-left: 1em;
+            li
+            {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 300;
+                font-size:13px;
+                color:#004178;
+              &:before
+              {
+                content: "–"; /* en dash */
+                position: absolute;
+                margin-left: -1em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
   //contact page
   .contactPageWrapper
   {
@@ -2224,6 +2304,17 @@ body
       {
         padding-left:0;
         padding-right:37.5px;
+          .postListHeader
+          {
+            span
+            {
+              font-family: 'Montserrat', sans-serif;
+              font-weight:700;
+              font-size:28px;
+              color:#004178;
+              display:block;
+            }
+          }
           .postsList
           {
             .postItem
@@ -2278,6 +2369,13 @@ body
                 color:#000;
               }
 
+            }
+            &.inPost
+            {
+              .postItem
+              {
+                padding-top:30px;
+              }
             }
           }
       }
