@@ -55,7 +55,7 @@ get_header(); ?>
                                         ?>
                                 </div>
                                 <?php
-                                wp_reset_query();
+                                wp_reset_postdata();
                             }
                         ?>
                         <div class="<?php echo $colClass;?>">

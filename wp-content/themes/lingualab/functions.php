@@ -311,4 +311,35 @@ add_filter('pll_translated_post_type_rewrite_slugs', function($post_type_transla
 });
 
 
+
+function the_excerpt_max_charlength($charlength)
+{
+	$excerpt = get_the_excerpt();
+	$charlength++;
+
+	if ( mb_strlen( $excerpt ) > $charlength )
+	{
+		$returnText='';
+		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
+		$exwords = explode( ' ', $subex );
+		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 2 ] ) );
+		if ( $excut < 0 )
+		{
+			$returnText.= mb_substr( $subex, 0, $excut );
+		}
+		else
+		{
+			$returnText.= $subex;
+		}
+		$returnText.= '...';
+		return $returnText;
+	}
+	else
+	{
+		return $excerpt;
+	}
+}
+
+
+
 ?>

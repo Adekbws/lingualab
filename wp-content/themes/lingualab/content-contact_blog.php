@@ -8,20 +8,28 @@
             </div>
 
             <div class="col-md-6 blogInfoWrapp">
-                <span class="blogInfoTitle"><?php _e('Odwiedź nasz blog', 'lingualab') ?></span> 
+                <span class="blogInfoTitle"><?php _e('Odwiedź nasz blog', 'lingualab') ?></span>
                 <div class="latestPosts">
-                        <a href="#" class="lastPost">
-                            <span class="lastPostTitle">Tytuł najnowszego wpisu z bloga firmowego</span>
-                            <div class="lastPostContent">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust...
-                            </div>
-                        </a>
-                        <a href="#" class="lastPost">
-                            <span class="lastPostTitle">Tytuł kolejnego wpisu z bloga firmowego</span>
-                            <div class="lastPostContent">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust...
-                            </div>
-                        </a>
+                  <?php
+                    $lastPosts = new WP_Query(array(
+                      'post_type' => 'blog_post',
+                      'posts_per_page' => 2,
+                    ));
+                    if ($lastPosts->have_posts())
+                    {
+                       while ( $lastPosts->have_posts() )
+                       {
+                         $lastPosts->the_post();
+                         echo '<a href="' . esc_url( get_permalink(get_the_ID())) . '" class="lastPost">
+                             <span class="lastPostTitle">' . get_the_title() . '</span>
+                             <div class="lastPostContent">
+                             ' . the_excerpt_max_charlength(105) . '
+                             </div>
+                         </a>';
+                       }
+                       wp_reset_postdata();
+                    }
+                  ?>
                 </div>
 
             </div>
