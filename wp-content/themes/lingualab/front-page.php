@@ -193,146 +193,94 @@ get_header(); ?>
     </div>
 </div>
 
+
+<?php
+  $casestudies_show = get_field( "casestudies_show" );
+  if($casestudies_show)
+  {
+?>
 <div class="container-fluid textBlock">
     <div class="container size1">
         <div class="row">
-            <div class="col-md-12">
-                <span class="titleSection">Nasze doświadczenie</span>
-            </div>
-            <div class="col-md-12 contentTextBlock">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-            </div>
+          <?php
+            $casestudies_title = get_field( "casestudies_title" );
+            if($casestudies_title)
+            {
+              echo '<div class="col-md-12"><span class="titleSection">' . $casestudies_title . '</span></div>';
+            }
+
+            $casestudies_text = get_field( "casestudies_text" );
+            if($casestudies_text)
+            {
+              echo '<div class="col-md-12 contentTextBlock">' . do_shortcode($casestudies_text) . '</div>';
+            }
+          ?>
         </div>
     </div>
 </div>
 <div class="container-fluid portfolioSliderWrapp">
-    <div class="row m0 portfolioSliderRow">
-        <div class="col-md-12 portfolioSliderArea">
-            <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappLeft">
-                <button class="leftArrowPortfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.png" alt=""></button>
+
+  <?php
+    $caseStudies = new WP_Query(array(
+      'post_type' => 'case_studies',
+      'posts_per_page' => 9,
+    ));
+    if ($caseStudies->have_posts())
+    {
+      echo '<div class="row m0 portfolioSliderRow">
+          <div class="col-md-12 portfolioSliderArea">
+              <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappLeft">
+                  <button class="leftArrowPortfolio"><img src="' . get_template_directory_uri() . '/images/arrow-left.png" alt=""></button>
+              </div>
+              <div class="portfolioSlider">';
+       while ( $caseStudies->have_posts() )
+       {
+         $caseStudies->the_post();
+
+          echo '<div class="portfolioSliderItemWrapp">
+                 <div class="portfolioSlide">
+                     <div class="row portfolioSlideRow">
+                         <div class="col-md-5 portfolioSlideImageWrapp">
+                             <div class="portfolioSlideImage">';
+            if(has_post_thumbnail())
+            {
+              echo '<img src="' . get_the_post_thumbnail_url() . '" alt="">';
+            }
+          echo '</div>
+                         </div>
+                         <div class="col-md-7 portfolioSlideContentWrapp">
+                                 <span class="portfolioSlideTitle">' . get_the_title() . '</span>
+                                 <div class="portfolioSlideContent">' . do_shortcode(get_the_content()) . '</div>
+                         </div>
+                     </div>
+                 </div>
+             </div>';
+       }
+       echo '</div>
+             <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappRight">
+                 <button class="rightArrowPortfolio"><img src="' . get_template_directory_uri() . '/images/arrow-right.png" alt=""></button>
+             </div>
+         </div>
+     </div>';
+       wp_reset_postdata();
+    }
+
+      $casestudies_url = get_field( "casestudies_url" );
+      if($casestudies_url)
+      {
+        echo '<div class="row m0">
+            <div class="col-md-12 portfolioMoreItemsWrapp">
+                 <a href="' .$casestudies_url. '" class="portfolioMoreItems">' . __('dowiedz się więcej', 'lingualab')  . '</a>
             </div>
-            <div class="portfolioSlider">
-                    <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/3.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/4.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/5.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                      <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/3.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/4.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="portfolioSliderItemWrapp">
-                        <div class="portfolioSlide">
-                            <div class="row portfolioSlideRow">
-                                <div class="col-md-5 portfolioSlideImageWrapp">
-                                    <div class="portfolioSlideImage">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/5.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7 portfolioSlideContentWrapp">
-                                        <span class="portfolioSlideTitle">Przykładowa nazwa firmy</span>
-                                        <div class="portfolioSlideContent">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-            </div>
-            <div class="portfolioSliderArrowWrapp portfolioSliderArrowWrappRight">
-                <button class="rightArrowPortfolio"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-right.png" alt=""></button>
-            </div>
-        </div>
-    </div>
-    <div class="row m0">
-        <div class="col-md-12 portfolioMoreItemsWrapp">
-             <a href="#" class="portfolioMoreItems">dowiedz się więcej</a>
-        </div>
-    </div>
+        </div>';
+      }
+    ?>
 </div>
+
+<?php
+}
+
+?>
 
 
 <div class="container-fluid contactArea">

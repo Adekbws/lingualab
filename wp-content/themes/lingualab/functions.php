@@ -147,6 +147,28 @@ register_post_type( 'blog_post',
 		  ));
 
 
+			//case studies
+
+			register_post_type( 'case_studies',
+			        array(
+			            'labels' => array(
+			                'name' => 'Case studies',
+			                'menu_name' => 'Case studies',
+			                'singular_name' => 'Case study',
+			                'all_items' => 'Wszystkie wpisy case studies'
+			            ),
+			            'public' => true,
+			            'publicly_queryable' => true,
+			            'show_ui' => true,
+			            'show_in_menu' => true,
+			            'show_in_nav_menus' => true,
+			            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields', ),
+			            'hierarchical' => false,
+			            'has_archive' => false,
+			            'rewrite' => array( 'slug' => 'case-studies', 'hierarchical' => true, 'with_front' => false )
+			        )
+			    );
+
 	flush_rewrite_rules( false );
 }
 // Hooking up our function to theme setup

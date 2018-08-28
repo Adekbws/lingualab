@@ -9,7 +9,6 @@
 
             <div class="col-md-6 blogInfoWrapp">
                 <span class="blogInfoTitle"><?php _e('Odwiedź nasz blog', 'lingualab') ?></span>
-                <div class="latestPosts">
                   <?php
                     $lastPosts = new WP_Query(array(
                       'post_type' => 'blog_post',
@@ -17,6 +16,7 @@
                     ));
                     if ($lastPosts->have_posts())
                     {
+                      echo '<div class="latestPosts">';
                        while ( $lastPosts->have_posts() )
                        {
                          $lastPosts->the_post();
@@ -27,11 +27,10 @@
                              </div>
                          </a>';
                        }
+                       echo '</div>';
                        wp_reset_postdata();
                     }
                   ?>
-                </div>
-
             </div>
         </div>
     </div>
