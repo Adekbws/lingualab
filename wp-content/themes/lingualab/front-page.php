@@ -127,36 +127,68 @@ get_header(); ?>
     </div>
 </div>
 
-
+<?php
+  $blocktext1_show = get_field( "blocktext1_show" );
+  if($blocktext1_show)
+  {
+    $blocktext1_title = get_field( "blocktext1_title" );
+    $blocktext1_content = get_field( "blocktext1_content" );
+?>
 <div class="container-fluid textBlock">
     <div class="container size1">
         <div class="row">
             <div class="col-md-12">
-                <span class="titleSection">Zaufaj Specjalistom</span>
+                <span class="titleSection"><?php echo $blocktext1_title; ?></span>
             </div>
             <div class="col-md-12 contentTextBlock">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+              <?php echo do_shortcode($blocktext1_content); ?>
             </div>
         </div>
     </div>
 </div>
+<?php
+}
+
+?>
+<?php
+  $banner1_show = get_field( "banner1_show" );
+  if($banner1_show)
+  {
+
+      $banner1_image = get_field( "banner1_image" );
+      $banner1_text = get_field( "banner1_text" );
+      $banner1_button = get_field( "banner1_button" );
+      $banner1_buttonurl = get_field( "banner1_buttonurl" );
+?>
 <div class="container-fluid staticBannerWrapper">
     <div class="row staticBanner">
         <div class="col-md-7 leftBanner">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/photo2.png" alt="" class="fullColumn">
+              <img src="<?php echo $banner1_image; ?>" alt="" class="fullColumn">
         </div>
         <div class="col-md-5 rightBanner">
             <div class="rightBannerContentWrapper">
             <div class="rightBannerContent">
                     <div class="rightBannerText">
-                        Branże, dla których<br>tłumaczymy
+                        <?php echo $banner1_text; ?>
                     </div>
-                    <a href="#" class="rightBannerLink">dowiedz się więcej</a>
+                    <?php
+                    if($banner1_button && $banner1_buttonurl)
+                    {
+                      echo '<a href="'.$banner1_buttonurl.'" class="rightBannerLink">'.$banner1_button.'</a>';
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php
+}
+
+?>
+
+
 <div class="container-fluid smallBannersWrapper">
     <div class="row smallBanners">
         <div class="col-sm-12 col-md-6 smallBanner smallBanner1">
