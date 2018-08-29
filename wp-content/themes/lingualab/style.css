@@ -8798,6 +8798,38 @@ body {
 .wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogTagsWrapper .blogTags li a:hover {
   text-decoration: none;
 }
+.wrappPage .blogContactFootWrapper {
+  padding-top: 25px;
+  padding-bottom: 27px;
+  background: #004177;
+}
+.wrappPage .blogContactFootWrapper .blogContactFoot {
+  display: flex;
+  align-items: flex-end;
+}
+.wrappPage .blogContactFootWrapper .blogContactFoot .blogContactFootTitle {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 21px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 7px;
+}
+.wrappPage .blogContactFootWrapper .blogContactFoot .blogContactFootItemTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  line-height: 14px;
+}
+.wrappPage .blogContactFootWrapper .blogContactFoot .blogContactFootItemContent {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #fff;
+  line-height: 16px;
+}
 .infoToolTip + .tooltip > .tooltip-inner {
   min-width: 290px;
   padding: 15px;
