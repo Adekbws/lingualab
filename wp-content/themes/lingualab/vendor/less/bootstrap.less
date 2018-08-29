@@ -2280,16 +2280,70 @@ body
     justify-content: center;
     align-items: center;
     .branches-container{
-      display: flex;
+      padding: 0;
+      .sub-title div{
+        text-align: center;
+        padding-bottom: 33px;
+        span{
+          font-size: 48px;
+          color: #004178;
+          font-weight: bold;
+        }
+      }
+      .col-md-3{
+        padding: 0;
+      }
       .branch{
-        background-color: #ffd334;
         display: flex;
         justify-content: center;
         align-items: center;
         color: #004177;
         font-size: 28px;
-        div div{
-          background-repeat: no-repeat;
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+        &:hover{
+          background-color: #ffd334;
+        }
+        &:hover div div .ico-title-box .branch-ico{
+          background-position: bottom center;
+        }
+        >div {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          >div{
+          position: relative;
+          width: 100%;
+          text-align: center;
+            .ico-title-box{
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 50%;
+              /* width: 100%; */
+              z-index: 9999;
+              .branch-ico{
+                background-repeat: no-repeat;
+                background-position: top center;
+              }
+              >div{
+                position: relative;
+                height: 100%;
+                width: 100%;
+                padding-top: 20px;
+                  .branch-title{
+
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -2817,6 +2871,22 @@ body
     height:220px;
     right: 54px;
   }
+  .wrappPage .branchesPageWrapper .branches-container .sub-title div span {
+      font-size: 36px;
+  }
+}
+@media (max-width:768px)
+{
+  .wrappPage .branchesPageWrapper .branches-container {
+      width: 100%;
+  }
+  .wrappPage .branchesPageWrapper .branches-container .col-md-3 {
+      width: 50%;
+      float: left;
+  }
+  .wrappPage .branchesPageWrapper .branches-container .sub-title div span {
+      font-size: 32px;
+  }
 }
 @media (max-width:670px)
 {
@@ -2865,6 +2935,10 @@ body
   {
     margin-left:15px;
   }
+  .wrappPage .branchesPageWrapper .branches-container .col-md-3 {
+      width: 100%;
+      float: none;
+  }
 }
 @media (max-width:500px)
 {
@@ -2911,6 +2985,14 @@ body
     justify-content: center;
   }
 }
+
+@media (max-width:450px)
+{
+  .wrappPage .branchesPageWrapper .branches-container .sub-title div span {
+      font-size: 28px;
+  }
+}
+
 @media (max-width:300px)
 {
   .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo .readMoreButton

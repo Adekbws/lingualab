@@ -305,6 +305,10 @@ add_action( 'wp_ajax_nopriv_evaluationformtab_action', 'evaluationFormTab' );
 
 function evaluationFormTab()
 {
+
+	$idformtab = intval( $_POST['idformtab']);
+
+
 	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));
 	die();
 }

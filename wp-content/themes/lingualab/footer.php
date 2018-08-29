@@ -74,15 +74,9 @@ responsive: [
 ]
     });
 
-    $('.infoToolTip').tooltip({html: true});
 
-   $(".dateInput").flatpickr({
-      dateFormat: "d , m , Y",
-        <?php
-      if (pll_current_language()=='pl')
-        echo '"locale": "pl",';
-      ?>
-   });
+
+
 
     $('#evaluationFormService').change(function()
     {
@@ -99,6 +93,17 @@ responsive: [
         if(msg.status==1)
         {
           $('#evaluationFormContent').html(msg.html);
+
+          $(".dateInput").flatpickr({
+             dateFormat: "d , m , Y",
+               <?php
+             if (pll_current_language()=='pl')
+               echo '"locale": "pl",';
+             ?>
+          });
+
+          $('.infoToolTip').tooltip({html: true});
+
         }
 			});
     });
@@ -121,7 +126,35 @@ responsive: [
 
 $( document ).on('click','#evaluationForm .addNextDay' , function()
   {
-     console.log('klikk');
+//
+    var dayLabels = ["<?php _e('Drugi dzień:', 'lingualab');?>","<?php _e('Trzeci dzień:', 'lingualab');?>", "<?php _e('Czwarty dzień:', 'lingualab');?>", "<?php _e('Piąty dzień:', 'lingualab');?>"];
+    currentDay=$(this).data('id');
+    $('.addDay[data-id="'+ currentDay +'"]').fadeOut().remove();
+    nextDay=$('.daysList').data("nextday");
+    if(nextDay<=5)
+    {
+      rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label" for="optional_comment">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="daylist[1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"> <label class="col-md-4 label" for="optional_comment">Od:</label><div class="col-md-8 input"><select name="daylist[1][from]" id="evaluationFormService"><option value="00:00">00:00</option></select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label" for="optional_comment">Do:</label><div class="col-md-8 input"><select name="daylist[1][to]" id="evaluationFormService"><option value="00:00">00:00</option></select></div></div></div></div>';
+
+      if(nextDay<5)
+      {
+        rowHTML=rowHTML+ '<div class="col-md-2 efField addDay" data-id="'+nextDay+'"><div class="efFieldContent"><div class="row efFieldContentRow"><span class="col-md-5 addNextDayLabel">Kolejny<br>dzień:</span><button class="col-md-7 addNextDay" data-id="'+nextDay+'">Dodaj</button></div></div></div>';
+      }
+
+      rowHTML=rowHTML+ '</div>';
+      $('.daysList').append(rowHTML);
+
+      $('.dateInput[data-id="'+ nextDay +'"]').flatpickr({
+         dateFormat: "d , m , Y",
+           <?php
+         if (pll_current_language()=='pl')
+           echo '"locale": "pl",';
+         ?>
+      });
+
+
+      $('.daysList').data("nextday",nextDay+1);
+
+    }
       return false;
   });
 
