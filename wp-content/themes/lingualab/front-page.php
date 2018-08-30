@@ -46,85 +46,38 @@ get_header(); ?>
             <span class="titleSection">Zakres usług</span>
         </div>
     </div>
-    <div class="row m0 servicesRow">
-        <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent">
-                <div class="serviceHeader">
-                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                    <span class="serviceTitle">Tłumaczenie pisemne</span>
-                </div>
-                <div class="serviceContentWrapp">
-                    <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+    <?php
+    $taxonomy = 'uslugi_category';
+    $terms = get_terms($taxonomy); // Get all terms of a taxonomy
+    if ( $terms && !is_wp_error( $terms ) ) :
+    ?>
+        <div class="row m0 servicesRow">
+            <?php foreach ( $terms as $key => $term ) { ?>
+              <?php if ($key % 2 == 0 && $key!=0) echo '</div><div class="row m0 servicesRow">'; ?>
+
+
+                <div class="col-md-6 serviceWrapper">
+                    <div class="serviceWrapperContent">
+                        <div class="serviceHeader">
+                            <span class="serviceImage" style="background-image:url(<?php echo get_field('zdj_uslug',$term);?>);">&nbsp;</span>
+                            <span class="serviceTitle"><?php echo $term->name; ?></span>
+                        </div>
+                        <div class="serviceContentWrapp">
+                            <div class="serviceContent">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                            </div>
+                            <a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" class="readMoreButton">dowiedz się więcej</a>
+                        </div>
                     </div>
-                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
                 </div>
-            </div>
+
+            <?php } ?>
         </div>
-
-        <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent">
-                <div class="serviceHeader">
-                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                    <span class="serviceTitle">Tłumaczenie pisemne</span>
-                </div>
-                <div class="serviceContentWrapp">
-                    <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                    </div>
-                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row m0 servicesRow">
+    <?php endif;?>
 
 
 
 
-
-
-
-
-
-        <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent">
-                <div class="serviceHeader">
-                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                    <span class="serviceTitle">Tłumaczenie pisemne</span>
-                </div>
-                <div class="serviceContentWrapp">
-                    <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                    </div>
-                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="col-md-6 serviceWrapper">
-            <div class="serviceWrapperContent">
-                <div class="serviceHeader">
-                    <span class="serviceImage" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/translate.png);">&nbsp;</span>
-                    <span class="serviceTitle">Tłumaczenie pisemne</span>
-                </div>
-                <div class="serviceContentWrapp">
-                    <div class="serviceContent">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                    </div>
-                    <a href="#" class="readMoreButton">dowiedz się więcej</a>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-    </div>
 </div>
 
 <?php

@@ -117,7 +117,7 @@ function create_posttype() {
 					'public' => true,
 					'hierarchical' => true,
 					'show_ui' => true,
-					'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false ),
+					'rewrite' => array( 'slug' => 'uslugi', 'hierarchical' => true, 'with_front' => false ),
 			)
 	);
 
