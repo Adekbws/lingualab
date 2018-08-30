@@ -20,7 +20,7 @@ get_header(); ?>
                 <div class="container">
 									<div class="row">
 											<div class="col-md-3 defaultPageLeft">
-													<span class="groupName">Informacje</span>
+													<span class="groupName">Branże</span>
 													<ul class="groupPostsList">
 														<?php  // The Loop
 														if ( $the_query->have_posts() ) {
