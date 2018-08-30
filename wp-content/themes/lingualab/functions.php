@@ -52,7 +52,7 @@ add_action('wp_footer', 'add_this_script_footer');
 //widgets
 require_once('widgets/top-informations.php');
 require_once('widgets/contact-informations.php');
-
+require_once('widgets/blogcontact-informations.php');
 
 //languages post type
 function create_posttype() {
@@ -308,6 +308,18 @@ function evaluationFormTab()
 
 	$idformtab = intval( $_POST['idformtab']);
 
+/*
+tlumaczenia pisemne specjalistyczne - form1.php 1
+tłumaczenia przysięgłe - form2.php		2
+Szczegóły - Tłumaczenia specjalistyczne lub/i przysięgłe form5.php		3
+Szczegóły - Tłumaczenia specjalistyczne wraz ze składem (DTP) form6.php 4
+Szczegóły - Skład do druku (DTP) form4.php 5
+Korekta native speakera - form1.php 1
+Szczegóły - lokalizacja form3.php  7
+tłumaczenia ustne form7.php		8
+Sprzęt do tłumaczeń symultanicznych	form8.php		 9
+tłumaczenia ustne wraz ze sprzętem form9.php   10
+*/
 
 	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));
 	die();
