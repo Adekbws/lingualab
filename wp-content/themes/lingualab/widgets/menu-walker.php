@@ -1,5 +1,10 @@
 <?php
 class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
+
+
+	public $haTemplateMenu=null;
+
+	public $haTemplateMenuParent=null;
 	/**
 	 * What the class handles.
 	 *
@@ -34,6 +39,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -42,6 +48,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			$n = "\n";
 		}
 		$indent = str_repeat( $t, $depth );
+
 		// Default class.
 		$classes = array( 'sub-menu' );
 		/**
@@ -56,8 +63,44 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		$class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
+
 		if((int)$depth==0)
-		$output .='<div class="subMenuCustomWrapper">';
+		{
+
+			if(!is_null($this->haTemplateMenu))
+			{
+				$menu_elements = wp_get_nav_menu_items( $args->menu );
+				$childrenPositions=0;
+
+				foreach( $menu_elements as $el )
+				{
+					$currentMenuParentID=(int)$el->menu_item_parent;
+
+					if( $currentMenuParentID == $this->haTemplateMenuParent )
+					{
+							$childrenPositions++;
+					}
+
+
+						/*	var_dump($currentMenuParentID);
+	            echo '<br><br>';
+							var_dump($this->haTemplateMenuParent);
+							echo '<br><br>';
+							echo '<br><br>';
+							echo '<br><br>';
+							echo '<br><br>';*/
+	      }
+				var_dump($childrenPositions);
+					echo '<br><br><br><br><br>';
+				echo '<br><br><br><br><br>';
+				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><div class="container subMenuCustomContent">';
+			}
+			else
+			{
+				$output .='<div class="subMenuCustomWrapper"><div class="container subMenuCustomContent">';
+			}
+		}
+
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
 	}
 	/**
@@ -81,8 +124,12 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		}
 		$indent  = str_repeat( $t, $depth );
 		$output .= "$indent</ul>{$n}";
+		if(!is_null($this->haTemplateMenu))
+		{
+			$output .= '<div class="menuAskBox"><span class="menuAskBoxTitle">Zapytaj o interesującą Cię realizację</span><a href="#" class="menuAskBoxButton">Bezpłatna wycena</a></div>';
+		}
 		if((int)$depth==0)
-		$output .='</div>';
+		$output .='</div></div>';
 	}
 	/**
 	 * Starts the element output.
@@ -98,7 +145,41 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 * @param int      $id     Current item ID.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+		$subMenuClass=null;
+		$avalilableClasses=array('template-menu-1','template-menu-2');
+
+		foreach($avalilableClasses as $avalilableClass)
+		{
+			if(in_array($avalilableClass, $item->classes))
+			{
+				$subMenuClass=$avalilableClass;
+				break;
+			}
+		}
+
+		if((int)$depth==0)
+		{
+			if(!is_null($subMenuClass))
+			{
+				$this->haTemplateMenu=$subMenuClass;
+				$this->haTemplateMenuParent=(int)$item->ID;
+			}
+			else
+			{
+				$this->haTemplateMenu=null;
+				$this->haTemplateMenuParent=null;
+			}
+		}
+
+		/*
+		var_dump($depth);
+		echo '<br>ponizej';
+		echo '<br>';
+		var_dump($item->classes);
+		echo '<br><br><br><br>';*/
+
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
