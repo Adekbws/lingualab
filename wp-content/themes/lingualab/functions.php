@@ -89,8 +89,37 @@ function create_posttype() {
         )
 	);
 
-
-
+	register_post_type( 'uslugi',
+				array(
+						'labels' => array(
+								'name' => __( 'Usługi' ),
+								'singular_name' => __( 'Usługa' )
+						),
+						// Features this CPT supports in Post Editor
+					'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+						'public' => true,
+						'has_archive' => false,
+						'taxonomies'  => array( 'uslugi_category' ),
+			'rewrite' => array('slug' => 'uslugi'),
+			'hierarchical' => TRUE,
+			'with_front' =>false,
+			'show_in_nav_menus'=>true,
+				)
+	);
+	register_taxonomy( 'uslugi_category', array( 'uslugi' ),
+			array(
+					'labels' => array(
+							'name' => 'Kategorie usług',
+							'menu_name' => 'Kategorie usług',
+							'singular_name' => 'Kategoria usług',
+							'all_items' => 'Wszystkie kategorie usług'
+					),
+					'public' => true,
+					'hierarchical' => true,
+					'show_ui' => true,
+					'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false ),
+			)
+	);
 
 
 //blog types
