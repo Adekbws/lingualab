@@ -90,9 +90,9 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 							echo '<br><br>';
 							echo '<br><br>';*/
 	      }
-				var_dump($childrenPositions);
+			/*	var_dump($childrenPositions);
 					echo '<br><br><br><br><br>';
-				echo '<br><br><br><br><br>';
+				echo '<br><br><br><br><br>';*/
 				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><div class="container subMenuCustomContent">';
 			}
 			else

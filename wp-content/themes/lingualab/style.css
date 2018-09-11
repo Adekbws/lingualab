@@ -8677,6 +8677,27 @@ body {
   padding-left: 0;
   padding-right: 37.5px;
 }
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postContentWrapp .postTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #e2001a;
+  display: block;
+  line-height: 38px;
+  margin-top: 41px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postContentWrapp .postContent {
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #000;
+}
+.wrappPage .blogPageWrapper .blogPageContent .leftBlog .postContentWrapp .postContent img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
 .wrappPage .blogPageWrapper .blogPageContent .leftBlog .postListHeader span {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;

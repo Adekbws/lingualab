@@ -1,5 +1,7 @@
 <?php
-get_header(); ?>
+get_header();
+ ?>
+
 <?php
   get_template_part( 'content', 'subheader_blog' );
 
@@ -9,10 +11,22 @@ get_header(); ?>
                 <div class="container blogPageContent">
                   <div class="col-md-9 leftBlog">
                     <?php
-                      while (have_posts() )
-                      {
 
-                      }
+                        while (have_posts() )
+                        {
+                              the_post();
+                              ?>
+                              <div class="row postContentWrapp">
+                                <div class="col-md-12 postTitle">
+                                  <?php echo get_the_title(); ?>
+                                </div>
+                                  <div class="col-md-12 postContent">
+                                      <?php echo the_content(); ?>
+                                  </div>
+                              </div>
+                              <?php
+                        }
+
                     ?>
 
                     <?php
@@ -143,7 +157,7 @@ get_header(); ?>
         <?php if ( is_active_sidebar( 'blogcontact-info' ) ) : ?>
         <?php dynamic_sidebar( 'blogcontact-info' ); ?>
         <?php endif; ?>
-        
+
         <?php
 
 get_footer();
