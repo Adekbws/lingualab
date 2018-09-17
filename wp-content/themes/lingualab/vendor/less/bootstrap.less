@@ -330,16 +330,31 @@ body
                     {
 
                     }
-                    .subMenuCustomContent{
-                      >ul{
+                    .subMenuCustomWrapper{
+                      .subMenuCustomContent{
+                        >ul{
 
-                        >li{
-                          width: 25%;
-                          >a{
+                          >li{
+                            width: 25%;
+                            >a{
 
+                            }
                           }
                         }
+                        .box-reference{
+                              margin-top: 45px;
+                              .menuAskBoxButton{
+                                color: white;
+                                background-color: #e3001b;
+                              }
+                        }
                       }
+                    }
+                  }
+
+                  &.preferencePositionMenu{
+                    >a{
+                       color:#e2001a;
                     }
                   }
 
@@ -384,7 +399,7 @@ body
                   {
                     a
                     {
-                      color:#e2001a;
+
                     }
                     .subMenuCustomContent{
                       >ul{
@@ -488,7 +503,8 @@ body
                             }
                           }
                           .bt_navArrow{
-                            position: absolute;
+                            display: block;
+                            position: relative;
                             margin-left: 15px;
                             margin-top: 30px;
                             width: 30px;
@@ -552,6 +568,12 @@ body
                     .subMenuCustomWrapper:hover
                     {
                       display:block;
+                    }
+
+                    &.current-menu-item{
+                      >a{
+                         color:#e2001a;
+                      }
                     }
                 }
                 &>li + li

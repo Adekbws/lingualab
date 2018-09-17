@@ -4,6 +4,8 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 
 	public $haTemplateMenu=null;
 	public $arrowClass = null;
+	public $valuationClass = null;
+	public $referenceClass = null;
 
 	public $haTemplateMenuParent=null;
 	/**
@@ -95,7 +97,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 					echo '<br><br><br><br><br>';
 				echo '<br><br><br><br><br>';*/
 				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><div class="container subMenuCustomContent">';
-				$output .= $this->haTemplateMenu;
+
 			}
 			else
 			{
@@ -125,13 +127,16 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			$n = "\n";
 		}
 		$indent  = str_repeat( $t, $depth );
-		if(!is_null($this->arrowClass) && (int)$depth==1){
-			$output .= '<a href="" class="bt_navArrow"></a>';
-		}
 		$output .= "$indent</ul>{$n}";
-		if(!is_null($this->haTemplateMenu) && (int)$depth==0)
+		if(!is_null($this->haTemplateMenu) && !is_null($this->valuationClass) && (int)$depth==0)
 		{
-			$output .= '<div class="menuAskBox"><span class="menuAskBoxTitle">Zapytaj o interesującą Cię realizację</span><a href="#" class="menuAskBoxButton">Bezpłatna wycena</a></div>';
+			$output .= '<div class="menuAskBox box-valuation"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="#" class="menuAskBoxButton">'.__("Bezpłatna wycena","lingualab").'</a></div>';
+			//$this->valuationClass=null;
+		}
+		if(!is_null($this->haTemplateMenu) && !is_null($this->referenceClass) && (int)$depth==0)
+		{
+			$output .= '<div class="menuAskBox box-reference"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="#" class="menuAskBoxButton">'.__("Referencje","lingualab").'</a></div>';
+			//$this->referenceClass=null;
 		}
 		if((int)$depth==0)
 		$output .='</div></div>';
@@ -154,12 +159,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 
 		$subMenuClass=null;
 
-		$avalilableClasses=array('template-menu-1','template-menu-2','addArrow');
-
-		if(in_array('addArrow', $item->classes))
-		{
-			$this->arrowClass = true;
-		}
+		$avalilableClasses=array('template-menu-1','template-menu-2','addArrow','form-reference','form-valuation');
 
 		foreach($avalilableClasses as $avalilableClass)
 		{
@@ -183,6 +183,28 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 				$this->haTemplateMenu=null;
 				$this->haTemplateMenuParent=null;
 			}
+
+			if(in_array('addArrow', $item->classes))
+			{
+				$this->arrowClass = true;
+			}else{
+				$this->arrowClass = null;
+			}
+
+			if(in_array('form-valuation', $item->classes))
+			{
+				$this->valuationClass = true;
+			}else{
+				$this->valuationClass = null;
+			}
+
+			if(in_array('form-reference', $item->classes))
+			{
+				$this->referenceClass = true;
+			}else{
+				$this->referenceClass = null;
+			}
+
 		}
 
 		/*
@@ -328,6 +350,10 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			$n = "\n";
 		}
 		$output .= "</li>{$n}";
+		if(!is_null($this->arrowClass) && (int)$depth==2){
+
+			$output .= '<a href="'.$item->url.'" class="bt_navArrow"></a>';
+		}
 
 	}
 } // Walker_Nav_Menu
