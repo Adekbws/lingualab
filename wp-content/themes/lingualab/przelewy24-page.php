@@ -6,7 +6,7 @@ get_header(); ?>
   <div class="container size1">
       <div class="row">
           <div class="col-md-12">
-              <span class="titleSection">Przelewy24.pl</span>
+              <span class="titleSection"><?php _e( 'Przelewy24.pl', 'lingualab' );?></span>
           </div>
           <div class="col-md-12 contentTextBlock">
             <?php
@@ -25,12 +25,12 @@ get_header(); ?>
           <div class="col-md-12">
               <form action="<?php echo get_template_directory_uri(); ?>/payments.php" method="POST" id="evaluationForm">
                   <fieldset>
-                      <legend>Tytuł płatności</legend>
+                      <legend><?php _e( 'Tytuł płatności:', 'lingualab' );?></legend>
                       <div class="row efFieldRow threeColumn">
                           <div class="col-md-12 efField">
                               <div class="efFieldContent">
                                   <div class="row efFieldContentRow">
-                                      <label class="col-md-1 label" for="client_name">Tytuł płatności:</label>
+                                      <label class="col-md-1 label" for="client_name"><?php _e( 'Tytuł płatności:', 'lingualab' );?></label>
                                       <div class="col-md-11 input requiredField">
                                           <input class="hiding" name="z24_nazwa" type="text" value="" required/>
                                       </div>
@@ -41,12 +41,12 @@ get_header(); ?>
                   </fieldset>
 
                   <fieldset>
-                      <legend>Adres Email:</legend>
+                      <legend><?php _e( 'Adres e-mail:', 'lingualab' );?></legend>
                       <div class="row efFieldRow threeColumn">
                           <div class="col-md-12 efField">
                               <div class="efFieldContent">
                                   <div class="row efFieldContentRow">
-                                      <label class="col-md-1 label" for="client_name">Adres Email:</label>
+                                      <label class="col-md-1 label" for="client_name"><?php _e( 'Adres e-mail:', 'lingualab' );?></label>
                                       <div class="col-md-11 input requiredField">
                                           <input class="hiding" name="z24_email" type="email" value="" required/>
                                       </div>
@@ -57,12 +57,12 @@ get_header(); ?>
                   </fieldset>
 
                   <fieldset>
-                      <legend>Kwota brutto</legend>
+                      <legend><?php _e( 'Kwota brutto:', 'lingualab' );?></legend>
                       <div class="row efFieldRow threeColumn">
                           <div class="col-md-12 efField">
                               <div class="efFieldContent">
                                   <div class="row efFieldContentRow">
-                                      <label class="col-md-1 label" for="client_name">Kwota brutto (zł)</label>
+                                      <label class="col-md-1 label" for="client_name"><?php _e( 'Kwota brutto (zł):', 'lingualab' );?></label>
                                       <div class="col-md-11 input requiredField">
                                           <input class="hiding" name="z24_kwota" step="any" type="number" required/>
                                       </div>
@@ -75,10 +75,10 @@ get_header(); ?>
                   <div class="row">
                       <div class="col-md-12">
                           <input type="checkbox" name="rodo" id="rodoCheck" required="">
-                          <label for="rodoCheck">Zgadzam się na przetwarzanie danych.</label>
+                          <label for="rodoCheck"><?php _e( 'Zgadzam się na przetwarzanie danych', 'lingualab' );?></label>
                       </div>
                       <div class="col-md-12">
-                          <button type="submit">wyślij</button>
+                          <button type="submit"><?php _e( 'Wyślij', 'lingualab' );?></button>
                       </div>
                   </div>
               </form>

@@ -2,16 +2,16 @@
     <div class="container size1">
         <div class="row bottomInfo">
             <div class="col-md-3">
-                <span class="bottomInfoTitle">Informacje</span>
+                <span class="bottomInfoTitle"><?php _e( 'Informacje', 'lingualab' );?></span>
                 <?php wp_nav_menu(array('theme_location'=>'info_menu_1','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
             </div>
             <div class="col-md-4">
-                <span class="bottomInfoTitle">Płatności</span>
+                <span class="bottomInfoTitle"><?php _e( 'Płatności', 'lingualab' );?></span>
                 <?php wp_nav_menu(array('theme_location'=>'info_menu_2','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
             </div>
             <div class="col-md-5 payLogos">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/paypal.png" alt=""></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
+                <a href="https://www.paypal.com/pl/home"><img src="<?php echo get_template_directory_uri(); ?>/images/paypal.png" alt=""></a>
+                <a href="<?php echo esc_url(get_permalink(pll_get_post(465))); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
 <div class="container-fluid siteFooter">
   	<div class="row m0">
 		<div class="col-md-12 copyright">
-			&copy; 2018 Lingua Lab 	&middot; Wszelkie prawa zastrzeżone
+			&copy; 2011-<?php echo date('Y');?> Lingua Lab 	&middot; <?php _e( 'Wszelkie prawa zastrzeżone', 'lingualab' );?>
 		</div>
 		<div class="col-md-12 arrowTopWrap">
 			<a href="#topPage" class="goToTop">
