@@ -143,7 +143,7 @@ register_post_type( 'blog_post',
             'hierarchical' => false,
             'has_archive' => 'blog',
             'taxonomies' => array('blog_category','blog-tag'),
-            'rewrite' => array( 'slug' => 'blog-zobacz', 'hierarchical' => true, 'with_front' => false )
+            'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false )
 						//blog/%blog_category%
         )
     );
@@ -158,7 +158,7 @@ register_post_type( 'blog_post',
             'public' => true,
             'hierarchical' => true,
             'show_ui' => true,
-            'rewrite' => array( 'slug' => 'blog', 'hierarchical' => true, 'with_front' => false ),
+            'rewrite' => array( 'slug' => 'category', 'hierarchical' => true, 'with_front' => false ),
         )
     );
 
@@ -336,7 +336,14 @@ function evaluationFormTab()
 {
 
 	$idformtab = intval( $_POST['idformtab']);
-
+	if ($idformtab) {
+		ob_start();
+		include_once('evaluationform/form'.$idformtab.'.php');
+		$html = ob_get_contents();
+		ob_end_clean();
+		//$html = 'lal';
+		//$html=file_get_contents('evaluationform/form1.php');
+	}
 /*
 tlumaczenia pisemne specjalistyczne - form1.php 1
 tłumaczenia przysięgłe - form2.php		2
@@ -350,7 +357,8 @@ Sprzęt do tłumaczeń symultanicznych	form8.php		 9
 tłumaczenia ustne wraz ze sprzętem form9.php   10
 */
 
-	echo json_encode(array('status'=>1,'html'=>'<b>Tomjest jakis teskt od ajaxa</b>'));
+
+	echo json_encode(array('status'=>1,'html'=>$html, 'id_form'=>$idformtab));
 	die();
 }
 
@@ -407,6 +415,30 @@ function the_excerpt_max_charlength($charlength)
 		return $excerpt;
 	}
 }
+
+function hwl_home_pagesize( $query ) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
+
+    if ( is_post_type_archive( 'blog_post' ) || get_queried_object()->taxonomy=='blog_tag' || get_queried_object()->taxonomy=='blog_category') {
+        // Display 50 posts for a custom post type called 'movie'
+        $query->set( 'posts_per_page', 4 );
+        return;
+    }
+}
+add_action( 'pre_get_posts', 'hwl_home_pagesize', 1 );
+
+function template_chooser($template)
+{
+  global $wp_query;
+  $post_type = get_query_var('post_type');
+  if( $wp_query->is_search && $post_type == 'blog_post' )
+  {
+    return locate_template('archive-search.php');  //  redirect to archive-search.php
+  }
+  return $template;
+}
+add_filter('template_include', 'template_chooser');
 
 
 

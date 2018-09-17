@@ -107,9 +107,9 @@ class bcn_breadcrumb_trail
 			'S404_title' => __('404', 'breadcrumb-navxt'),
 			//Search page options
 			//The breadcrumb template for search breadcrumbs
-			'Hsearch_template' => __('<span property="itemListElement" typeof="ListItem"><span property="name">Search results for &#39;<a property="item" typeof="WebPage" title="Go to the first page of search results for %title%." href="%link%" class="%type%">%htitle%</a>&#39;</span><meta property="position" content="%position%"></span>', 'breadcrumb-navxt'),
+			'Hsearch_template' => __('<span property="itemListElement" typeof="ListItem"><span property="name">Wyszukane dla &#39;<a property="item" typeof="WebPage" title="Go to the first page of search results for %title%." href="%link%" class="%type%">%htitle%</a>&#39;</span><meta property="position" content="%position%"></span>', 'breadcrumb-navxt'),
 			//The breadcrumb template for search breadcrumbs, used when an anchor is not necessary
-			'Hsearch_template_no_anchor' => __('<span property="itemListElement" typeof="ListItem"><span property="name">Search results for &#39;%htitle%&#39;</span><meta property="position" content="%position%"></span>', 'breadcrumb-navxt'),
+			'Hsearch_template_no_anchor' => __('<span property="itemListElement" typeof="ListItem"><span property="name">Wyszukane dla &#39;%htitle%&#39;</span><meta property="position" content="%position%"></span>', 'breadcrumb-navxt'),
 			//Tag related stuff
 			//The breadcrumb template for tag breadcrumbs
 			'Htax_post_tag_template' => __('<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the %title% tag archives." href="%link%" class="%type%"><span property="name">%htitle%</span></a><meta property="position" content="%position%"></span>', 'breadcrumb-navxt'),
@@ -142,7 +142,7 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * This returns the internal version
-	 * 
+	 *
 	 * @deprecated 5.2.0 No longer needed, superceeded bcn_breadcrumb_trail::version
 	 *
 	 * @return string internal version of the Breadcrumb trail
@@ -154,9 +154,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Adds a breadcrumb to the breadcrumb trail
-	 * 
+	 *
 	 * @param bcn_breadcrumb $object Breadcrumb to add to the trail
-	 * 
+	 *
 	 * @return pointer to the just added Breadcrumb
 	 */
 	public function &add(bcn_breadcrumb $object)
@@ -167,9 +167,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for a search page
-	 * 
+	 *
 	 * @param string $search_query The search query that was performed
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
 	 */
@@ -188,9 +188,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for an author page
-	 * 
+	 *
 	 * @param string $author_data The author to generate the breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
 	 */
@@ -214,9 +214,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Determines the taxonomy name represented by the specified query var
-	 * 
+	 *
 	 * @param string $query_var The query var to attempt to find the corresponding taxonomy
-	 * 
+	 *
 	 * @return string|bool Either the name of the taxonomy corresponding to the query_var or false if no taxonomy exists for the specified query_var
 	 */
 	protected function query_var_to_taxonomy($query_var)
@@ -233,7 +233,7 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Determines the referer taxonomy
-	 * 
+	 *
 	 * @return string|bool Either the name of the taxonomy to use or false if a referer taxonomy wasn't found
 	 */
 	protected function determine_taxonomy()
@@ -272,12 +272,12 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * This function selects the term that should be used for a post's hierarchy
-	 * 
+	 *
 	 * @param int $id The ID of the post to find the term for
 	 * @param string $type The post type of the post to figure out the taxonomy for
 	 * @param string $taxonomy The taxonomy to use
-	 * 
-	 * @return WP_Term|bool The term object to use for the post hierarchy or false if no suitable term was found 
+	 *
+	 * @return WP_Term|bool The term object to use for the post hierarchy or false if no suitable term was found
 	 */
 	protected function pick_post_term($id, $type, $taxonomy)
 	{
@@ -304,9 +304,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This function fills breadcrumbs for any post taxonomy
-	 * 
+	 *
 	 * @param int $id The id of the post to figure out the taxonomy for
 	 * @param string $type The post type of the post to figure out the taxonomy for
 	 * @param int $parent (optional) The id of the parent of the current post, used if hiearchal posts will be the "taxonomy" for the current post
@@ -384,12 +384,12 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for the terms of a post
-	 * 
+	 *
 	 * @param int $id The id of the post to find the terms for
 	 * @param string $taxonomy The name of the taxonomy that the term belongs to
-	 * 
+	 *
 	 * TODO Need to implement this cleaner
 	 */
 	protected function post_terms($id, $taxonomy)
@@ -399,7 +399,7 @@ class bcn_breadcrumb_trail
 		//Only process if we have terms
 		if(is_array($bcn_terms))
 		{
-			$title = '';	
+			$title = '';
 			$is_first = true;
 			//Loop through all of the term results
 			foreach($bcn_terms as $term)
@@ -411,7 +411,7 @@ class bcn_breadcrumb_trail
 				}
 				//This is a bit hackish, but it compiles the term anchor and appends it to the current breadcrumb title
 				$title .= str_replace(
-					array('%title%', '%link%', '%htitle%', '%type%'), 
+					array('%title%', '%link%', '%htitle%', '%type%'),
 					array($term->name, $this->maybe_add_post_type_arg(get_term_link($term), null, $term->taxonomy), $term->name, $term->taxonomy),
 					$this->opt['Htax_' . $term->taxonomy . '_template']);
 				$is_first = false;
@@ -422,12 +422,12 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This recursive functions fills the trail with breadcrumbs for parent terms
-	 * 
+	 *
 	 * @param int $id The id of the term
 	 * @param string $taxonomy The name of the taxonomy that the term belongs to
-	 * 
+	 *
 	 * @return WP_Term|WP_Error The term we stopped at
 	 */
 	protected function term_parents($id, $taxonomy)
@@ -454,12 +454,12 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This recursive functions fills the trail with breadcrumbs for parent posts/pages
-	 * 
+	 *
 	 * @param int $id The id of the parent page
 	 * @param int $frontpage The id of the front page
-	 * 
+	 *
 	 * @return WP_Post The parent we stopped at
 	 */
 	protected function post_parents($id, $frontpage)
@@ -478,9 +478,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for posts
-	 * 
+	 *
 	 * @param WP_Post $post Instance of WP_Post object to create a breadcrumb for
 	 * @param bool $force_link Whether or not to force this breadcrumb to be linked
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
@@ -531,9 +531,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * @deprecated 6.0.0 No longer needed, superceeded by do_post
-	 * 
+	 *
 	 * This functions fills a breadcrumb for an attachment page.
 	 */
 	protected function do_attachment()
@@ -543,9 +543,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This function fills a breadcrumb for any taxonomy archive, was previously two separate functions
-	 * 
+	 *
 	 * @param WP_Term $term The term object to generate the breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
 	 */
@@ -568,9 +568,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for day date archives
-	 * 
+	 *
 	 * @param WP_Post $post Instance of WP_Post object to create a breadcrumb for
 	 * @param string $type The name of the CPT to generate the archive breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
@@ -597,9 +597,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for month date archives
-	 * 
+	 *
 	 * @param WP_Post $post Instance of WP_Post object to create a breadcrumb for
 	 * @param string $type The name of the CPT to generate the archive breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
@@ -626,9 +626,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for year date archives
-	 * 
+	 *
 	 * @param WP_Post $post Instance of WP_Post object to create a breadcrumb for
 	 * @param string $type The name of the CPT to generate the archive breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
@@ -655,11 +655,11 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for a date archive.
-	 * 
+	 *
 	 * @param string $type The type to restrict the date archives to
-	 * 
+	 *
 	 * @deprecated 6.0.0 No longer needed, superceeded by do_day, do_month, and/or do_year
 	 */
 	protected function do_archive_by_date($type)
@@ -679,9 +679,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for a post type archive (WP 3.1 feature)
-	 * 
+	 *
 	 * @param string type_str The name of the CPT to generate the archive breadcrumb for
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
 	 */
@@ -694,7 +694,7 @@ class bcn_breadcrumb_trail
 		$breadcrumb = $this->add(new bcn_breadcrumb($title, $this->opt['Hpost_' . $type_str . '_template_no_anchor'], array('archive', 'post-' . $type_str . '-archive', 'current-item')));
 		if($this->opt['bcurrent_item_linked'] || ($is_paged && $this->opt['bpaged_display']))
 		{
-			
+
 			$breadcrumb->set_template($this->opt['Hpost_' . $type_str . '_template']);
 			//Deal with the anchor
 			$breadcrumb->set_url(get_post_type_archive_link($type_str));
@@ -702,9 +702,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for the front page
-	 * 
+	 *
 	 * @param bool $force_link Whether or not to force this breadcrumb to be linked
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
 	 * @param bool $is_current_item Whether or not the breadcrumb being generated is the current item
@@ -743,9 +743,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A modified version of WordPress' function of the same name
-	 * 
+	 *
 	 * @param object $object the post or taxonomy object used to attempt to find the title
-	 * 
+	 *
 	 * @return string the title
 	 */
 	protected function post_type_archive_title($object)
@@ -759,9 +759,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Determines if a post type is a built in type or not
-	 * 
+	 *
 	 * @param string $post_type the name of the post type
-	 * 
+	 *
 	 * @return bool
 	 */
 	protected function is_builtin($post_type)
@@ -779,10 +779,10 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Determines if the current location is a for a root page or not
-	 * 
+	 *
 	 * @param string $post_type the name of the post type
 	 * @return bool
-	 * 
+	 *
 	 * TODO: Remove dependancies to current state (state should be passed in)
 	 */
 	protected function treat_as_root_page($post_type)
@@ -791,9 +791,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Determines if a post type has archives enabled or not
-	 * 
+	 *
 	 * @param string $post_type the name of the post type
-	 * 
+	 *
 	 * @return bool
 	 */
 	protected function has_archive($post_type)
@@ -803,9 +803,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Retrieves the query var for 'post_type', sets default to post, and escapes
-	 * 
+	 *
 	 * @param string $default[optional] The default value to return if nothing was found/set or if post_type was an array
-	 * 
+	 *
 	 * @return string The post type string found in the post_type query var
 	 */
 	protected function get_type_string_query_var($default = 'post')
@@ -828,7 +828,7 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Retrieves the query var for 'post_type', and returns whether or not it is an array
-	 * 
+	 *
 	 * @return bool Whether or not the post_type query var is an array
 	 */
 	protected function is_type_query_var_array()
@@ -837,11 +837,11 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Adds the post type argument to the URL iff the passed in type is not post
-	 * 
+	 *
 	 * @param string $url The URL to possibly add the post_type argument to
 	 * @param string $type[optional] The type to possibly add to the URL
 	 * @param string $taxonomy[optional] If we're dealing with a taxonomy term, the taxonomy of that term
-	 * 
+	 *
 	 * @return string The possibly modified URL
 	 */
 	protected function maybe_add_post_type_arg($url, $type = null, $taxonomy = null)
@@ -863,12 +863,12 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * Deals with the post type archive and taxonomy archives
-	 * 
+	 *
 	 * @param WP_Post|WP_Taxonomy $type The post or taxonomy to generate the archive breadcrumb for
 	 * @param string $type_str The type string for the archive
-	 * 
+	 *
 	 * TODO: Remove dependancies to current state (state should be passed in)
 	 */
 	protected function type_archive($type, $type_str = false)
@@ -885,9 +885,9 @@ class bcn_breadcrumb_trail
 			$breadcrumb = $this->add(new bcn_breadcrumb($this->post_type_archive_title(get_post_type_object($type_str)), $this->opt['Hpost_' . $type_str . '_template'], array('post', 'post-' . $type_str . '-archive'), get_post_type_archive_link($type_str)));
 		}
 		//Otherwise, if this is a custom taxonomy with an archive, add it
-		else if(isset($type->taxonomy) && isset($wp_taxonomies[$type->taxonomy]->object_type[0]) 
-			&& !$this->is_builtin($this->get_type_string_query_var($wp_taxonomies[$type->taxonomy]->object_type[0])) 
-			&& $this->opt['bpost_' . $this->get_type_string_query_var($wp_taxonomies[$type->taxonomy]->object_type[0]) . '_archive_display'] 
+		else if(isset($type->taxonomy) && isset($wp_taxonomies[$type->taxonomy]->object_type[0])
+			&& !$this->is_builtin($this->get_type_string_query_var($wp_taxonomies[$type->taxonomy]->object_type[0]))
+			&& $this->opt['bpost_' . $this->get_type_string_query_var($wp_taxonomies[$type->taxonomy]->object_type[0]) . '_archive_display']
 			&& $this->has_archive($this->get_type_string_query_var($wp_taxonomies[$type->taxonomy]->object_type[0]))
 			&& !$this->is_type_query_var_array())
 		{
@@ -898,10 +898,10 @@ class bcn_breadcrumb_trail
 		}
 	}
 	/**
-	 * A Breadcrumb Trail Filling Function 
+	 * A Breadcrumb Trail Filling Function
 	 *
 	 * Handles only the root page stuff for post types, including the "page for posts"
-	 * 
+	 *
 	 * @param string $type_str The type string variable
 	 * @param int $root_id The ID for the post type root
 	 * @param bool $is_paged Whether or not the current resource is on a page other than page 1
@@ -944,7 +944,7 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for 404 pages.
 	 */
 	protected function do_404()
@@ -954,9 +954,9 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * A Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills a breadcrumb for paged pages
-	 * 
+	 *
 	 * @param int $page_number The page number to create a breadcrumb for
 	 */
 	protected function do_paged($page_number)
@@ -966,7 +966,7 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * Breadcrumb Trail Filling Function
-	 * 
+	 *
 	 * This functions fills the breadcrumb trail.
 	 */
 	public function fill()
@@ -1145,9 +1145,9 @@ class bcn_breadcrumb_trail
 		$this->do_home(true, false, false);
 	}
 	/**
-	 * This function will either set the order of the trail to reverse key 
+	 * This function will either set the order of the trail to reverse key
 	 * order, or make sure it is forward key ordered.
-	 * 
+	 *
 	 * @param bool $reverse[optional] Whether to reverse the trail or not.
 	 */
 	protected function order($reverse = false)
@@ -1169,7 +1169,7 @@ class bcn_breadcrumb_trail
 	 * @param bool $linked[optional] Whether to allow hyperlinks in the trail or not.
 	 * @param bool $reverse[optional] Whether to reverse the output or not.
 	 * @param string $template The template to use for the string output.
-	 * 
+	 *
 	 * @return void Void if Option to print out breadcrumb trail was chosen.
 	 * @return string String-Data of breadcrumb trail.
 	 */
@@ -1185,10 +1185,10 @@ class bcn_breadcrumb_trail
 	 * This functions outputs or returns the breadcrumb trail in list form.
 	 *
 	 * @deprecated 6.0.0 No longer needed, superceeded by $template parameter in display
-	 * 
+	 *
 	 * @param bool $linked[optional] Whether to allow hyperlinks in the trail or not.
 	 * @param bool $reverse[optional] Whether to reverse the output or not.
-	 * 
+	 *
 	 * @return void Void if option to print out breadcrumb trail was chosen.
 	 * @return string String version of the breadcrumb trail.
 	 */
@@ -1199,11 +1199,11 @@ class bcn_breadcrumb_trail
 	}
 	/**
 	 * This function assembles the breadcrumbs in the breadcrumb trail in accordance with the passed in template
-	 * 
+	 *
 	 * @param bool $linked  Whether to allow hyperlinks in the trail or not.
 	 * @param bool $reverse Whether to reverse the output or not.
 	 * @param string $template The template to use for the string output.
-	 * 
+	 *
 	 * @return string String-Data of breadcrumb trail.
 	 */
 	protected function display_loop($linked, $reverse, $template)
@@ -1245,7 +1245,7 @@ class bcn_breadcrumb_trail
 	 * This functions outputs or returns the breadcrumb trail in Schema.org BreadcrumbList compliant JSON-LD
 	 *
 	 * @param bool $reverse[optional] Whether to reverse the output or not.
-	 * 
+	 *
 	 * @return void Void if option to print out breadcrumb trail was chosen.
 	 * @return object basic object version of the breadcrumb trail ready for json_encode.
 	 */
@@ -1265,7 +1265,7 @@ class bcn_breadcrumb_trail
 	 * @return array The array of breadcrumbs prepared for JSON-LD
 	 */
 	protected function json_ld_loop()
-	{		
+	{
 		$postion = 1;
 		$breadcrumbs = array();
 		//Loop around our breadcrumbs, call the JSON-LD assembler

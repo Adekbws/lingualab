@@ -7,45 +7,13 @@
                                             <label class="col-md-4 label" for="">Z języka:</label>
                                             <div class="col-md-8 input">
                                             <select name="service_type">
-                                                <option value="polski">polski</option>
-                                                <option value="angielski">angielski</option>
-                                                <option value="arabski">arabski</option>
-                                                <option value="bułgarski">bułgarski</option>
-                                                <option value="chiński">chiński</option>
-                                                <option value="chorwacki">chorwacki</option>
-                                                <option value="czeski">czeski</option>
-                                                <option value="duński">duński</option>
-                                                <option value="estoński">estoński</option>
-                                                <option value="fiński">fiński</option>
-                                                <option value="flamandzki">flamandzki</option>
-                                                <option value="francuski">francuski</option>
-                                                <option value="grecki">grecki</option>
-                                                <option value="hebrajski">hebrajski</option>
-                                                <option value="hiszpański">hiszpański</option>
-                                                <option value="japoński">japoński</option>
-                                                <option value="kazachski">kazachski</option>
-                                                <option value="koreański">koreański</option>
-                                                <option value="litewski">litewski</option>
-                                                <option value="łaciński">łaciński</option>
-                                                <option value="łotewski">łotewski</option>
-                                                <option value="macedoński">macedoński</option>
-                                                <option value="mołdawski">mołdawski</option>
-                                                <option value="niderlandzki">niderlandzki</option>
-                                                <option value="niemiecki">niemiecki</option>
-                                                <option value="norweski">norweski</option>
-                                                <option value="portugalski">portugalski</option>
-                                                <option value="rosyjski">rosyjski</option>
-                                                <option value="rumuński">rumuński</option>
-                                                <option value="serbski">serbski</option>
-                                                <option value="słowacki">słowacki</option>
-                                                <option value="słoweński">słoweński</option>
-                                                <option value="szwedzki">szwedzki</option>
-                                                <option value="turecki">turecki</option>
-                                                <option value="ukraiński">ukraiński</option>
-                                                <option value="węgierski">węgierski</option>
-                                                <option value="włoski">włoski</option>
-                                                <option value="-----">-----</option>
-                                                <option value="inny">inny</option>
+                                              <?php
+                                              $languages = str_replace(' ', '', get_field('translate_from',103));
+                                              $pieces = explode(";",$languages);
+                                              foreach ($pieces as $key => $value) {
+                                                echo '<option value="'.$value.'">'.$value.'</option>';
+                                              }
+                                              ?>
                                             </select>
                                             </div>
                                         </div>
@@ -57,45 +25,13 @@
                                             <label class="col-md-4 label" for="">Na język:</label>
                                             <div class="col-md-8 input">
                                             <select name="service_type">
-                                                <option value="polski">polski</option>
-                                                <option value="angielski">angielski</option>
-                                                <option value="arabski">arabski</option>
-                                                <option value="bułgarski">bułgarski</option>
-                                                <option value="chiński">chiński</option>
-                                                <option value="chorwacki">chorwacki</option>
-                                                <option value="czeski">czeski</option>
-                                                <option value="duński">duński</option>
-                                                <option value="estoński">estoński</option>
-                                                <option value="fiński">fiński</option>
-                                                <option value="flamandzki">flamandzki</option>
-                                                <option value="francuski">francuski</option>
-                                                <option value="grecki">grecki</option>
-                                                <option value="hebrajski">hebrajski</option>
-                                                <option value="hiszpański">hiszpański</option>
-                                                <option value="japoński">japoński</option>
-                                                <option value="kazachski">kazachski</option>
-                                                <option value="koreański">koreański</option>
-                                                <option value="litewski">litewski</option>
-                                                <option value="łaciński">łaciński</option>
-                                                <option value="łotewski">łotewski</option>
-                                                <option value="macedoński">macedoński</option>
-                                                <option value="mołdawski">mołdawski</option>
-                                                <option value="niderlandzki">niderlandzki</option>
-                                                <option value="niemiecki">niemiecki</option>
-                                                <option value="norweski">norweski</option>
-                                                <option value="portugalski">portugalski</option>
-                                                <option value="rosyjski">rosyjski</option>
-                                                <option value="rumuński">rumuński</option>
-                                                <option value="serbski">serbski</option>
-                                                <option value="słowacki">słowacki</option>
-                                                <option value="słoweński">słoweński</option>
-                                                <option value="szwedzki">szwedzki</option>
-                                                <option value="turecki">turecki</option>
-                                                <option value="ukraiński">ukraiński</option>
-                                                <option value="węgierski">węgierski</option>
-                                                <option value="włoski">włoski</option>
-                                                <option value="-----">-----</option>
-                                                <option value="inny">inny</option>
+                                              <?php
+                                              $languages = str_replace(' ', '', get_field('translate_to',103));
+                                              $pieces = explode(";",$languages);
+                                              foreach ($pieces as $key => $value) {
+                                                echo '<option value="'.$value.'">'.$value.'</option>';
+                                              }
+                                              ?>
                                             </select>
                                             </div>
                                         </div>

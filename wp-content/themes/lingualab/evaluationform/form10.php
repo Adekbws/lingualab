@@ -1,26 +1,21 @@
 <fieldset>
-                            <legend>Szczegóły - Tłumaczenia ustne</legend>
-                        <div class="row efFieldRow oneInputRow">
-                            <div class="col-md-12 efField">
-                                <div class="efFieldContent">
-                                    <div class="row efFieldContentRow">
-                                        <label class="col-md-4 label" for="evaluationFormService">Rodzaj tłumaczenia:</label>
-                                        <div class="col-md-8 input">
-                                        <select name="service_type" id="evaluationFormService">
-                                            <?php
-                                            $translation = get_field('translation_type',103);
-                                            $pieces = explode(";",$translation);
-                                            foreach ($pieces as $key => $value) {
-                                              echo '<option value="'.$value.'">'.$value.'</option>';
-                                            }
-                                            ?>
-
-                                        </select>
+                            <legend>Szczegóły - tłumaczenia ustne wraz ze sprzętem</legend>
+                            <div class="row efFieldRow oneInputRow">
+                                <div class="col-md-12 efField">
+                                    <div class="efFieldContent">
+                                        <div class="row efFieldContentRow">
+                                            <label class="col-md-4 label" for="evaluationFormService">Rodzaj tłumaczenia:</label>
+                                            <div class="col-md-8 input">
+                                            <select name="service_type" id="evaluationFormService">
+                                                <option value="">konsekutywne</option>
+                                                <option value="">symultaniczne </option>
+                                                <option value="">oba rodzaje</option>
+                                            </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             <div class="row efFieldRow twoInputRow">
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
@@ -59,6 +54,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row efFieldRow twoInputRow">
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
@@ -73,7 +69,7 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="client_company">Tematyka tłumaczenia:</label>
+                                            <label class="col-md-4 label" for="client_company">Tematyka tłumaczenia</label>
                                             <div class="col-md-8 input">
                                                 <input id="client_company" class="" type="text" name="client_company" autocomplete="off">
                                             </div>
@@ -99,23 +95,22 @@
                                                 <label class="col-md-4 label" for="optional_comment">Od:</label>
                                                 <div class="col-md-8 input">
                                                 <select name="daylist[1][from]" id="evaluationFormService">
+                                                  <?php
+                                                  $time_start = get_field('earliest_hour',103);
+                                                  $time_end = get_field('latest_hour',103);
+                                                  $timePosition = '00:15';
 
-                                                    <?php
-                                                    $time_start = get_field('earliest_hour',103);
-                                                    $time_end = get_field('latest_hour',103);
-                                                    $timePosition = '00:15';
-
-                                                    while($timePosition!='00:00')
-                                                    {
-                                                      if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
-                                                          echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
-                                                      }
-                                                        $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
-
+                                                  while($timePosition!='00:00')
+                                                  {
+                                                    if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
+                                                        echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
                                                     }
+                                                      $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
+
+                                                  }
 
 
-                                                    ?>
+                                                  ?>
                                                 </select>
                                                 </div>
                                             </div>
@@ -128,22 +123,22 @@
                                                 <label class="col-md-4 label" for="optional_comment">Do:</label>
                                                 <div class="col-md-8 input">
                                                 <select name="daylist[1][to]" id="evaluationFormService">
-                                                    <?php
-                                                    $time_start = get_field('earliest_hour',103);
-                                                    $time_end = get_field('latest_hour',103);
-                                                    $timePosition = '00:15';
+                                                  <?php
+                                                  $time_start = get_field('earliest_hour',103);
+                                                  $time_end = get_field('latest_hour',103);
+                                                  $timePosition = '00:15';
 
-                                                    while($timePosition!='00:00')
-                                                    {
-                                                      if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
-                                                          echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
-                                                      }
-                                                        $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
-
+                                                  while($timePosition!='00:00')
+                                                  {
+                                                    if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
+                                                        echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
                                                     }
+                                                      $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
+
+                                                  }
 
 
-                                                    ?>
+                                                  ?>
                                                 </select>
                                                 </div>
                                             </div>
@@ -160,6 +155,46 @@
                                 </div>
                             </div>
 
+                            <div class="row efFieldRow twoInputRow">
+                                <div class="col-md-6 efField">
+                                    <div class="efFieldContent">
+                                        <div class="row efFieldContentRow">
+                                            <label class="col-md-4 label" for="client_company">Dla ilu osób zapewnić odbiorniki przekazu:</label>
+                                            <div class="col-md-8 input">
+                                                <input id="client_company" class="" type="text" name="client_company" autocomplete="off" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 efField">
+                                    <div class="efFieldContent">
+                                        <div class="row efFieldContentRow">
+                                            <label class="col-md-4 label" for="client_company">Nagłośnienie:</label>
+                                            <div class="col-md-8 input">
+                                              <select name="service_type">
+                                                  <option value="">TAK, należy zapewnić</option>
+                                                  <option value="">NIE, jest dostępne na sali</option>
+                                                  <option value="">Nie wiem</option>
+
+                                              </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row efFieldRow oneInputRow">
+                                <div class="col-md-12 efField">
+                                    <div class="efFieldContent">
+                                        <div class="row efFieldContentRow">
+                                            <label class="col-md-4 label" for="optional_comment">Ilość mikrofonów i ich rodzaj</label>
+                                            <div class="col-md-8 input">
+                                                <input id="optional_comment" class="" type="text" name="optional_comment" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row efFieldRow oneInputRow">
                                 <div class="col-md-12 efField">

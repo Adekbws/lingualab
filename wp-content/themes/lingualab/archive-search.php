@@ -95,22 +95,20 @@ get_header(); ?>
                           <?php echo do_shortcode('[contact-form-7 id="370" title="Kontakt na blogu"]'); ?>
                         </div>
                       </div>
-
                       <div class="row blogSearchForm">
                         <div class="col-md-12">
                           <div>
                                <h3>Search Products</h3>
                                <form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform" autocomplete="off">
-                               <div class="search-text">
-                                 <input type="text" name="s" />
-                               </div>
+                                 <div class="search-text">
+                                   <input type="text" name="s" />
+                                 </div>
                                <input type="hidden" name="post_type" value="blog_post" /> <!-- // hidden 'products' value -->
                                <input type="submit" alt="Search" value="Search" style="display:none;"/>
                              </form>
                           </div>
                         </div>
                       </div>
-
                       <div class="row blogTagsWrapper">
                         <div class="col-md-12">
                           <span class="boxTitle">Tagi</span>

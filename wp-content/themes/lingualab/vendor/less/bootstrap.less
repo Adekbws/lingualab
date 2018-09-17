@@ -317,23 +317,99 @@ body
                     padding-left:0;
                     padding-right:0;
                     transition: .5s;
+                    padding-bottom: 30px;
                     &:hover
                     {
                       color:#e2001a;
                     }
                   }
+
                   &.offersMenuPosition
+                  {
+                    a
+                    {
+
+                    }
+                    .subMenuCustomContent{
+                      >ul{
+
+                        >li{
+                          width: 25%;
+                          >a{
+
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &.branchesMenuPosition{
+                    a
+                    {
+
+                    }
+                    .subMenuCustomContent{
+                      >ul{
+
+                        >li{
+                          padding-right: 0;
+                          >a{
+
+                          }
+                          >ul{
+                            margin-left: -45px;
+                            -webkit-column-count: 4;
+                            -moz-column-count: 4;
+                            column-count: 4;
+                            column-rule: 1px solid #d7d7d7;
+                            /* column-gap: 70px; */
+                            -moz-column-fill: auto;
+                            column-fill: auto;
+                            >li{
+
+                              >a{
+                                padding-left: 45px;
+                              }
+                            }
+                            &>li:last-child{
+                              margin-bottom: 1px;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &.qualityMenuPosition
                   {
                     a
                     {
                       color:#e2001a;
                     }
+                    .subMenuCustomContent{
+                      >ul{
+
+                        >li{
+                          width: 25%;
+                          >a{
+
+                          }
+                          >ul{
+                            >li{
+                              >a{
+
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
+
                     &>.subMenuCustomWrapper
                     {
                       display:none;
                       position:absolute;
-                      top:80%;
                       left:0;
                       right:0;
                       padding-top:35px;
@@ -346,6 +422,7 @@ body
 
                         &>ul
                         {
+                          width: 80%;
                           float:left;
                           padding:0;
                           display:flex;
@@ -359,11 +436,12 @@ body
                               font-family: 'Montserrat', sans-serif;
                               font-size: 16px;
                               font-weight: 700;
-                              color:#e2001a;
+                              color:#004178;
                               text-transform:uppercase;
                               display:inline-block;
                               min-height: 16px;
-                              margin-bottom:13px;
+                              margin-bottom:18px;
+                              padding-left: 30px;
                               &:hover
                               {
                                 text-decoration: none;
@@ -386,8 +464,7 @@ body
                                   display:block;
                                   padding-left:15px;
                                   padding-right:15px;
-                                  padding-bottom:7px;
-                                  padding-top:7px;
+                                  line-height: 30px;
                                   transition: .3s;
                                   &:hover
                                   {
@@ -398,6 +475,10 @@ body
                               }
                             }
                           }
+                          &>li:first-child >a
+                          {
+                            padding-left: 0;
+                          }
                           &>li + li
                           {
                             ul
@@ -405,6 +486,18 @@ body
                                 border-left: 1px #d7d7d7 solid;
                                 padding-left:30px;
                             }
+                          }
+                          .bt_navArrow{
+                            position: absolute;
+                            margin-left: 15px;
+                            margin-top: 30px;
+                            width: 30px;
+                            height: 30px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-image: url(images/arrow-red.png);
+                            border-radius: 15px;
+                            border: 3px solid #e2001a;
                           }
                         }
                         .menuAskBox
@@ -456,10 +549,14 @@ body
                     {
                       display:block;
                     }
+                    .subMenuCustomWrapper:hover
+                    {
+                      display:block;
+                    }
                 }
                 &>li + li
                 {
-                    a:before
+                    >a:before
                     {
                       content: '';
                       font-family: 'Montserrat', sans-serif;
@@ -495,7 +592,7 @@ body
     {
       .subHeaderTop
       {
-        background-image:url(images/subheader.png);
+        background-image:url(images/subheader.jpg);
         background-repeat: no-repeat;
         background-size:cover;
         padding-top:40px;
@@ -723,6 +820,7 @@ body
               font-family: 'Montserrat', sans-serif;
               font-weight:700;
               font-size:32px;
+              font-size: 1.67vw;
               color:#004178;
               line-height: 37px;
             }
@@ -1854,6 +1952,16 @@ body
             }
           }
         }
+        button[type="submit"]{
+          height: 55px;
+          width: 300px;
+          background-color: #e2001a;
+          border: none;
+          border-radius: 28px;
+          color: white;
+          font-size: 24px;
+          display: none;
+        }
     }
   }
 
@@ -2235,9 +2343,18 @@ body
             font-size:18px;
             color:#004178;
             padding-left:10px;
+            padding-top: 14px;
             padding-bottom:13px;
             //border-bottom:1px #004179 solid;
             display:block;
+            cursor: cell;
+        }
+        .empty-ul{
+          border-bottom: 1px #004179 solid;
+        }
+        .groupName:first-child
+        {
+          padding-top: 0px;
         }
         .groupPostsList
         {
@@ -2399,6 +2516,7 @@ body
   {
     .blogPageContent
     {
+        padding-bottom: 80px;
 
       .leftBlog
       {
@@ -2428,6 +2546,11 @@ body
               display:inline-block;
               max-width: 100%;
               height: auto;
+            }
+            .aligncenter{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
             }
           }
         }
@@ -2513,13 +2636,14 @@ body
         padding-right:0;
         .boxTitle
         {
+          padding-top: 50px;
           display:block;
           font-family: 'Montserrat', sans-serif;
           font-weight:700;
           font-size:16px;
           color: #004177;
           text-transform: uppercase;
-          margin-bottom:2px;
+          margin-bottom:14px;
 
         }
         .blogCategoriesWrapper
@@ -2600,6 +2724,44 @@ body
             padding-bottom:12px;
           }
         }
+        .blogSearchForm{
+          h3{
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #004177;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+          }
+          .search-text{
+            width: 100%;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #000;
+            background: #f9f9f9;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            input{
+              width: 100%;
+              width: 100%;
+              height: 45px;
+              border: solid 1px;
+              border-radius: 4px;
+              border-color: #cccccc;
+              box-shadow: 0px 2px 4px #cccccc inset;
+              padding-left: 40px;
+              padding-right: 10px;
+              background-image: url(images/search.png);
+              background-repeat: no-repeat;
+              background-position: 10px center;
+            }
+          }
+        }
         .blogTagsWrapper
         {
           .blogTags
@@ -2636,6 +2798,23 @@ body
           }
         }
       }
+
+      .blogPagination{
+            padding-top: 80px;
+
+        .wp-pagenavi{
+          text-align: center;
+        }
+        .wp-pagenavi a, .wp-pagenavi span{
+          border: none;
+          color: black;
+        }
+        .wp-pagenavi span.current {
+            color:red;
+            font-weight: bold;
+        }
+      }
+
     }
   }
   .blogContactFootWrapper
@@ -2969,6 +3148,10 @@ body
   {
     margin-top: -1.5px;
   }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle {
+      font-size: 16px;
+  }
+
   .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader
   {
     width: 45%;
@@ -3016,6 +3199,34 @@ body
   .wrappPage .branchesPageWrapper .branches-container .sub-title div span {
       font-size: 36px;
   }
+  .wrappPage .rangeOfServices .servicesRow {
+    display: block;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper {
+      display: block ;
+      align-items: center;
+      padding-left: 0;
+      padding-right: 0;
+}
+  .readMoreButton
+  {
+    font-size:15px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton
+  {
+    font-size:12px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton:after
+  {
+    margin-top: -1.5px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle {
+      font-size: 18px;
+  }
 }
 @media (max-width:768px)
 {
@@ -3028,6 +3239,15 @@ body
   }
   .wrappPage .branchesPageWrapper .branches-container .sub-title div span {
       font-size: 32px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader {
+      padding-right: 20px;
   }
 }
 @media (max-width:670px)
@@ -3188,8 +3408,10 @@ body
 {
   .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle
   {
-    font-size:20px;
     line-height:27px;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader {
+      margin-right: 20px;
   }
   .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp .readMoreButton:after
   {

@@ -4,14 +4,13 @@ get_header(); ?>
 		while ( have_posts() )
     {
         the_post();
-				$postID = get_the_ID();
         get_template_part( 'content', 'subheader' );
 
 				$args = array(
 				 'posts_per_page'   => -1,
 				 'orderby'          => 'date',
 				 'order'            => 'DESC',
-				 'post_type'        => 'branze',
+				 'post_type'        => 'jezyki',
 				 'post_status'      => 'publish',
 			 );
 			 $the_query = new WP_Query( $args );
@@ -21,13 +20,13 @@ get_header(); ?>
                 <div class="container">
 									<div class="row">
 											<div class="col-md-3 defaultPageLeft">
-													<span class="groupName">Branże</span>
+													<span class="groupName">Języki</span>
 													<ul class="groupPostsList">
 														<?php  // The Loop
 														if ( $the_query->have_posts() ) {
 														  while ( $the_query->have_posts() ) {
 														    $the_query->the_post(); ?>
-														    <li <?php if(get_the_ID()==$postID) echo' class="currentGroupPost"'; ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+														    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 														<?php    }
 														  /* Restore original Post Data */
 														  wp_reset_postdata();

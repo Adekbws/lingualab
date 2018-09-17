@@ -86,7 +86,7 @@
 
 
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="option-fieldset">
                         <legend>Usługa</legend>
 
                         <div class="row efFieldRow oneInputRow">
@@ -96,12 +96,13 @@
                                         <label class="col-md-4 label" for="evaluationFormService">Wybierz usługę:</label>
                                         <div class="col-md-8 input">
                                         <select name="service_type" id="evaluationFormService">
+                                            <option value="1">–––</option>
                                             <option value="1">Tłumaczenia pisemne specjalistyczne</option>
                                             <option value="2">Tłumaczenie przysięgłe</option>
                                             <option value="3">Tłumaczenie pisemne specjalistyczne lub/i przysięgłe</option>
                                             <option value="4">Tłumaczenie pisemne specjalistyczne wraz ze składem (DTP)</option>
                                             <option value="5">Skład do druku (DTP)</option>
-                                            <option value="6">Korekta Native Speakera</option>
+                                            <option value="1">Korekta Native Speakera</option>
                                             <option value="7">Lokalizacja</option>
                                             <option value="8">Tłumaczenie ustne</option>
                                             <option value="9">Sprzęt do tłumaczeń symultanicznych</option>

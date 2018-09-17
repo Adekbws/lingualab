@@ -3,6 +3,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 
 
 	public $haTemplateMenu=null;
+	public $arrowClass = null;
 
 	public $haTemplateMenuParent=null;
 	/**
@@ -94,6 +95,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 					echo '<br><br><br><br><br>';
 				echo '<br><br><br><br><br>';*/
 				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><div class="container subMenuCustomContent">';
+				$output .= $this->haTemplateMenu;
 			}
 			else
 			{
@@ -123,8 +125,11 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			$n = "\n";
 		}
 		$indent  = str_repeat( $t, $depth );
+		if(!is_null($this->arrowClass) && (int)$depth==1){
+			$output .= '<a href="" class="bt_navArrow"></a>';
+		}
 		$output .= "$indent</ul>{$n}";
-		if(!is_null($this->haTemplateMenu))
+		if(!is_null($this->haTemplateMenu) && (int)$depth==0)
 		{
 			$output .= '<div class="menuAskBox"><span class="menuAskBoxTitle">Zapytaj o interesującą Cię realizację</span><a href="#" class="menuAskBoxButton">Bezpłatna wycena</a></div>';
 		}
@@ -148,10 +153,17 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 		$subMenuClass=null;
-		$avalilableClasses=array('template-menu-1','template-menu-2');
+
+		$avalilableClasses=array('template-menu-1','template-menu-2','addArrow');
+
+		if(in_array('addArrow', $item->classes))
+		{
+			$this->arrowClass = true;
+		}
 
 		foreach($avalilableClasses as $avalilableClass)
 		{
+
 			if(in_array($avalilableClass, $item->classes))
 			{
 				$subMenuClass=$avalilableClass;
@@ -278,6 +290,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		$item_output .= $args->link_before . $title . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
+
 		/**
 		 * Filters a menu item's starting output.
 		 *
@@ -315,5 +328,6 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			$n = "\n";
 		}
 		$output .= "</li>{$n}";
+
 	}
 } // Walker_Nav_Menu

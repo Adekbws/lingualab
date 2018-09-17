@@ -53,7 +53,8 @@ get_header(); ?>
     ?>
         <div class="row m0 servicesRow">
             <?php foreach ( $terms as $key => $term ) { ?>
-              <?php if ($key % 2 == 0 && $key!=0) echo '</div><div class="row m0 servicesRow">'; ?>
+              <?php if ($key % 2 == 0 && $key!=0) echo '</div><div class="row m0 servicesRow">';
+              ?>
 
 
                 <div class="col-md-6 serviceWrapper">
@@ -66,7 +67,7 @@ get_header(); ?>
                             <div class="serviceContent">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                             </div>
-                            <a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" class="readMoreButton">dowiedz się więcej</a>
+                            <a href="<?php echo get_permalink(get_field('link_uslugi',$term)->ID) ?>" class="readMoreButton">dowiedz się więcej</a>
                         </div>
                     </div>
                 </div>

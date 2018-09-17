@@ -1,14 +1,23 @@
 <?php
 get_header(); ?>
 <?php
-get_template_part( 'content', 'subheader' );
+get_template_part( 'content', 'subheader' ); ?>
 
+<div class="container-fluid defaultPageWrapper">
+		<div class="row">
+				<div class="container">
+					<div class="row">
+							<div class="col-md-3 defaultPageLeft">
+
+<?php
 $taxonomy = 'uslugi_category';
 $terms = get_terms($taxonomy); // Get all terms of a taxonomy
+$postID = get_the_ID();
+
 if ( $terms && !is_wp_error( $terms ) ) :
 ?>
 				<?php foreach ( $terms as $key => $term ) {
-												echo $term->name;
+
 
 												$args = array(
 												 'posts_per_page'   => -1,
@@ -18,27 +27,24 @@ if ( $terms && !is_wp_error( $terms ) ) :
 												 'post_status'      => 'publish',
 												 'tax_query' => array(
 														array(
-															'taxonomy' => 'people',
-															'field'    => 'slug',
-															'terms'    => 'bob',
+															'taxonomy' => $term->taxonomy,
+															'field'    => 'term_id',
+															'terms'    => $term->term_id,
 														),
 													),
 											 );
 											 $category=wp_get_post_terms( get_the_ID(), 'uslugi_category' );
+											 //var_dump($category[0]->name); var_dump($term->name); exit;
 											 $the_query = new WP_Query( $args );
 												?>
-												<div class="container-fluid defaultPageWrapper">
-														<div class="row">
-																<div class="container">
-																	<div class="row">
-																			<div class="col-md-3 defaultPageLeft">
-																					<span class="groupName"><?php echo $category[0]->name; ?></span>
-																					<ul class="groupPostsList">
+
+																					<span class="groupName"><?php echo $term->name; ?></span>
+																					<ul class="groupPostsList" <?php if ($category[0]->name!=$term->name) echo'style="display:none;"'?>>
 																						<?php  // The Loop
 																						if ( $the_query->have_posts() ) {
 																							while ( $the_query->have_posts() ) {
 																								$the_query->the_post(); ?>
-																								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+																								<li <?php if(get_the_ID()==$postID) echo' class="currentGroupPost"'; ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 																						<?php    }
 																							/* Restore original Post Data */
 																							wp_reset_postdata();
@@ -46,6 +52,10 @@ if ( $terms && !is_wp_error( $terms ) ) :
 																							// no posts found
 																						} ?>
 																					</ul>
+
+
+				<?php } ?>
+<?php endif; ?>
 																			</div>
 																			<div class="col-md-9 defaultPageRight leftColumnExist">
 																					<span class="contentTitle"><?php the_title(); ?></span>
@@ -54,20 +64,10 @@ if ( $terms && !is_wp_error( $terms ) ) :
 																					</div>
 																			</div>
 																	</div>
-																</div>
-														</div>
-												</div>
-
-
-
-
-
-
-
-				<?php } ?>
-<?php endif;
-
-        <?php
+															</div>
+													</div>
+											</div>
+      <?php
         $princing_form = get_field( "princing_form" );
         if($princing_form)
         {

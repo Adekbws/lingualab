@@ -697,7 +697,7 @@ msgstr ""
 #: class.bcn_breadcrumb_trail.php:105
 msgid ""
 "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name"
-"\">Search results for &#39;<a property=\"item\" typeof=\"WebPage\" title="
+"\">Wyszukane dla &#39;<a property=\"item\" typeof=\"WebPage\" title="
 "\"Go to the first page of search results for %title%.\" href=\"%link%\" "
 "class=\"%type%\">%htitle%</a>&#39;</span><meta property=\"position\" content="
 "\"%position%\"></span>"
@@ -706,7 +706,7 @@ msgstr ""
 #: class.bcn_breadcrumb_trail.php:107
 msgid ""
 "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name"
-"\">Search results for &#39;%htitle%&#39;</span><meta property=\"position\" "
+"\">Wyszukane dla &#39;%htitle%&#39;</span><meta property=\"position\" "
 "content=\"%position%\"></span>"
 msgstr ""
 

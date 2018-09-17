@@ -42,6 +42,13 @@ if (pll_current_language()=='pl')
   $(document).ready(function()
   {
 
+    $('.defaultPageLeft .groupName').click(function(){
+      $(this).next('.groupPostsList').toggle(200);
+
+    });
+
+
+
 	$(document).on('click', '.goToTop', function (event) {
     event.preventDefault();
 
@@ -92,8 +99,11 @@ responsive: [
 			{
         if(msg.status==1)
         {
-          $('#evaluationFormContent').html(msg.html);
-
+          if(msg.html){
+            $('#evaluationFormContent').empty();
+            $('#evaluationFormContent').html(msg.html);
+            $('#evaluationForm button[type="submit"]').css("display","inline-block");
+          }
           $(".dateInput").flatpickr({
              dateFormat: "d , m , Y",
                <?php

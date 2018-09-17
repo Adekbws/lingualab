@@ -85,7 +85,7 @@ get_header();
                                 }
                               ?>
                             </div>
-                            <span class="postItemTitle"><?php echo get-the_title();?></span>
+                            <span class="postItemTitle"><?php the_title();?></span>
                             <div class="postExcerpt">
                                 <?php  echo get_the_excerpt(); ?>
                             </div>
