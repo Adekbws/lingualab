@@ -2,11 +2,14 @@
     <div class="container size1">
         <div class="row">
             <div class="col-md-12">
-                <span class="titleSection">Bezpłatna wycena</span>
+                <span class="titleSection"><?php _e( 'Bezpłatna wycena', 'lingualab' );?></span>
             </div>
             <div class="col-md-12 contentTextBlock">
-            Jeśli nie lubisz wypełniać formularzy, wyślij wiadomość na <a href="#">info@lingualab.pl</a> lub zadzwoń - Warszawa: (+48) 22 379 79 41 lub Kraków: (+48) 12 350 59 20.<br>
-            Twój czas jest dla nas cenny! Odpowiadamy błyskawicznie.
+            <?php if($evaluationform_text=get_field('evaluationform_text',103))
+                {
+                  echo $evaluationform_text;
+                }
+            ?>
             </div>
         </div>
     </div>
@@ -118,10 +121,10 @@
                     <div id="evaluationFormContent">
                         &nbsp;
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div class="row evaluationFormSemdWrapper">
+                        <div class="col-md-12 rodoCheckWrapper">
                             <input type="checkbox" name="rodo" id="rodoCheck" required>
-                            <label for ="rodoCheck">Zgadzam się na przetwarzanie danych.</label>
+                            <label for ="rodoCheck" class="rodoCheckLabel">Zgadzam się na przetwarzanie danych.</label>
                         </div>
                         <div class="col-md-12">
                             <button type="submit">wyślij</button>

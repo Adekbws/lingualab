@@ -34,6 +34,11 @@ function ha_template_scripts() {
 
     wp_enqueue_style( 'ha_template-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'ha_template-flatpickr', get_template_directory_uri() . '/css/flatpickr.min.css' );
+	if ( is_front_page() || is_home() )
+	{
+	//	wp_enqueue_style( 'ha_template-sliderstyle', get_template_directory_uri() . '/css/sliderstyle.css' );
+	}
+
 	wp_enqueue_style( 'ha_template-style', get_stylesheet_uri() );
 
 }
@@ -45,6 +50,11 @@ function add_this_script_footer()
 {
 	wp_enqueue_script('ha_template-jquery', get_template_directory_uri() . '/js/jquery-2.2.4.min.js', array() );
 	wp_enqueue_script('ha_template-bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array() );
+	if ( is_front_page() || is_home() )
+	{
+//wp_enqueue_script('ha_template-sliderjs1', get_template_directory_uri() . '/js/jquery.ba-cond.min.js', array() );
+	//	wp_enqueue_script('ha_template-sliderjs2', get_template_directory_uri() . '/js/jquery.slitslider.js', array() );
+	}
 }
 
 add_action('wp_footer', 'add_this_script_footer');
@@ -198,6 +208,31 @@ register_post_type( 'blog_post',
 			            'rewrite' => array( 'slug' => 'case-studies', 'hierarchical' => true, 'with_front' => false )
 			        )
 			    );
+
+
+
+					//portfolioSlideRow
+
+					//slider
+
+					register_post_type( 'slider',
+					        array(
+					            'labels' => array(
+					                'name' => 'Slajder',
+					                'menu_name' => 'Slajder',
+					                'singular_name' => 'Slajd',
+					                'all_items' => 'Wszystkie slajdy'
+					            ),
+					            'public' => true,
+					            'publicly_queryable' => true,
+					            'show_ui' => true,
+					            'show_in_menu' => true,
+					            'show_in_nav_menus' => true,
+					            'supports' => array( 'title', 'custom-fields', ),
+					            'hierarchical' => false,
+					            'has_archive' => false,
+					        )
+					    );
 
 	flush_rewrite_rules( false );
 }

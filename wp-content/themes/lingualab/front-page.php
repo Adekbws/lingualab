@@ -1,44 +1,144 @@
 <?php
 get_header(); ?>
 
+<?php
+  $slides = new WP_Query(array(
+    'post_type' => 'slider',
+    'posts_per_page' => -1,
+    'orderby' => 'ID',
+	  'order'   => 'ASC',
+  ));
+  if ($slides->have_posts())
+  {
 
+    ?>
 <div class="container-fluid mainSliderWrapper">
     <div class="row m0">
         <div class="col-md-12 p0">
-            <div id="mainSlider" class="carousel slide mainSlider" data-ride="carousel">
+            <div id="mainSlider" class="carousel slide mainSlider carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="item active">
+                  <?php
+                  $slideCounter=0;
+                  $slide_text1='';
+                  $slide_text2='';
+                  $slide_img='';
+                  $slide_buttontext='';
+                  $slide_buttonurl='';
+
+                  while($slides->have_posts())
+                  {
+                    $slides->the_post();
+                    $slideCounter++;
+
+
+                    //get slide fields
+                    if($currentSlide_text1=get_field('slider_text1'))
+                    {
+                      $slide_text1=$currentSlide_text1;
+                    }
+                    else
+                    {
+                      $currentSlide_text1=$slide_text1;
+                    }
+                    //
+                    if($currentSlide_text2=get_field('slider_text2'))
+                    {
+                      $slide_text2=$currentSlide_text2;
+                    }
+                    else
+                    {
+                      $currentSlide_text2=$slide_text2;
+                    }
+                    //
+                    if($currentSlide_img=get_field('slider_img'))
+                    {
+                      $slide_img=$currentSlide_img;
+                    }
+                    else
+                    {
+                      $currentSlide_img=$slide_img;
+                    }
+                    //
+                    if($currentSlide_buttontext=get_field('slider_buttontext'))
+                    {
+                      $slide_buttontext=$currentSlide_buttontext;
+                    }
+                    else
+                    {
+                      $currentSlide_buttontext=$slide_buttontext;
+                    }
+                    //
+                    if($currentSlide_buttonurl=get_field('slider_buttonurl'))
+                    {
+                      $slide_buttonurl=$currentSlide_buttonurl;
+                    }
+                    else
+                    {
+                      $currentSlide_buttonurl=$slide_buttonurl;
+                    }
+
+                    if($slideCounter==1)
+                      echo '<div class="item active">';
+                    else
+                      echo '<div class="item">';
+
+
+                  ?>
                          <div class="col-md-5 leftItem">
                             <div class="leftItemContentWrapper">
                                 <div class="leftItemContent">
                                      <div class="leftItemText">
-                                        Twoje słowo<br>ma znaczenie
+                                        <?php echo do_shortcode($currentSlide_text1); ?>
                                     </div>
                                     <div class="leftItemText2">
-                                        Skorzystaj z naszego formularza<br>i zamów bezpłatną wycenę tłumaczenia
+                                        <?php echo do_shortcode($currentSlide_text2); ?>
                                     </div>
-                                    <a href="#" class="leftItemLink">wyślij zapytanie</a>
+
+                                    <?php
+                                      if($currentSlide_buttonurl && $currentSlide_buttontext)
+                                      {
+                                        echo '<a href="' .$currentSlide_buttonurl. '" class="leftItemLink">' .$currentSlide_buttontext. '</a>';
+                                      }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-7 rightItem">
-                          <img src="<?php echo get_template_directory_uri(); ?>/images/mainslider.jpg" alt="" class="fullColumn">
+                          <img src="<?php echo $currentSlide_img ?>" alt="" class="fullColumn">
                          </div>
-                    </div>
+
+                    <?php
+                    echo '</div>';
+                  }
+                  ?>
                 </div>
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#mainSlider" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#mainSlider" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <?php
+                  if($slideCounter>=1)
+                  {
+                    echo '<ol class="carousel-indicators">';
+                    $slideIndicator=0;
+                    for($slideIndicator;$slideIndicator<$slideCounter;$slideIndicator++)
+                    {
+                      echo '<li data-target="#mainSlider" data-slide-to="'.$slideIndicator.'"';
+                      if($slideIndicator==0)
+                      {
+                        echo ' class="active"';
+                      }
+                      echo '></li>';
+                    }
+                    echo '</ol>';
+                  }
+                ?>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+wp_reset_postdata();
+}
+ ?>
 
 <div class="container-fluid rangeOfServices">
     <div class="row m0">

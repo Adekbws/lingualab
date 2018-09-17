@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lingualab\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 08:03+0000\n"
-"PO-Revision-Date: 2018-09-17 08:03+0000\n"
+"POT-Creation-Date: 2018-09-17 08:07+0000\n"
+"PO-Revision-Date: 2018-09-17 08:07+0000\n"
 "Last-Translator: admin <krystian.w@seoheroes.pl>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -32,6 +32,10 @@ msgstr "Informations"
 #: footer.php:9
 msgid "Płatności"
 msgstr "Payments"
+
+#: footer.php:23
+msgid "Wszelkie prawa zastrzeżone"
+msgstr "All rights reserved"
 
 #: footer.php:140
 msgid "Drugi dzień:"

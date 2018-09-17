@@ -7,6 +7,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
             <?php wp_head(); ?>
+            <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/modernizr.custom.79639.js"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
     <body>

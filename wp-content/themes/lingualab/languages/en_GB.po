@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lingualab\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 08:07+0000\n"
-"PO-Revision-Date: 2018-09-17 08:07+0000\n"
+"POT-Creation-Date: 2018-09-17 08:55+0000\n"
+"PO-Revision-Date: 2018-09-17 08:56+0000\n"
 "Last-Translator: admin <krystian.w@seoheroes.pl>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -98,6 +98,34 @@ msgstr ""
 msgid "Przelewy24"
 msgstr ""
 
+#: przelewy24-page.php:9
+msgid "Przelewy24.pl"
+msgstr ""
+
+#: przelewy24-page.php:28 przelewy24-page.php:33
+msgid "Tytuł płatności:"
+msgstr ""
+
+#: przelewy24-page.php:44 przelewy24-page.php:49
+msgid "Adres e-mail:"
+msgstr ""
+
+#: przelewy24-page.php:60
+msgid "Kwota brutto:"
+msgstr ""
+
+#: przelewy24-page.php:65
+msgid "Kwota brutto (zł):"
+msgstr ""
+
+#: przelewy24-page.php:78
+msgid "Zgadzam się na przetwarzanie danych"
+msgstr ""
+
+#: przelewy24-page.php:81
+msgid "Wyślij"
+msgstr ""
+
 #: single-blog_post.php:44
 msgid "Zobacz również:"
 msgstr ""
@@ -147,6 +175,18 @@ msgstr ""
 #: widgets/contact-informations.php:8 widgets/contact-informations.php:9
 #: widgets/contact-informations.php:135 widgets/contact-informations.php:137
 msgid "Informacje w bloku kontaktowym"
+msgstr ""
+
+#: widgets/menu-walker.php:133 widgets/menu-walker.php:138
+msgid "Zapytaj o interesującą Cię realizację."
+msgstr ""
+
+#: widgets/menu-walker.php:133
+msgid "Bezpłatna wycena"
+msgstr ""
+
+#: widgets/menu-walker.php:138
+msgid "Referencje"
 msgstr ""
 
 #. Base ID
