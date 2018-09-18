@@ -171,6 +171,16 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
 
 
 
+//mainslider
+  $('.mainSlider').slick({
+    slidesToShow: 1,
+slidesToScroll: 1,
+autoplay: true,
+prevArrow: false,
+nextArrow: false,
+  });
+
+
 
 
 });

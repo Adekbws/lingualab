@@ -15,8 +15,7 @@ get_header(); ?>
 <div class="container-fluid mainSliderWrapper">
     <div class="row m0">
         <div class="col-md-12 p0">
-            <div id="mainSlider" class="carousel slide mainSlider carousel-fade" data-ride="carousel">
-                <div class="carousel-inner">
+            <div id="mainSlider" class="mainSlider">
                   <?php
                   $slideCounter=0;
                   $slide_text1='';
@@ -77,12 +76,7 @@ get_header(); ?>
                       $currentSlide_buttonurl=$slide_buttonurl;
                     }
 
-                    if($slideCounter==1)
-                      echo '<div class="item active">';
-                    else
-                      echo '<div class="item">';
-
-
+                    echo '<div class="item">';
                   ?>
                          <div class="col-md-5 leftItem">
                             <div class="leftItemContentWrapper">
@@ -114,7 +108,7 @@ get_header(); ?>
                   ?>
                 </div>
                 <?php
-                  if($slideCounter>=1)
+                /*  if($slideCounter>=1)
                   {
                     echo '<ol class="carousel-indicators">';
                     $slideIndicator=0;
@@ -128,9 +122,9 @@ get_header(); ?>
                       echo '></li>';
                     }
                     echo '</ol>';
-                  }
+                  }*/
                 ?>
-            </div>
+
         </div>
     </div>
 </div>
