@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="container formcontainer">
-        <div class="row">
+        <div class="row submit-row">
             <div class="col-md-12">
                 <form method="post" id="evaluationForm">
                     <fieldset>

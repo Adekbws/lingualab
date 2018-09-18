@@ -44,5 +44,32 @@ get_header(); ?>
   {
       get_template_part( 'content', 'evaluationform' );
   }
+  $reference_form = get_field( "reference_form" );
+  if($reference_form)
+  {
+      get_template_part( 'content', 'referenceform' );
+  }
+  $show_contactblog_box = get_field( "show_contactblog_box" );
+  if($show_contactblog_box)
+  {
+    get_template_part( 'content', 'contact_blog' );
+  }
+  $range_of_services = get_field( "range_of_services" );
+  if($range_of_services)
+  {
+      get_template_part( 'content', 'range_of_services' );
+  }
+  $branches_block = get_field( "branches_block" );
+  if($branches_block)
+  {
+      get_template_part( 'content', 'branches' );
+  }
+  $quality_lang_row = get_field( "quality_lang_row" );
+  if($quality_lang_row)
+  {
+      get_template_part( 'content', 'quality_lang_row' );
+  }
+
+
 
 get_footer();

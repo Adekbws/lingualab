@@ -288,6 +288,7 @@ body
       .pageMenu
         {
           position:relative;
+          
           .pageMenuWrapper
           {
             padding-left:50px;
@@ -311,6 +312,10 @@ body
               padding-right:0;
               .siteMenu
               {
+                .addArrow .subMenuCustomWrapper > .subMenuCustomContent > ul {
+                    padding-bottom: 60px;
+                }
+
                 &>li
                 {
                   position:static;
@@ -509,24 +514,31 @@ body
                                 padding-left:30px;
                             }
                           }
-                          .bt_navArrow{
-                            display: block;
-                            position: relative;
-                            margin-left: 15px;
-                            margin-top: 30px;
-                            width: 30px;
-                            height: 30px;
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-image: url(images/arrow-red.png);
-                            border-radius: 15px;
-                            border: 3px solid #e2001a;
+                          .arrowBox{
+                              margin-left: 15px;
+                              margin-bottom: 30px;
+                              position: absolute;
+                              bottom: 0;
+                              .bt_navArrow{
+                                display: block;
+                                position: relative;
+                                margin-left: 15px;
+                                margin-top: 30px;
+                                width: 30px;
+                                height: 30px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-image: url(images/arrow-red.png);
+                                border-radius: 15px;
+                                border: 3px solid #e2001a;
+                              }
                           }
                         }
                         .menuAskBox
                         {
                           float:right;
                           width:300px;
+                          max-width: 20%;
                           border:1px #d8d8d8 solid;
                           background:#f9f9f9;
                           padding-left:40px;
@@ -568,6 +580,7 @@ body
                         }
                       }
                     }
+
                     &:hover>.subMenuCustomWrapper
                     {
                       display:block;
@@ -613,6 +626,15 @@ body
               }
             }
           }
+        }
+
+        .fixedMenu{
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 9;
+
         }
     }
 
@@ -838,11 +860,11 @@ body
             .serviceImage
             {
               width:100%;
-              height:91px;
+              height:90px;
               display:block;
               margin:auto;
               background-repeat: no-repeat;
-              background-position: center -91px;
+              background-position: center -90px;
               margin-bottom:23px;
             }
             .serviceTitle
@@ -1998,6 +2020,7 @@ body
 
   .evaluationFormArea
   {
+    border-top: solid 1px #d7d7d7;
     padding-bottom:75px;
     .titleSection
     {
@@ -2010,6 +2033,9 @@ body
       text-align:center;
       margin-bottom:20px;
       text-align:center;
+      a{
+        color:#ea4457;
+      }
     }
     #evaluationForm
     {
@@ -2028,12 +2054,25 @@ body
       {
         text-align:center;
         button[type="submit"] {
-            display: inline-block;
+
         }
       }
     }
   }
-
+  .evaluationFormArea .formcontainer form{
+    .row .col-md-12{
+      text-align: center;
+      .rodoCheckLabel {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 300;
+          font-size: 13px;
+          line-height: 15px;
+      }
+    }
+    button[type="submit"]{
+      display: inline-block;
+    }
+  }
 
   .pageTitle
   {
@@ -2559,6 +2598,82 @@ body
       }
     }
   }
+  //rangeOfServices wiersz
+  .rangeOfServicesPageWrapper{
+    border-top: solid 1px #d7d7d7;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .branches-container{
+      padding: 0;
+      .sub-title div{
+        text-align: center;
+        padding-bottom: 33px;
+        span{
+          font-size: 48px;
+          color: #004178;
+          font-weight: bold;
+        }
+      }
+      .col-md-3{
+        padding: 0;
+      }
+      .branch{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #004177;
+        font-size: 28px;
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+        &:hover{
+          background-color: #ffd334;
+        }
+        &:hover div div .ico-title-box .branch-ico{
+          background-position: bottom center;
+        }
+        >div {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          >div{
+          position: relative;
+          width: 100%;
+          text-align: center;
+            .ico-title-box{
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 50%;
+              /* width: 100%; */
+              z-index: 9999;
+              .branch-ico{
+                background-repeat: no-repeat;
+                background-position: top center;
+              }
+              >div{
+                position: relative;
+                height: 100%;
+                width: 100%;
+                padding-top: 20px;
+                  .branch-title{
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   ///END WrappPAGE
   .blogPageWrapper
   {
@@ -2692,10 +2807,12 @@ body
           color: #004177;
           text-transform: uppercase;
           margin-bottom:14px;
-
         }
         .blogCategoriesWrapper
         {
+          .boxTitle{
+            padding-top: 0;
+          }
           .blogCategories
           {
             padding:0;
@@ -3134,6 +3251,18 @@ body
     right: 54px;
   }
 }
+@media (max-width:1600px)
+{
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > .subMenuCustomContent .menuAskBox {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+  }
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > .subMenuCustomContent .menuAskBox .menuAskBoxButton {
+      font-size: 14px;
+  }
+}
 @media (max-width:1499px)
 {
   .wrappPage .smallBannersWrapper .smallBanners
@@ -3504,6 +3633,10 @@ body
 }
 
 
+.bt-close-menu{
+  display: none;
+}
+
 
 //rresponsive menu
 @media (max-width: 1300px) {
@@ -3561,32 +3694,121 @@ body
       margin-right: 25px;
       margin-left: 25px;
   }
-  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li:hover > .subMenuCustomWrapper {
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper {
       display: none;
   }
 
-  .mobileMenu{
-    display: flex;
-    position: fixed;
-    /* position: relative; */
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    padding: 0;
-    background-color: rgba(0,0,0,0.9);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    .sub-menu{
-      width: 100%;
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper {
+    z-index: 99999;
+  }
+
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li.menu-item > .mobileMenu{
       display: flex;
+      position: fixed;
+      /* position: relative; */
+      width: 100vw;
+      min-height: 100vh;
+      top: 0;
+      left: 0;
+      padding: 0;
+      background-color: rgba(0,0,0,0.9);
+      z-index: 9999;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      li{
-        padding: 0;
+      .bt-close-menu{
+
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        font-weight: bold;
+        color: #004178;
+        border: solid 1px #d8d8d8;
+
       }
-    }
+      .subMenuCustomContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .menuAskBox{
+          padding: 0;
+          margin: 0;
+          .menuAskBoxTitle{
+            display: none;
+          }
+          .menuAskBoxButton{
+            margin: 0;
+          }
+        }
+        >ul{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          >.menu-item{
+            position: relative;
+            padding: 0;
+            width: auto;
+            width: 300px;
+            border: 1px #d8d8d8 solid;
+            padding-bottom: 8px;
+            padding-top: 9px;
+            background-color: white;
+            padding-right: 30px;
+            .bt-expand{
+              font-size: 30px;
+              position: absolute;
+              top: 0;
+              right: 0px;
+              width: 41px;
+              height: 100%;
+              font-weight: bold;
+              color: #004178;
+              cursor: pointer;
+            }
+            >a{
+              margin: 0;
+              padding: 0;
+            }
+            >ul{
+              display: none;
+              padding: 0;
+              margin: 0;
+              -webkit-column-count: unset;
+              -moz-column-count: unset;
+              column-count: unset;
+              column-rule: unset;
+              column-gap: unset;
+              -moz-column-fill: unset;
+              column-fill: unset;
+              li{
+                position: relative;
+                padding: 0;
+                margin:0;
+                padding-left: 5px;
+                text-align: left;
+                &:before{
+                  content: "-";
+                  position: absolute;
+                  left: 0;
+                  height: 30px;
+                  color: #004178;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+                a{
+                  margin: 0;
+                  padding:0;
+                }
+              }
+            }
+          }
+        }
+      }
   }
 }

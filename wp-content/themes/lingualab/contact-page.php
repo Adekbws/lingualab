@@ -4,7 +4,7 @@ get_header(); ?>
 <?php
     while ( have_posts() )
     {
-        the_post(); 
+        the_post();
         get_template_part( 'content', 'subheader' );
         //contact content
         ?>
@@ -14,7 +14,7 @@ get_header(); ?>
                 <div class="container contactPageContent">
                     <div class="row pageTitleWrapper">
                         <div class="col-md-12">
-                            <?php 
+                            <?php
                             $contact_title = get_field( "contact_title" );
                             if($contact_title)
                             {
@@ -23,7 +23,7 @@ get_header(); ?>
                             ?>
                         </div>
                     </div>
-                    <?php 
+                    <?php
 
                     $section1_show = get_field( "section1_show" );
                     $section2_show = get_field( "section2_show" );
@@ -40,7 +40,7 @@ get_header(); ?>
                         ?>
                         <div class="col-md-4 contactSectionWrapper">
                             <div class="contactSection">
-                                <?php 
+                                <?php
                                     $section_title = get_field( 'section' .$j. '_title' );
                                     if( $section_title)
                                     {
@@ -77,13 +77,13 @@ get_header(); ?>
                                </ul>
                             </div>
                         </div>
-                    
-                    <?php 
+
+                    <?php
                             }
                         }
                     echo '</div>';
                     }
-          
+
                     $contact_alert = get_field( "contact_alert" );
                     if($contact_alert)
                     {
@@ -95,9 +95,9 @@ get_header(); ?>
                                 </div>
                         </div>
                     </div>
-                    <?php 
+                    <?php
                     }
-                    
+
                     $point1_show = get_field( "point1_show" );
                     $point2_show = get_field( "point2_show" );
 
@@ -114,7 +114,7 @@ get_header(); ?>
 
                         <div class="col-md-6 contactPoint">
                             <div class="contactPointContent">
-                                <?php 
+                                <?php
                                     $point_title = get_field( 'point' .$j. '_title' );
                                     if($point_title)
                                     {
@@ -128,7 +128,7 @@ get_header(); ?>
                                     }
 
                                     echo '<ul class="contactPointData">';
-                                    
+
                                     $point_phone = get_field( 'point' .$j. '_phone' );
                                     if($point_phone)
                                     {
@@ -158,7 +158,7 @@ get_header(); ?>
                             </div>
                         </div>
 
-                        <?php 
+                        <?php
                             }
                         }
                         ?>
@@ -192,11 +192,11 @@ get_header(); ?>
                         ?>
                     </div>
 
-                    <?php 
+                    <?php
                     }
-                    
+
                     $company_data = get_field( "company_data" );
-                    
+
                     if($company_data)
                     {
                     ?>
@@ -206,7 +206,7 @@ get_header(); ?>
                         </div>
                     </div>
 
-                    <?php 
+                    <?php
                     }
                     ?>
                 </div>
@@ -222,5 +222,32 @@ get_header(); ?>
         {
             get_template_part( 'content', 'evaluationform' );
         }
+				$reference_form = get_field( "reference_form" );
+				if($reference_form)
+				{
+						get_template_part( 'content', 'referenceform' );
+				}
+        $show_contactblog_box = get_field( "show_contactblog_box" );
+        if($show_contactblog_box)
+        {
+          get_template_part( 'content', 'contact_blog' );
+        }
+				$range_of_services = get_field( "range_of_services" );
+        if($range_of_services)
+        {
+            get_template_part( 'content', 'range_of_services' );
+        }
+        $branches_block = get_field( "branches_block" );
+        if($branches_block)
+        {
+            get_template_part( 'content', 'branches' );
+        }
+				$quality_lang_row = get_field( "quality_lang_row" );
+        if($quality_lang_row)
+        {
+            get_template_part( 'content', 'quality_lang_row' );
+        }
+
+
     }
 get_footer();

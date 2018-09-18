@@ -96,15 +96,14 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 			/*	var_dump($childrenPositions);
 					echo '<br><br><br><br><br>';
 				echo '<br><br><br><br><br>';*/
-				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><div class="container subMenuCustomContent">';
+				$output .='<div class="subMenuCustomWrapper '. $this->haTemplateMenu.'"><button class="bt-close-menu">X</button><div class="container subMenuCustomContent">';
 
 			}
 			else
 			{
-				$output .='<div class="subMenuCustomWrapper"><div class="container subMenuCustomContent">';
+				$output .='<div class="subMenuCustomWrapper"><button class="bt-close-menu">X</button></button><div class="container subMenuCustomContent">';
 			}
 		}
-
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
 	}
 	/**
@@ -130,12 +129,12 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "$indent</ul>{$n}";
 		if(!is_null($this->haTemplateMenu) && !is_null($this->valuationClass) && (int)$depth==0)
 		{
-			$output .= '<div class="menuAskBox box-valuation"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="#" class="menuAskBoxButton">'.__("Bezpłatna wycena","lingualab").'</a></div>';
+			$output .= '<div class="menuAskBox box-valuation"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="'.get_permalink(103).'" class="menuAskBoxButton">'.__("Bezpłatna wycena","lingualab").'</a></div>';
 			//$this->valuationClass=null;
 		}
 		if(!is_null($this->haTemplateMenu) && !is_null($this->referenceClass) && (int)$depth==0)
 		{
-			$output .= '<div class="menuAskBox box-reference"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="#" class="menuAskBoxButton">'.__("Referencje","lingualab").'</a></div>';
+			$output .= '<div class="menuAskBox box-reference"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="'.get_permalink(103).'" class="menuAskBoxButton">'.__("Referencje","lingualab").'</a></div>';
 			//$this->referenceClass=null;
 		}
 		if((int)$depth==0)
@@ -352,7 +351,8 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "</li>{$n}";
 		if(!is_null($this->arrowClass) && (int)$depth==2){
 
-			$output .= '<a href="'.$item->url.'" class="bt_navArrow"></a>';
+			$output .= '<div class="arrowBox"><a href="'.$item->url.'" class="bt_navArrow"></a></div>';
+
 		}
 
 	}
