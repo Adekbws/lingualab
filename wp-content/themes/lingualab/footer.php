@@ -172,13 +172,18 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
 
 
 //mainslider
+
+
   $('.mainSlider').slick({
     slidesToShow: 1,
-slidesToScroll: 1,
-autoplay: true,
-prevArrow: false,
-nextArrow: false,
-  });
+    slidesToScroll: 1,
+    autoplay: true,
+    infinite: true,
+    prevArrow: false,
+    nextArrow: false,
+    dots: true,
+});
+
 
 /// Menu   mobilna
   $('.siteMenu > li >a').click(function(){

@@ -7,133 +7,66 @@ get_header(); ?>
         the_post();
         get_template_part( 'content', 'subheader' );
         //contact content
+
+        $args = array(
+         'posts_per_page'   => -1,
+         'orderby'          => 'date',
+         'order'            => 'DESC',
+         'post_type'        => 'case_studies',
+         'post_status'      => 'publish',
+       );
+       $caseStudies = new WP_Query( $args );
+
+       if ($caseStudies->have_posts() )
+       {
+         ?>
+         <div class="container-fluid caseStudiesPageWrapper">
+               <div class="container caseStudiesList">
+         <?php
+         while($caseStudies->have_posts())
+         {
+           $caseStudies->the_post();
         ?>
-
-        <div class="container-fluid caseStudiesPageWrapper">
-              <div class="container caseStudiesList">
                   <div class="row caseStudy">
                       <div class="col-md-6 caseStudyImg">
-                        <img src="<?php echo  get_template_directory_uri();?>/images/casestudy.jpg">
+                        <?php if(has_post_thumbnail())
+                        {
+                           echo '<img src="' . get_the_post_thumbnail_url() . '" alt="'.get_the_title().'">';
+                        }
+                        else
+                        {
+                          echo '<img src="' . get_template_directory_uri() . '/images/blog-photo.jpg" alt="'.get_the_title().'">';
+                        }
+                        ?>
                       </div>
                       <div class="col-md-6 caseStudyContentWrapper">
-                          <span class="caseStudyTitle">Opis projektu dla agencji tłumaczeniowej z Belgii</span>
+                          <span class="caseStudyTitle"><?php echo get_the_title();?></span>
                           <div class="caseStudyContent">
-                              <div class="leadStudy">
-                                Lokalizacja produktu z języka polskiego na angielski, niemiecki i rosyjski. Prace obejmowały przygotowanie planu lokalizacji, dobór narżedzi lokalizacyjnych dopasowanych
-                                do technologii w jakiej aplikacja została napisana. Stworzenie planu oraz środowiska testowego (po tłumaczeniu testerzy weryfikowali dopasowanie tekstu do okien, poprawność wyświetlanego testu)
-                              </div>
-                              <span class="featuresTitle">Klient i wielkość projektu:</span>
-                              <ul class="features">
-                                <li>polski producent oprogramowanie ERP z siedzibą w Chorzowie,</li>
-                                <li>ponad 500 000 słów źródłowych (interfejs użytkownika, pomoc ekranowa, tłumaczenie formatek raportów generowanych z programu, podręcznik użytkownika),</li>
-                                <li>języki docelowe: angielski, niemiecki, rosyjski</li>
-                              </ul>
-                              <span class="featuresTitle">Zespół projektu:</span>
-                              <ul class="features">
-                                <li>kierownik projektu</li>
-                                <li>inżynier lokalizacji</li>
-                                <li>zespół pięciu tłumaczy na język</li>
-                                <li>korektor plus weryfikator jakości tłumaczenia na każdy język</li>
-                                <li>zespół trzech testerów</li>
-                              </ul>
+                              <?php echo do_shortcode(get_the_content()); ?>
                           </div>
                       </div>
                   </div>
-
-                  <div class="row caseStudy">
-                      <div class="col-md-6 caseStudyImg">
-                        <img src="<?php echo  get_template_directory_uri();?>/images/casestudy.jpg">
-                      </div>
-                      <div class="col-md-6 caseStudyContentWrapper">
-                          <span class="caseStudyTitle">Opis projektu dla agencji tłumaczeniowej z Belgii</span>
-                          <div class="caseStudyContent">
-                              <div class="leadStudy">
-                                Lokalizacja produktu z języka polskiego na angielski, niemiecki i rosyjski. Prace obejmowały przygotowanie planu lokalizacji, dobór narżedzi lokalizacyjnych dopasowanych
-                                do technologii w jakiej aplikacja została napisana. Stworzenie planu oraz środowiska testowego (po tłumaczeniu testerzy weryfikowali dopasowanie tekstu do okien, poprawność wyświetlanego testu)
-                              </div>
-                              <span class="featuresTitle">Klient i wielkość projektu:</span>
-                              <ul class="features">
-                                <li>polski producent oprogramowanie ERP z siedzibą w Chorzowie,</li>
-                                <li>ponad 500 000 słów źródłowych (interfejs użytkownika, pomoc ekranowa, tłumaczenie formatek raportów generowanych z programu, podręcznik użytkownika),</li>
-                                <li>języki docelowe: angielski, niemiecki, rosyjski</li>
-                              </ul>
-                              <span class="featuresTitle">Zespół projektu:</span>
-                              <ul class="features">
-                                <li>kierownik projektu</li>
-                                <li>inżynier lokalizacji</li>
-                                <li>zespół pięciu tłumaczy na język</li>
-                                <li>korektor plus weryfikator jakości tłumaczenia na każdy język</li>
-                                <li>zespół trzech testerów</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-
-
-
-                  <div class="row caseStudy">
-                      <div class="col-md-6 caseStudyImg">
-                        <img src="<?php echo  get_template_directory_uri();?>/images/casestudy.jpg">
-                      </div>
-                      <div class="col-md-6 caseStudyContentWrapper">
-                          <span class="caseStudyTitle">Opis projektu dla agencji tłumaczeniowej z Belgii</span>
-                          <div class="caseStudyContent">
-                              <div class="leadStudy">
-                                Lokalizacja produktu z języka polskiego na angielski, niemiecki i rosyjski. Prace obejmowały przygotowanie planu lokalizacji, dobór narżedzi lokalizacyjnych dopasowanych
-                                do technologii w jakiej aplikacja została napisana. Stworzenie planu oraz środowiska testowego (po tłumaczeniu testerzy weryfikowali dopasowanie tekstu do okien, poprawność wyświetlanego testu)
-                              </div>
-                              <span class="featuresTitle">Klient i wielkość projektu:</span>
-                              <ul class="features">
-                                <li>polski producent oprogramowanie ERP z siedzibą w Chorzowie,</li>
-                                <li>ponad 500 000 słów źródłowych (interfejs użytkownika, pomoc ekranowa, tłumaczenie formatek raportów generowanych z programu, podręcznik użytkownika),</li>
-                                <li>języki docelowe: angielski, niemiecki, rosyjski</li>
-                              </ul>
-                              <span class="featuresTitle">Zespół projektu:</span>
-                              <ul class="features">
-                                <li>kierownik projektu</li>
-                                <li>inżynier lokalizacji</li>
-                                <li>zespół pięciu tłumaczy na język</li>
-                                <li>korektor plus weryfikator jakości tłumaczenia na każdy język</li>
-                                <li>zespół trzech testerów</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-
-
-                  <div class="row caseStudy">
-                      <div class="col-md-6 caseStudyImg">
-                        <img src="<?php echo  get_template_directory_uri();?>/images/casestudy.jpg">
-                      </div>
-                      <div class="col-md-6 caseStudyContentWrapper">
-                          <span class="caseStudyTitle">Opis projektu dla agencji tłumaczeniowej z Belgii</span>
-                          <div class="caseStudyContent">
-                              <div class="leadStudy">
-                                Lokalizacja produktu z języka polskiego na angielski, niemiecki i rosyjski. Prace obejmowały przygotowanie planu lokalizacji, dobór narżedzi lokalizacyjnych dopasowanych
-                                do technologii w jakiej aplikacja została napisana. Stworzenie planu oraz środowiska testowego (po tłumaczeniu testerzy weryfikowali dopasowanie tekstu do okien, poprawność wyświetlanego testu)
-                              </div>
-                              <span class="featuresTitle">Klient i wielkość projektu:</span>
-                              <ul class="features">
-                                <li>polski producent oprogramowanie ERP z siedzibą w Chorzowie,</li>
-                                <li>ponad 500 000 słów źródłowych (interfejs użytkownika, pomoc ekranowa, tłumaczenie formatek raportów generowanych z programu, podręcznik użytkownika),</li>
-                                <li>języki docelowe: angielski, niemiecki, rosyjski</li>
-                              </ul>
-                              <span class="featuresTitle">Zespół projektu:</span>
-                              <ul class="features">
-                                <li>kierownik projektu</li>
-                                <li>inżynier lokalizacji</li>
-                                <li>zespół pięciu tłumaczy na język</li>
-                                <li>korektor plus weryfikator jakości tłumaczenia na każdy język</li>
-                                <li>zespół trzech testerów</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-
+        <?php
+        }
+        ?>
               </div>
         </div>
         <?php
-
+      }
+      else
+      {
+        ?>
+        <div class="container-fluid caseStudiesPageWrapper">
+              <div class="container caseStudiesList">
+                <div class="row caseStudy">
+                    <div class="col-md-6 caseStudyContentWrapper">
+                      <p><?php _e('Nie znaleziono wpisów','lingualab');?></p>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <?php
+      }
         $princing_form = get_field( "princing_form" );
         if($princing_form)
         {

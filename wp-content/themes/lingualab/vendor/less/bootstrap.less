@@ -60,6 +60,8 @@ Author: Heron Art
 @import "responsive-utilities.less";
 
 @import "slick.less";
+@import "slick-theme.less";
+
 
 @import '//fonts.googleapis.com/css?family=Montserrat:300,400,500,700&subset=latin-ext';
 
@@ -730,21 +732,57 @@ body
       padding-right:0;
       .mainSlider
       {
+        height:calc(100vh - 315px);
         .carousel-control
         {
           width:30px;
+        }
+        .slick-dots
+        {
+          bottom:25px;
+          padding-left:90px;
+          text-align:left;
+          li
+          {
+            padding:0;
+            button
+            {
+              background:transparent;
+              width:13px;
+              height:13px;
+              border:1px #e2001a solid;
+              border-radius:50%;
+            }
+            &.slick-active
+            {
+              button
+              {
+                background:#e2001a;
+              }
+            }
+          }
+        }
+        .slick-list
+        {
+          height:100%;
+          .slick-track
+          {
+            height:100%;
+          }
         }
         .item
         {
           margin-left:0;
           margin-right:0;
           display:flex;
+          height:100%;
 
 
         .rightItem
         {
           padding-left:0;
           position:relative;
+          padding-right: 115px;
           &:before
           {
             position:absolute;
@@ -761,7 +799,8 @@ body
           {
             display:block;
             width:100%;
-            height:auto;
+            height:100%;
+            object-fit: fill;
           }
         }
         .leftItem
@@ -1456,6 +1495,13 @@ body
           }
         }
       }
+      .rodoCheckLabel
+      {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 15px;
+      }
     }
   }
   .infoArea
@@ -2025,6 +2071,11 @@ body
           color: white;
           font-size: 24px;
           display: none;
+          transition: .3s;
+          &:hover
+          {
+            background-color: #ffd334;
+          }
         }
     }
   }
@@ -2131,6 +2182,7 @@ body
         }
         .caseStudyContent
         {
+          font-family: 'Montserrat', sans-serif !important;
           .leadStudy
           {
             font-family: 'Montserrat', sans-serif;
@@ -3046,6 +3098,11 @@ body
         border-radius: 28px;
         color: white;
         font-size: 24px;
+        transition: .3s;
+        &:hover
+        {
+          background-color: #ffd334;
+        }
       }
       label{
         font-weight: normal;
@@ -3881,12 +3938,4 @@ body
   .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li {
       width: 49%;
   }
-
-}
-.mainSliderWrapper {
-    max-height: 660px;
-    overflow: hidden;
-}
-.mainSliderWrapper .slick-slider .slick-list {
-    max-height: 660px;
 }
