@@ -130,7 +130,20 @@ function create_posttype() {
 					'rewrite' => array( 'slug' => 'uslugi', 'hierarchical' => true, 'with_front' => false ),
 			)
 	);
-
+	register_taxonomy( 'jezyki_category', array( 'jezyki' ),
+			array(
+					'labels' => array(
+							'name' => 'Kategorie jezykow',
+							'menu_name' => 'Kategorie jezykow',
+							'singular_name' => 'Kategoria jezykow',
+							'all_items' => 'Wszystkie kategorie jezykow'
+					),
+					'public' => true,
+					'hierarchical' => true,
+					'show_ui' => true,
+					'rewrite' => array( 'slug' => 'jezyki', 'hierarchical' => true, 'with_front' => false ),
+			)
+	);
 
 //blog types
 
@@ -474,6 +487,36 @@ function template_chooser($template)
   return $template;
 }
 add_filter('template_include', 'template_chooser');
+
+
+////////////////////////Filtr do usuwania Custom posty type slug
+function na_remove_slug( $post_link, $post, $leavename ) {
+
+    if ( 'uslugi' != $post->post_type || 'publish' != $post->post_status ) {
+        return $post_link;
+    }
+
+    $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+
+    return $post_link;
+}
+add_filter( 'post_type_link', 'na_remove_slug', 10, 3 );
+
+function na_parse_request( $query ) {
+
+    if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
+        return;
+    }
+
+    if ( ! empty( $query->query['name'] ) ) {
+        $query->set( 'post_type', array( 'post', 'uslugi', 'page' ) );
+    }
+}
+add_action( 'pre_get_posts', 'na_parse_request' );
+
+
+
+
 
 
 
