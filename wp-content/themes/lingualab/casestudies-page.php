@@ -42,7 +42,7 @@ get_header(); ?>
                       <div class="col-md-6 caseStudyContentWrapper">
                           <span class="caseStudyTitle"><?php echo get_the_title();?></span>
                           <div class="caseStudyContent">
-                              <?php echo do_shortcode(get_the_content()); ?>
+                              <?php echo do_shortcode(wpautop(get_the_content())); ?>
                           </div>
                       </div>
                   </div>
