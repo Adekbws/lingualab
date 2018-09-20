@@ -36,13 +36,13 @@ if ( $terms && !is_wp_error( $terms ) ) :
 											 $the_query = new WP_Query( $args );
 												?>
 
-																					<span class="groupName"><a href="<?php echo get_term_link($term); ?>"><?php  echo $term->name; ?></a></span>
+																					<span class="groupName"><a href="<?php echo get_term_link($term); ?>"><?php  echo get_field("language_left_label",$term); ?></a></span>
 																					<ul class="groupPostsList" <?php if ($category[0]->name!=$term->name) echo'style="display:none;"'?>>
 																						<?php  // The Loop
 																						if ( $the_query->have_posts() ) {
 																							while ( $the_query->have_posts() ) {
 																								$the_query->the_post(); ?>
-																								<li <?php if(get_the_ID()==$postID) echo' class="currentGroupPost"'; ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+																								<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 																						<?php    }
 																							/* Restore original Post Data */
 																							wp_reset_postdata();
@@ -56,9 +56,9 @@ if ( $terms && !is_wp_error( $terms ) ) :
 <?php endif; ?>
 								</div>
 								<div class="col-md-9 defaultPageRight leftColumnExist">
-										<span class="contentTitle"><?php the_title(); ?></span>
+										<span class="contentTitle"><?php echo $category[0]->name; ?></span>
 										<div class="contentBox">
-												<?php the_content(); ?>
+												<?php echo get_field("language_content",$category[0]); ?>
 										</div>
 								</div>
 						</div>

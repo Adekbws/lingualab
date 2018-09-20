@@ -75,7 +75,7 @@ function create_posttype() {
             ),
             'public' => true,
             'has_archive' => true,
-			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )),
+			'rewrite' => array('slug' => _x( 'jezyk', 'URL slug', 'lingualab' )),
 			'hierarchical' => TRUE,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
