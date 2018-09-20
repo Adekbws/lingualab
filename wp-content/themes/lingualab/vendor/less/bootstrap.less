@@ -915,6 +915,7 @@ body
               font-size: 1.67vw;
               color:#004178;
               line-height: 37px;
+              max-width:285px;
             }
           }
           .serviceContentWrapp
@@ -1718,10 +1719,21 @@ body
         display:flex;
         align-items: flex-end;
         justify-content: space-between;
+        .paypalWrapper
+        {
+          img
+          {
+            vertical-align: baseline;
+          }
+        }
         a
         {
           display:inline-block;
           vertical-align: bottom;
+          img
+          {
+            vertical-align: baseline;
+          }
         }
       }
     }
@@ -2787,6 +2799,7 @@ body
         }
           .postListHeader
           {
+            margin-top:65px;
             span
             {
               font-family: 'Montserrat', sans-serif;
@@ -2856,6 +2869,77 @@ body
               .postItem
               {
                 padding-top:30px;
+              }
+            }
+          }
+          .postRelations
+          {
+            .postRelationsTitle
+            {
+              display:block;
+              font-family: 'Montserrat', sans-serif;
+              font-weight:700;
+              font-size:16px;
+              color: #004177;
+              text-transform: uppercase;
+              margin-bottom:8px;
+              margin-top:30px;
+            }
+            .postCategoriesList
+            {
+              list-style: none;
+              margin:0;
+              padding:0;
+              li
+              {
+                display:inline-block;
+                font-family: 'Montserrat', sans-serif;
+                font-weight:700;
+                font-size:16px;
+                color: #e2001a;
+                a
+                {
+                  font-family: 'Montserrat', sans-serif;
+                  font-weight:700;
+                  font-size:16px;
+                  color: #e2001a;
+                }
+              }
+            }
+            &.postTags
+            {
+              margin-top:10px;
+              .postRelationsTags
+              {
+                list-style:none;
+                padding:0;
+                margin:0;
+                li
+                {
+                  display:inline-block;
+                  margin:0;
+                  padding:0;
+                  margin-top:3px;
+                  margin-bottom:4px;
+                  margin-right:6px;
+                  a
+                  {
+                    display:inline-block;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight:400;
+                    font-size:16px;
+                    color:#000;
+                    background:#f9f9f9;
+                    padding-left:15px;
+                    padding-right:15px;
+                    padding-top:10px;
+                    padding-bottom:9px;
+                    &:hover
+                    {
+                      text-decoration: none;
+                    }
+                  }
+                }
               }
             }
           }

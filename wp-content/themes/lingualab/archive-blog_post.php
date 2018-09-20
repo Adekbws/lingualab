@@ -71,7 +71,7 @@ get_header(); ?>
                   <div class="col-md-3 rightBlog">
                       <div class="row blogCategoriesWrapper">
                         <div class="col-md-12">
-                          <span class="boxTitle">Kategorie</span>
+                          <span class="boxTitle"><?php _e('Kategorie', 'lingualab') ?></span>
                           <?php
                                 $taxonomy = 'blog_category';
                                 $terms = get_terms(array('taxonomy' => $taxonomy));
@@ -91,7 +91,7 @@ get_header(); ?>
                       </div>
                       <div class="row blogContactForm">
                         <div class="col-md-12">
-                          <span class="boxTitle">Szybki kontakt</span>
+                          <span class="boxTitle"><?php _e('Szybki kontakt', 'lingualab') ?></span>
                           <?php echo do_shortcode('[contact-form-7 id="370" title="Kontakt na blogu"]'); ?>
                         </div>
                       </div>
@@ -99,7 +99,7 @@ get_header(); ?>
                       <div class="row blogSearchForm">
                         <div class="col-md-12">
                           <div>
-                               <h3>Search Products</h3>
+                               <h3><?php _e('Szukaj', 'lingualab') ?></h3>
                                <form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform" autocomplete="off">
                                <div class="search-text">
                                  <input type="text" name="s" />
@@ -113,7 +113,7 @@ get_header(); ?>
 
                       <div class="row blogTagsWrapper">
                         <div class="col-md-12">
-                          <span class="boxTitle">Tagi</span>
+                          <span class="boxTitle"><?php _e('Tagi', 'lingualab') ?></span>
                           <?php
                                 $taxonomy = 'blog_tag';
                                 $terms = get_terms(array('taxonomy' => $taxonomy));

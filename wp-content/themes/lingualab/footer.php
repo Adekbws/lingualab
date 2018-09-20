@@ -10,7 +10,19 @@
                 <?php wp_nav_menu(array('theme_location'=>'info_menu_2','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
             </div>
             <div class="col-md-5 payLogos">
-                <a href="https://www.paypal.com/pl/home"><img src="<?php echo get_template_directory_uri(); ?>/images/paypal.png" alt=""></a>
+              <div class="paypalWrapper">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                  <input type="hidden" name="cmd" value="_xclick">
+                  <input type="hidden" name="business" value="sales@lingualab.pl">
+                  <input type="hidden" name="lc" value="PL">
+                  <input type="hidden" name="button_subtype" value="services">
+                  <input type="hidden" name="no_note" value="0">
+                   <input type="hidden" name="currency_code" value="PLN">
+                    <input type="hidden" name="bn" value="PP-BuyNowBF:paypal_col.jpg:NonHostedGuest">
+                     <input type="image" alt="PayPal — Płać wygodnie i bezpiecznie" name="submit" src="<?php echo get_template_directory_uri(); ?>/images/paypal.png">
+                      <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" border="0">
+                </form>
+              </div>
                 <a href="<?php echo esc_url(get_permalink(pll_get_post(465))); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
             </div>
         </div>

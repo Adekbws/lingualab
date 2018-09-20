@@ -25,11 +25,45 @@ get_header();
                                   </div>
                               </div>
                               <?php
+
+                        $postCategories=wp_get_post_terms(get_the_ID(),'blog_category');
+                        if(!empty($postCategories))
+                        {
+                          echo '<div class="row postRelations"><div class="col-md-12">';
+                          echo '<span class="postRelationsTitle">' .  __('Kategoria', 'lingualab') . '</span><ul class="postCategoriesList">';
+                            $countCategories=count($postCategories)-1;
+                            $categoryCounter=0;
+                            foreach($postCategories as $postCategory)
+                            {
+                              echo '<li><a href="'. get_term_link($postCategory->slug, 'blog_category') .'">';
+                                echo $postCategory->name;
+                                echo '</a>';
+                                if($categoryCounter<$countCategories)
+                                  echo ', ';
+                                  echo '</li>';
+                                $categoryCounter++;
+                            }
+                            echo '</ul></div></div>';
                         }
+                        $terms = wp_get_post_terms(get_the_ID(),'blog_tag');
 
-                    ?>
+                        if (!empty($terms) )
+                        {
+                        ?>
+                        <div class="row postRelations postTags">
+                          <div class="col-md-12">
+                            <span class="postRelationsTitle"><?php  _e('Tagi', 'lingualab'); ?></span>
+                                      <ul class="postRelationsTags">
+                                          <?php foreach ( $terms as $term ) { ?>
+                                              <li><a href="<?php echo get_term_link($term->slug, 'blog_tag'); ?>"><?php echo $term->name; ?></a></li>
+                                          <?php } ?>
+                                      </ul>
+                          </div>
+                        </div>
+                        <?php
+                      }
+                      }
 
-                    <?php
                     $blogPosts = new WP_Query(array(
                       'post_type' => 'blog_post',
                       'posts_per_page' => 2,
@@ -106,7 +140,7 @@ get_header();
                   <div class="col-md-3 rightBlog">
                       <div class="row blogCategoriesWrapper">
                         <div class="col-md-12">
-                          <span class="boxTitle">Kategorie</span>
+                          <span class="boxTitle"><?php _e('Kategorie', 'lingualab') ?></span>
                           <?php
                                 $taxonomy = 'blog_category';
                                 $terms = get_terms(array('taxonomy' => $taxonomy));
@@ -126,13 +160,29 @@ get_header();
                       </div>
                       <div class="row blogContactForm">
                         <div class="col-md-12">
-                          <span class="boxTitle">Szybki kontakt</span>
+                          <span class="boxTitle"><?php _e('Szybki kontakt', 'lingualab') ?></span>
                           <?php echo do_shortcode('[contact-form-7 id="370" title="Kontakt na blogu"]'); ?>
                         </div>
                       </div>
+
+                      <div class="row blogSearchForm">
+                        <div class="col-md-12">
+                          <div>
+                               <h3><?php _e('Szukaj', 'lingualab') ?></h3>
+                               <form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform" autocomplete="off">
+                               <div class="search-text">
+                                 <input type="text" name="s" />
+                               </div>
+                               <input type="hidden" name="post_type" value="blog_post" /> <!-- // hidden 'products' value -->
+                               <input type="submit" alt="Search" value="Search" style="display:none;"/>
+                             </form>
+                          </div>
+                        </div>
+                      </div>
+
                       <div class="row blogTagsWrapper">
                         <div class="col-md-12">
-                          <span class="boxTitle">Tagi</span>
+                          <span class="boxTitle"><?php _e('Tagi', 'lingualab') ?></span>
                           <?php
                                 $taxonomy = 'blog_tag';
                                 $terms = get_terms(array('taxonomy' => $taxonomy));
@@ -189,5 +239,5 @@ get_header();
         {
             get_template_part( 'content', 'quality_lang_row' );
         }
-        
+
 get_footer();

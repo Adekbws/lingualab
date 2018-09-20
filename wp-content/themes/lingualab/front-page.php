@@ -362,14 +362,28 @@ wp_reset_postdata();
 
 <div class="container-fluid contactArea">
     <div class="container size1">
+      <?php
+        $home_contact_show = get_field( "home_contact_show" );
+        if($home_contact_show)
+        {
+      ?>
         <div class="row">
-            <div class="col-md-12">
-                <span class="titleSection"> W czym możemy Ci pomóc?</span>
-            </div>
-            <div class="col-md-12 contentTextBlock">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-            </div>
+          <?php
+            if($home_contact_title= get_field( "home_contact_title" ))
+            {
+              echo '<div class="col-md-12"><span class="titleSection">' .$home_contact_title. '</span></div>';
+            }
+
+            if($home_contact_text= get_field( "home_contact_text" ))
+            {
+              echo '<div class="col-md-12 contentTextBlock">' .do_shortcode($home_contact_text). '</span></div>';
+            }
+          ?>
         </div>
+        <?php
+        }
+      ?>
+
         <div class="row contactFormWrapper">
             <?php echo do_shortcode('[contact-form-7 id="16" title="Contact form 1"]'); ?>
         </div>
