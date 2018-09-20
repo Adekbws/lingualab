@@ -36,7 +36,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
 											 $the_query = new WP_Query( $args );
 												?>
 
-																					<span class="groupName"><a href="<?php echo get_category_link($term); ?>"><?php  echo $term->name; ?></a></span>
+																					<span class="groupName"><a href="<?php echo get_term_link($term); ?>"><?php  echo $term->name; ?></a></span>
 																					<ul class="groupPostsList" <?php if ($category[0]->name!=$term->name) echo'style="display:none;"'?>>
 																						<?php  // The Loop
 																						if ( $the_query->have_posts() ) {

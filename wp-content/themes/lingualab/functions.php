@@ -74,7 +74,7 @@ function create_posttype() {
                 'singular_name' => __( 'Język' )
             ),
             'public' => true,
-            'has_archive' => false,
+            'has_archive' => true,
 			'rewrite' => array('slug' => _x( 'jezyki', 'URL slug', 'lingualab' )),
 			'hierarchical' => TRUE,
 			'with_front' =>false,
@@ -517,7 +517,26 @@ add_action( 'pre_get_posts', 'na_parse_request' );
 
 
 
+function debug_rewrite_rules() {
+    global $wp, $template, $wp_rewrite;
 
+    echo '<pre>';
+    echo 'Request: ';
+    echo empty($wp->request) ? "None" : esc_html($wp->request) . PHP_EOL;
+    echo 'Matched Rewrite Rule: ';
+    echo empty($wp->matched_rule) ? None : esc_html($wp->matched_rule) . PHP_EOL;
+    echo 'Matched Rewrite Query: ';
+    echo empty($wp->matched_query) ? "None" : esc_html($wp->matched_query) . PHP_EOL;
+    echo 'Loaded Template: ';
+    echo basename($template);
+    echo '</pre>' . PHP_EOL;
+
+    echo '<pre>';
+    print_r($wp_rewrite->rules);
+    echo '</pre>';
+}
+
+add_action( 'wp_head', 'debug_rewrite_rules' );
 
 
 ?>
