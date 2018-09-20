@@ -516,7 +516,7 @@ add_action( 'pre_get_posts', 'na_parse_request' );
 
 
 
-
+/*
 function debug_rewrite_rules() {
     global $wp, $template, $wp_rewrite;
 
@@ -537,6 +537,6 @@ function debug_rewrite_rules() {
 }
 
 add_action( 'wp_head', 'debug_rewrite_rules' );
-
+*/
 
 ?>
