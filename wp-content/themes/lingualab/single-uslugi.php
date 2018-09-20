@@ -43,8 +43,18 @@ if ( $terms && !is_wp_error( $terms ) ) :
 																						<?php  // The Loop
 																						if ( $the_query->have_posts() ) {
 																							while ( $the_query->have_posts() ) {
-																								$the_query->the_post(); ?>
-																								<li <?php if(get_the_ID()==$postID) echo' class="currentGroupPost"'; ?>><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+																								$the_query->the_post();
+																								$positionLabel='';
+																								 if($positionTitle=get_field( "left_menu_label" ))
+																								 {
+																									 $positionLabel=$positionTitle;
+																								 }
+																								 else
+																								 {
+																									 	 $positionLabel=get_the_title();
+																								 }
+																								?>
+																								<li <?php if(get_the_ID()==$postID) echo' class="currentGroupPost"'; ?>><a href="<?php the_permalink(); ?>"><?php echo $positionLabel ?></a>
 																						<?php    }
 																							/* Restore original Post Data */
 																							wp_reset_postdata();

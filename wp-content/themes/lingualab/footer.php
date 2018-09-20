@@ -199,7 +199,7 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
    $(document).on("click",".bt-expand",function(){
      $(this).prev("ul").toggle( "slow" );
    });
-   $('.menuWrapper .siteMenu > li > a').attr("href","#");
+   //$('.menuWrapper .siteMenu > li > a').attr("href","#");
 
    $('.bt-close-menu').click(function(){
      $(this).parent(".subMenuCustomWrapper").removeClass("mobileMenu");
