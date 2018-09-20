@@ -1361,6 +1361,8 @@ body
                 font-size:13px;
                 line-height:18px;
                 color:#000;
+                max-height: 144px;
+                overflow: hidden;
               }
             }
           }
@@ -3491,6 +3493,21 @@ body
   .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle {
       font-size: 18px;
   }
+  .wrappPage .infoArea {
+    background: none;
+    padding: 0;
+    .size1{
+      width: 100%;
+      .contactInfoWrapp{
+        background: #004177;
+        padding-top: 50px;
+      }
+      .blogInfoWrapp{
+        background: #d4d4d4;
+        padding-bottom: 50px;
+      }
+    }
+  }
 }
 @media (max-width:768px)
 {
@@ -3609,6 +3626,17 @@ body
   .wrappPage .smallBannersWrapper .smallBanners .smallBanner .smallBannerInfo
   {
     justify-content: center;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent {
+      display: block;
+      text-align: center;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader {
+      width: 100%;
+      padding: 0;
+  }
+  .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceContentWrapp {
+      width: 100%;
   }
 }
 

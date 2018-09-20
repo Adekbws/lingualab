@@ -327,7 +327,7 @@ wp_reset_postdata();
                          </div>
                          <div class="col-md-7 portfolioSlideContentWrapp">
                                  <span class="portfolioSlideTitle">' . get_the_title() . '</span>
-                                 <div class="portfolioSlideContent">' . do_shortcode(get_the_content()) . '</div>
+                                 <div class="portfolioSlideContent">' . strip_tags(do_shortcode(get_the_content())) . '</div>
                          </div>
                      </div>
                  </div>
