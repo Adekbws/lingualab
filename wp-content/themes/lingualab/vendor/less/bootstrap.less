@@ -2091,13 +2091,16 @@ body
             background-color: #ffd334;
           }
         }
+
     }
   }
 
   .evaluationFormArea
   {
     border-top: solid 1px #d7d7d7;
-    padding-bottom:75px;
+    border-bottom: solid 1px #d7d7d7;
+    padding-bottom:70px;
+    margin-bottom:70px;
     .titleSection
     {
       margin-top:57px;
@@ -2129,6 +2132,7 @@ body
       .evaluationFormSemdWrapper
       {
         text-align:center;
+        margin-top:25px;
         button[type="submit"] {
 
         }
@@ -2484,6 +2488,7 @@ body
         font-size:13px;
         text-align:center;
         margin-top:60px;
+        margin-bottom:55px;
         .companyDataTitle
         {
           display:block;
@@ -2669,7 +2674,8 @@ body
                 width: 100%;
                 padding-top: 20px;
                   .branch-title{
-
+                    display:inline-block;
+                    max-width:250px;
                 }
               }
             }
@@ -3200,9 +3206,18 @@ body
   }
   ////////// Payments choose page Paypal/Przelewy24
   .payment-page{
+    .paymentsMethod
+    {
+      padding-top:10px;
+      padding-bottom:10px;
+      .paymentsPayPalWrapper
+      {
+          border-right: 1px #b3c6d5 solid;
+      }
+    }
     fieldset .row .col-md-6{
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 60px;
+      padding-bottom: 60px;
       display: flex;
       justify-content: center;
       align-items: center;

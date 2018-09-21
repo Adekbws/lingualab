@@ -131,6 +131,27 @@ responsive: [
     });
 
 
+    //send evaluation form
+    $('#evaluationForm').submit(function()
+    {
+      var evaluationFormData = $(this).serialize();
+
+      console.log(evaluationFormData);
+      $.ajax({
+        method: "POST",
+        url:"<?php echo admin_url( 'admin-ajax.php' );?>",
+        data: { action: "evaluationformsend_action" },
+        dataType: 'json',
+			})
+			.done(function( msg )
+			{
+
+			});
+
+      return false;
+    });
+
+
     $( document ).on('change','#evaluationForm .fileInput' , function(e)
     {
       id=$(this).attr('id');

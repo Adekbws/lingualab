@@ -389,8 +389,6 @@ function evaluationFormTab()
 		include_once('evaluationform/form'.$idformtab.'.php');
 		$html = ob_get_contents();
 		ob_end_clean();
-		//$html = 'lal';
-		//$html=file_get_contents('evaluationform/form1.php');
 	}
 /*
 tlumaczenia pisemne specjalistyczne - form1.php 1
@@ -410,6 +408,16 @@ tłumaczenia ustne wraz ze sprzętem form9.php   10
 	die();
 }
 
+//send evaluation form
+add_action( 'wp_ajax_evaluationformsend_action', 'evaluationFormSend' );
+add_action( 'wp_ajax_nopriv_evaluationformsend_action', 'evaluationFormSend' );
+
+function evaluationFormSend()
+{
+
+	echo json_encode(array('status'=>1));
+	die();
+}
 
 ///////////////////tlumacznia custom postow
 

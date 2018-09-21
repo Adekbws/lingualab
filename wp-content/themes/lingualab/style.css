@@ -8546,7 +8546,9 @@ body {
 }
 .wrappPage .evaluationFormArea {
   border-top: solid 1px #d7d7d7;
-  padding-bottom: 75px;
+  border-bottom: solid 1px #d7d7d7;
+  padding-bottom: 70px;
+  margin-bottom: 70px;
 }
 .wrappPage .evaluationFormArea .titleSection {
   margin-top: 57px;
@@ -8575,6 +8577,7 @@ body {
 }
 .wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper {
   text-align: center;
+  margin-top: 25px;
 }
 .wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 {
   text-align: center;
@@ -8854,6 +8857,7 @@ body {
   font-size: 13px;
   text-align: center;
   margin-top: 60px;
+  margin-bottom: 55px;
 }
 .wrappPage .contactPageWrapper .contactPageContent .companyData .companyDataTitle {
   display: block;
@@ -9011,6 +9015,10 @@ body {
   height: 100%;
   width: 100%;
   padding-top: 20px;
+}
+.wrappPage .branchesPageWrapper .branches-container .branch > div > div .ico-title-box > div .branch-title {
+  display: inline-block;
+  max-width: 250px;
 }
 .wrappPage .rangeOfServicesPageWrapper {
   border-top: solid 1px #d7d7d7;
@@ -9450,9 +9458,16 @@ body {
 .wrappPage .payment-form #evaluationForm > .row .col-md-12 label {
   font-weight: normal;
 }
+.wrappPage .payment-page .paymentsMethod {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.wrappPage .payment-page .paymentsMethod .paymentsPayPalWrapper {
+  border-right: 1px #b3c6d5 solid;
+}
 .wrappPage .payment-page fieldset .row .col-md-6 {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
