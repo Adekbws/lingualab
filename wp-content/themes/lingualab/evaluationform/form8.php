@@ -4,9 +4,9 @@
                             <div class="col-md-12 efField">
                                 <div class="efFieldContent">
                                     <div class="row efFieldContentRow">
-                                        <label class="col-md-4 label" for="evaluationFormService"><?php _e( 'Rodzaj tłumaczenia:', 'lingualab' );?></label>
+                                        <label class="col-md-4 label" for="translate_type"><?php _e( 'Rodzaj tłumaczenia:', 'lingualab' );?></label>
                                         <div class="col-md-8 input">
-                                        <select name="service_type" id="evaluationFormService">
+                                        <select name="evaluation_form[translate_type]" id="translate_type">
                                             <?php
                                             $translation = get_field('translation_type',pll_get_post(103));
                                             $pieces = explode(";",$translation);
@@ -25,9 +25,9 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for=""><?php _e( 'Z języka:', 'lingualab' );?></label>
+                                            <label class="col-md-4 label" for="from_language"><?php _e( 'Z języka:', 'lingualab' );?></label>
                                             <div class="col-md-8 input">
-                                            <select name="service_type">
+                                            <select name="evaluation_form[from_language]" id="from_language">
                                               <?php
                                               $languages = str_replace(' ', '', get_field('translate_from',pll_get_post(103)));
                                               $pieces = explode(";",$languages);
@@ -43,9 +43,9 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for=""><?php _e( 'Na język', 'lingualab' );?></label>
+                                            <label class="col-md-4 label" for="to_language"><?php _e( 'Na język', 'lingualab' );?></label>
                                             <div class="col-md-8 input">
-                                            <select name="service_type">
+                                            <select name="evaluation_form[to_language]" id="to_language">
                                               <?php
                                               $languages = str_replace(' ', '', get_field('translate_to',pll_get_post(103)));
                                               $pieces = explode(";",$languages);
@@ -63,9 +63,9 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="client_company"><?php _e( 'Miasto / miejsce:', 'lingualab' );?></label>
+                                            <label class="col-md-4 label" for="place"><?php _e( 'Miasto / miejsce:', 'lingualab' );?></label>
                                             <div class="col-md-8 input">
-                                                <input id="client_company" class="" type="text" name="client_company" autocomplete="off" >
+                                                <input id="place" class="" type="text" name="evaluation_form[place]" autocomplete="off" >
                                             </div>
                                         </div>
                                     </div>
@@ -73,9 +73,9 @@
                                 <div class="col-md-6 efField">
                                     <div class="efFieldContent">
                                         <div class="row efFieldContentRow">
-                                            <label class="col-md-4 label" for="client_company"><?php _e( 'Tematyka tłumaczenia:', 'lingualab' );?></label>
+                                            <label class="col-md-4 label" for="translate_topic"><?php _e( 'Tematyka tłumaczenia:', 'lingualab' );?></label>
                                             <div class="col-md-8 input">
-                                                <input id="client_company" class="" type="text" name="client_company" autocomplete="off">
+                                                <input id="translate_topic" class="" type="text" name="evaluation_form[translate_topic]" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -86,9 +86,9 @@
                                     <div class="col-md-4 efField dayDate">
                                         <div class="efFieldContent">
                                             <div class="row efFieldContentRow">
-                                                <label class="col-md-4 label" for="optional_comment"><?php _e( 'Pierwszy dzień:', 'lingualab' );?> <span><?php _e( 'Data:', 'lingualab' );?></span></label>
+                                                <label class="col-md-4 label"><?php _e( 'Pierwszy dzień:', 'lingualab' );?> <span><?php _e( 'Data:', 'lingualab' );?></span></label>
                                                 <div class="col-md-8 input">
-                                                    <input id="deadline" class="dateInput" type="text" name="daylist[1][deadline]" autocomplete="off" placeholder="dd , mm , rrrr">
+                                                    <input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" placeholder="dd , mm , rrrr">
                                                 </div>
                                             </div>
                                         </div>
@@ -96,9 +96,9 @@
                                     <div class="col-md-3 efField dayTime">
                                         <div class="efFieldContent">
                                             <div class="row efFieldContentRow">
-                                                <label class="col-md-4 label" for=""><?php _e( 'Od:', 'lingualab' );?></label>
+                                                <label class="col-md-4 label"><?php _e( 'Od:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="daylist[1][from]" id="evaluationFormService">
+                                                <select name="evaluation_form[daylist][1][from]">
 
                                                     <?php
                                                     $time_start = get_field('earliest_hour',pll_get_post(103));
@@ -125,9 +125,9 @@
                                     <div class="col-md-3 efField dayTime">
                                         <div class="efFieldContent">
                                             <div class="row efFieldContentRow">
-                                                <label class="col-md-4 label" for=""><?php _e( 'Do:', 'lingualab' );?></label>
+                                                <label class="col-md-4 label"><?php _e( 'Do:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="daylist[1][to]" id="evaluationFormService">
+                                                <select name="evaluation_form[daylist][1][to]">
                                                     <?php
                                                     $time_start = get_field('earliest_hour',103);
                                                     $time_end = get_field('latest_hour',103);
@@ -167,7 +167,7 @@
                                         <div class="row efFieldContentRow">
                                             <label class="col-md-4 label" for="optional_comment"><?php _e( 'Dodatkowy komentarz', 'lingualab' );?></label>
                                             <div class="col-md-8 input">
-                                                <input id="optional_comment" class="" type="text" name="optional_comment" autocomplete="off">
+                                                <input id="optional_comment" class="" type="text" name="evaluation_form[optional_comment]" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>

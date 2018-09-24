@@ -8410,6 +8410,9 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
+.wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input.requiredField.alertEnter input {
+  border: 1px #e2001a solid;
+}
 .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input.fileInputWrapper input {
   width: 0.1px;
   height: 0.1px;
@@ -8578,6 +8581,23 @@ body {
 .wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper {
   text-align: center;
   margin-top: 25px;
+}
+.wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper .evaluateResponse {
+  padding-top: 8px;
+  padding-bottom: 13px;
+  display: none;
+}
+.wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper .evaluateResponse .evaluateResponseInfo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+}
+.wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper .evaluateResponse .evaluateResponseInfo.warningInfo {
+  color: #e2001a;
+}
+.wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper .evaluateResponse .evaluateResponseInfo.successInfo {
+  color: #178812;
 }
 .wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 {
   text-align: center;

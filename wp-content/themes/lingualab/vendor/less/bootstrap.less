@@ -1891,6 +1891,13 @@ body
                       font-family: 'Montserrat', sans-serif;
                       font-weight:300;
                     }
+                    &.requiredField.alertEnter
+                    {
+                      input
+                      {
+                        border:1px #e2001a solid;
+                      }
+                    }
 
                     &.fileInputWrapper
                     {
@@ -2135,6 +2142,28 @@ body
         margin-top:25px;
         button[type="submit"] {
 
+        }
+        .evaluateResponse
+        {
+          padding-top:8px;
+          padding-bottom:13px;
+          display:none;
+          .evaluateResponseInfo
+          {
+            font-family: 'Montserrat', sans-serif;
+            font-weight:400;
+            font-size:13px;
+            line-height: 15px;
+            &.warningInfo
+            {
+              color:#e2001a;
+            }
+            &.successInfo
+            {
+              color:#178812;
+            }
+
+          }
         }
       }
     }

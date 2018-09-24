@@ -130,26 +130,55 @@ responsive: [
 			});
     });
 
+    //remove alert border
+    $( document ).on( 'change', '#evaluationForm .requiredField', function(e)
+    {
+        $( this ).removeClass( 'alertEnter' );
+    });
 
     //send evaluation form
-    $('#evaluationForm').submit(function()
+    $( '#evaluationForm' ).submit( function()
     {
+      $( '#evaluationForm .requiredField' ).removeClass( 'alertEnter' );
+      $( '#evaluateResponse' ).fadeOut( 400, function(){ $( this ).html( '' ); } );
+
       var evaluationFormData = $(this).serialize();
 
-      console.log(evaluationFormData);
       $.ajax({
         method: "POST",
-        url:"<?php echo admin_url( 'admin-ajax.php' );?>",
-        data: { action: "evaluationformsend_action" },
+        url:"<?php echo admin_url( 'admin-ajax.php' );?>?action=evaluationformsend_action",
+        data: evaluationFormData,
         dataType: 'json',
 			})
 			.done(function( msg )
 			{
-
+        console.log(msg);
+          if( msg.status == 1 )
+          {
+            $( '#evaluateResponse' ).html( '<p class="evaluateResponseInfo warningInfo"><?php echo get_field( 'evaluationform_rodoalert', pll_get_post( 103 ) ) ?></p>' ).fadeIn();
+          }
+          if( msg.status == 2 )
+          {
+            $( '#evaluationForm .requiredField' ).addClass( 'alertEnter' );
+            $( '#evaluateResponse' ).html( '<p class="evaluateResponseInfo warningInfo"><?php echo get_field( 'evaluationform_requiredfield', pll_get_post( 103 ) ) ?></p>' ).fadeIn();
+          }
+          if( msg.status == 3 )
+          {
+            $( '#evaluationForm .requiredField.client_email' ).addClass( 'alertEnter' );
+            $( '#evaluateResponse' ).html( '<p class="evaluateResponseInfo warningInfo"><?php echo get_field( 'evaluationform_emailalert', pll_get_post( 103 ) ) ?></p>' ).fadeIn();
+          }
+          if( msg.status == 4 )
+          {
+            $( '#evaluateResponse' ).html( '<p class="evaluateResponseInfo successInfo"><?php echo get_field( 'evaluationform_sended', pll_get_post( 103 ) ) ?></p>' ).fadeIn();
+          }
+          if( msg.status == 5 )
+          {
+            $( '#evaluateResponse' ).html( '<p class="evaluateResponseInfo warningInfo"><?php echo get_field( 'evaluationform_error', pll_get_post( 103 ) ) ?></p>' ).fadeIn();
+          }
 			});
 
       return false;
-    });
+    } );
 
 
     $( document ).on('change','#evaluationForm .fileInput' , function(e)
@@ -176,7 +205,7 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
     nextDay=$('.daysList').data("nextday");
     if(nextDay<=5)
     {
-      rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label" for="optional_comment">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="daylist[1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"> <label class="col-md-4 label" for="optional_comment">Od:</label><div class="col-md-8 input"><select name="daylist[1][from]" id="evaluationFormService"><option value="00:00">00:00</option></select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label" for="optional_comment">Do:</label><div class="col-md-8 input"><select name="daylist[1][to]" id="evaluationFormService"><option value="00:00">00:00</option></select></div></div></div></div>';
+      rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"> <label class="col-md-4 label">Od:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][from]"><option value="00:00">00:00</option></select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">Do:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][to]"><option value="00:00">00:00</option></select></div></div></div></div>';
 
       if(nextDay<5)
       {

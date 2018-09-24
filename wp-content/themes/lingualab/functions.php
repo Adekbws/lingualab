@@ -414,8 +414,365 @@ add_action( 'wp_ajax_nopriv_evaluationformsend_action', 'evaluationFormSend' );
 
 function evaluationFormSend()
 {
+	//sanitize
+	$evaluation_form=array();
+	$evaluation_form['rodo']=0;
+	foreach($_POST['evaluation_form'] as $ek=>$einput)
+	{
+		if($ek != 'daylist')
+		{
+				$days=array();
+				foreach($_POST['evaluation_form']['daylist'] as $kd=>$day )
+				{
+						foreach($day as $pd=>$part)
+						{
+							$days[$kd][$pd]=filter_var(trim($part),FILTER_SANITIZE_STRING);
+						}
+				}
+				$evaluation_form[$ek]=$days;
+		}
+		elseif( $ek != 'file' )
+		{
+			$evaluation_form[$ek]=filter_var(trim($einput),FILTER_SANITIZE_STRING);
+		}
+		else
+		{
+			$evaluation_form[$ek]=$einput;
+		}
+	}
 
-	echo json_encode(array('status'=>1));
+	$status=1;
+	if((int)$evaluation_form['rodo'])
+	{
+		if( empty( $evaluation_form['client_name'] || $evaluation_form['client_surname'] || $evaluation_form['client_email'] || $evaluation_form['client_phone'] || $evaluation_form['client_company'] ) )
+		{
+			$status=2;
+		}
+		else
+		{
+			//check user e-mail is valid
+			if( filter_var( $evaluation_form['client_email'], FILTER_VALIDATE_EMAIL ) )
+			{
+				$contentHTML = '';
+				$contentHTML .= '<b>' . __( 'Imię i nazwisko Klienta:', 'lingualab' ) . '</b> ' . $evaluation_form['client_name'] . ' ' . $evaluation_form['client_surname'] . '<br>';
+				$contentHTML .= '<b>' . __( 'E-mail:', 'lingualab' ) . '</b> ' . $evaluation_form['client_email'] . '<br>';
+				$contentHTML .= '<b>' . __( 'Telefon kontaktowy:', 'lingualab' ) . '</b> ' . $evaluation_form['client_phone'] . '<br>';
+				$contentHTML .= '<b>' . __( 'Nazwa firmy:', 'lingualab' ) . '</b> ' . $evaluation_form['client_company'] . '<br>';
+
+				if( !empty( $evaluation_form['client_q'] ) )
+					$contentHTML .= '<b>' . __( 'Fraza wpisana w wyszukiwarce dzięki której nas znaleziono:', 'lingualab' ) . '</b> ' . $evaluation_form['client_q'] . '<br>';
+
+				$service_type = (int)$evaluation_form['service_type'];
+				//generate service content email
+				/*0>–––
+				    1>Tłumaczenia pisemne specjalistyczne
+				    2>Tłumaczenie przysięgłe
+				    3>Tłumaczenie pisemne specjalistyczne lub/i przysięgłe
+				    4>Tłumaczenie pisemne specjalistyczne wraz ze składem (DTP)
+				    5>Skład do druku (DTP)
+				    6>Korekta Native Speakera
+				    7>Lokalizacja
+				    8>Tłumaczenie ustne
+				    9>Sprzęt do tłumaczeń symultanicznych
+				    10>Tłumaczenie ustne wraz ze sprzętem*/
+				switch( $service_type )
+				{
+					case 1:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenia pisemne specjalistyczne', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 2:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenie przysięgłe', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['translate_for']))
+								$contentHTML .= '<b>' . __( 'Tłumaczenia z oryginału / kopii:', 'lingualab' ) . '</b> ' . $evaluation_form['translate_for'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['delivery_method']))
+								$contentHTML .= '<b>' . __( 'Sposób dostawy:', 'lingualab' ) . '</b> ' . $evaluation_form['delivery_method'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+								$contentHTML .= '<b>' . __( 'Dodatkowy komentarz:', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+							//attachment
+					break;
+					case 3:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenie pisemne specjalistyczne lub/i przysięgłe', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 4:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenie pisemne specjalistyczne wraz ze składem (DTP)', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['document_destination']))
+								$contentHTML .= '<b>' . __( 'Przeznaczenie dokumentu:', 'lingualab' ) . '</b> ' . $evaluation_form['document_destination'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 5:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Skład do druku (DTP)', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['document_destination']))
+								$contentHTML .= '<b>' . __( 'Przeznaczenie dokumentu:', 'lingualab' ) . '</b> ' . $evaluation_form['document_destination'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 6:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Korekta Native Speakera', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 7:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Lokalizacja', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['service_kind']))
+							$contentHTML .= '<b>' . __( 'Rodzaj usługi:', 'lingualab' ) . '</b> ' . $evaluation_form['service_kind'] . '<br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['deadline']))
+								$contentHTML .= '<b>' . __( 'Termin realizacji:', 'lingualab' ) . '</b> ' . $evaluation_form['deadline'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+						//attachemnt
+					break;
+					case 8:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenie ustne', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['translate_type']))
+							$contentHTML .= '<b>' . __( 'Rodzaj tłumaczenia:', 'lingualab' ) . '</b> ' . $evaluation_form['translate_type'] . '<br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['place']))
+								$contentHTML .= '<b>' . __( 'Miasto / miejsce:', 'lingualab' ) . '</b> ' . $evaluation_form['place'] . '<br>';
+
+						if(!empty($evaluation_form['translate_topic']))
+										$contentHTML .= '<b>' . __( 'Tematyka tłumaczenia', 'lingualab' ) . '</b> ' . $evaluation_form['translate_topic'] . '<br>';
+
+						if(!empty($evaluation_form['daylist']))
+						{
+							$contentHTML .= '<b>' . __( 'Preferowane terminy:', 'lingualab' ) . '</b><br>';
+							foreach( $evaluation_form['daylist'] as $dk=>$day)
+							{
+								if( isset( $evaluation_form['daylist'][$dk]['deadline'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['deadline'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['from'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['from'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['to'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['to'];
+								$contentHTML .= '<br>';
+							}
+
+						}
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+					break;
+					case 9:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Sprzęt do tłumaczeń symultanicznych', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['cabins_qty']))
+							$contentHTML .= '<b>' . __( 'Ilość kabin:', 'lingualab' ) . '</b> ' . $evaluation_form['cabins_qty'] . '<br>';
+
+						if(!empty($evaluation_form['transmitters']))
+							$contentHTML .= '<b>' . __( 'Dla ilu osób zapewnić odbiorniki przekazu:', 'lingualab' ) . '</b> ' . $evaluation_form['transmitters'] . '<br>';
+
+						if(!empty($evaluation_form['sound']))
+								$contentHTML .= '<b>' . __( 'Nagłośnienie:', 'lingualab' ) . '</b> ' . $evaluation_form['sound'] . '<br>';
+
+						if(!empty($evaluation_form['microphone_type']))
+								$contentHTML .= '<b>' . __( 'Ilość mikrofonów i ich rodzaj:', 'lingualab' ) . '</b> ' . $evaluation_form['microphone_type'] . '<br>';
+
+						if(!empty($evaluation_form['place']))
+										$contentHTML .= '<b>' . __( 'Miasto / miejsce', 'lingualab' ) . '</b> ' . $evaluation_form['place'] . '<br>';
+
+						if(!empty($evaluation_form['daylist']))
+						{
+							$contentHTML .= '<b>' . __( 'Preferowane terminy:', 'lingualab' ) . '</b><br>';
+							foreach( $evaluation_form['daylist'] as $dk=>$day)
+							{
+								if( isset( $evaluation_form['daylist'][$dk]['deadline'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['deadline'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['from'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['from'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['to'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['to'];
+								$contentHTML .= '<br>';
+							}
+
+						}
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+					break;
+					case 10:
+						$contentHTML .= '<br>' .  __( 'Wybrana usługa:', 'lingualab' ) . ' <b>' .  __( 'Tłumaczenie ustne wraz ze sprzętem', 'lingualab' ) . '</b><br>';
+
+						if(!empty($evaluation_form['translate_type']))
+							$contentHTML .= '<b>' . __( 'Rodzaj tłumaczenia:', 'lingualab' ) . '</b> ' . $evaluation_form['translate_type'] . '<br>';
+
+						if(!empty($evaluation_form['from_language']))
+							$contentHTML .= '<b>' . __( 'Z języka:', 'lingualab' ) . '</b> ' . $evaluation_form['from_language'] . '<br>';
+
+						if(!empty($evaluation_form['to_language']))
+								$contentHTML .= '<b>' . __( 'Na język:', 'lingualab' ) . '</b> ' . $evaluation_form['to_language'] . '<br>';
+
+						if(!empty($evaluation_form['place']))
+								$contentHTML .= '<b>' . __( 'Miasto / miejsce:', 'lingualab' ) . '</b> ' . $evaluation_form['place'] . '<br>';
+
+						if(!empty($evaluation_form['translate_topic']))
+										$contentHTML .= '<b>' . __( 'Tematyka tłumaczenia', 'lingualab' ) . '</b> ' . $evaluation_form['translate_topic'] . '<br>';
+
+						if(!empty($evaluation_form['daylist']))
+						{
+							$contentHTML .= '<b>' . __( 'Preferowane terminy:', 'lingualab' ) . '</b><br>';
+							foreach( $evaluation_form['daylist'] as $dk=>$day)
+							{
+								if( isset( $evaluation_form['daylist'][$dk]['deadline'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['deadline'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['from'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['from'] . ' - ';
+
+								if( isset( $evaluation_form['daylist'][$dk]['to'] ) )
+									$contentHTML .= $evaluation_form['daylist'][$dk]['to'];
+								$contentHTML .= '<br>';
+							}
+
+						}
+
+						if(!empty($evaluation_form['transmitters']))
+								$contentHTML .= '<b>' . __( 'Dla ilu osób zapewnić odbiorniki przekazu:', 'lingualab' ) . '</b> ' . $evaluation_form['transmitters'] . '<br>';
+
+						if(!empty($evaluation_form['sound']))
+								$contentHTML .= '<b>' . __( 'Nagłośnienie:', 'lingualab' ) . '</b> ' . $evaluation_form['sound'] . '<br>';
+
+						if(!empty($evaluation_form['microphone_type']))
+										$contentHTML .= '<b>' . __( 'Ilość mikrofonów i ich rodzaj', 'lingualab' ) . '</b> ' . $evaluation_form['microphone_type'] . '<br>';
+
+						if(!empty($evaluation_form['optional_comment']))
+										$contentHTML .= '<b>' . __( 'Dodatkowy komentarz', 'lingualab' ) . '</b> ' . $evaluation_form['optional_comment'] . '<br>';
+					break;
+				}
+
+				//rodo
+
+				$contentHTML .= '<br><br><br><b>' . __( 'Wyrażone zgody:', 'lingualab' ) . '</b><br>';
+				$contentHTML .= get_field( 'evaluationform_rodo', pll_get_post( 103 ) );
+
+				$to = get_field( 'sendevaluation_email', pll_get_post( 103 ) );
+				$subject =  __( 'Wiadomość z formularza bezpłatnej wyceny', 'lingualab' );
+				$headers=array();
+				//$headers[] = 'From: Lingualab <no-reply@example.net>';
+				$headers[] = 'Content-Type: text/html; charset=UTF-8';
+				//wp_mail
+				if( mail( $to, $subject, $contentHTML, implode( '\r\n', $headers ) ) )
+				{
+						$status=4;
+				}
+				else
+				{
+						$status=5;
+				}
+			}
+			else
+			{
+				$status=3;
+			}
+
+			/*
+			$to = 'sendto@example.com';
+			$subject = 'The subject';
+			$body = 'The email body content';
+			$headers = array('Content-Type: text/html; charset=UTF-8');
+
+			wp_mail( $to, $subject, $body, $headers );
+			*/
+
+
+
+			/*
+			$headers[] = 'From: Me Myself <me@example.net>';
+			$headers[] = 'Cc: John Q Codex <jqc@wordpress.org>';
+			$headers[] = 'Cc: iluvwp@wordpress.org'; // note you can just use a simple email address
+
+			wp_mail( $to, $subject, $message, $headers );
+			*/
+		}
+	}
+
+
+
+	echo json_encode(array('status'=>$status));
 	die();
 }
 
