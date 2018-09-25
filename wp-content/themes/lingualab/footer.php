@@ -235,16 +235,20 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
 
 //mainslider
 
-
-  $('.mainSlider').slick({
+  var mainSliderDots = true;
+  if( $( '#mainSlider' ).hasClass( 'mainSliderOneSlide' ) )
+  {
+    mainSliderDots = false;
+  }
+  $( '#mainSlider' ).slick( {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     infinite: true,
     prevArrow: false,
     nextArrow: false,
-    dots: true,
-});
+    dots: mainSliderDots,
+} );
 
 
 /// Menu   mobilna

@@ -735,7 +735,7 @@ function evaluationFormSend()
 				//$headers[] = 'From: Lingualab <no-reply@example.net>';
 				$headers[] = 'Content-Type: text/html; charset=UTF-8';
 				//wp_mail
-				if( mail( $to, $subject, $contentHTML, implode( '\r\n', $headers ) ) )
+				if( wp_mail( $to, $subject, $contentHTML, $headers ) )
 				{
 						$status=4;
 				}

@@ -15,7 +15,7 @@ get_header(); ?>
 <div class="container-fluid mainSliderWrapper">
     <div class="row m0">
         <div class="col-md-12 p0">
-            <div id="mainSlider" class="mainSlider">
+            <div id="mainSlider" class="mainSlider<?php if( $slides->post_count<=1 ){ echo ' mainSliderOneSlide'; } ?>">
                   <?php
                   $slideCounter=0;
                   $slide_text1='';
@@ -107,24 +107,6 @@ get_header(); ?>
                   }
                   ?>
                 </div>
-                <?php
-                /*  if($slideCounter>=1)
-                  {
-                    echo '<ol class="carousel-indicators">';
-                    $slideIndicator=0;
-                    for($slideIndicator;$slideIndicator<$slideCounter;$slideIndicator++)
-                    {
-                      echo '<li data-target="#mainSlider" data-slide-to="'.$slideIndicator.'"';
-                      if($slideIndicator==0)
-                      {
-                        echo ' class="active"';
-                      }
-                      echo '></li>';
-                    }
-                    echo '</ol>';
-                  }*/
-                ?>
-
         </div>
     </div>
 </div>
