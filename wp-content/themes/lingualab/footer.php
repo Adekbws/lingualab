@@ -292,4 +292,11 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
 });
 </script>
 </body>
+<style>
+.wrappPage .bottomMenu .bottom_menu.bottom_menu_columns3 {
+  -webkit-column-count: <?php echo get_field("column_count", 5); ?>;
+  -moz-column-count: <?php echo get_field("column_count", 5); ?>;
+  column-count: <?php echo get_field("column_count", 5); ?>;
+}
+</style>
 </html>

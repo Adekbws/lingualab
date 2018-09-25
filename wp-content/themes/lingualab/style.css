@@ -9794,6 +9794,16 @@ body {
     background: #d4d4d4;
     padding-bottom: 50px;
   }
+  .wrappPage .bottomMenu .bottom_menu_columns_wrapp {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .wrappPage .bottomMenu .size1 .col-md-3,
+  .wrappPage .bottomMenu .size1 .col-md-4 {
+    width: 50%;
+    display: inline-block;
+    float: left;
+  }
 }
 @media (max-width: 768px) {
   .wrappPage .branchesPageWrapper .branches-container {
