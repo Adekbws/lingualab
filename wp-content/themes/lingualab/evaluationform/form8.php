@@ -88,7 +88,7 @@
                                             <div class="row efFieldContentRow">
                                                 <label class="col-md-4 label"><?php _e( 'Pierwszy dzień:', 'lingualab' );?> <span><?php _e( 'Data:', 'lingualab' );?></span></label>
                                                 <div class="col-md-8 input">
-                                                    <input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" placeholder="dd , mm , rrrr">
+                                                    <input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][0][deadline]" autocomplete="off" placeholder="dd , mm , rrrr">
                                                 </div>
                                             </div>
                                         </div>
@@ -98,16 +98,16 @@
                                             <div class="row efFieldContentRow">
                                                 <label class="col-md-4 label"><?php _e( 'Od:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="evaluation_form[daylist][1][from]">
+                                                <select name="evaluation_form[daylist][0][from]">
 
                                                     <?php
-                                                    $time_start = get_field('earliest_hour',pll_get_post(103));
-                                                    $time_end = get_field('latest_hour',pll_get_post(103));
+                                                    $time_startFrom = get_field('earliest_hour',pll_get_post(103));
+                                                    $time_endFrom = get_field('latest_hour',pll_get_post(103));
                                                     $timePosition = '00:15';
 
                                                     while($timePosition!='00:00')
                                                     {
-                                                      if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
+                                                      if (strtotime($timePosition)>=strtotime($time_startFrom) && strtotime($timePosition)<=strtotime($time_endFrom)) {
                                                           echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
                                                       }
                                                         $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
@@ -127,15 +127,15 @@
                                             <div class="row efFieldContentRow">
                                                 <label class="col-md-4 label"><?php _e( 'Do:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="evaluation_form[daylist][1][to]">
+                                                <select name="evaluation_form[daylist][0][to]">
                                                     <?php
-                                                    $time_start = get_field('earliest_hour',103);
-                                                    $time_end = get_field('latest_hour',103);
+                                                    $time_startTo = get_field('earliest_hour',103);
+                                                    $time_endTo = get_field('latest_hour',103);
                                                     $timePosition = '00:15';
 
                                                     while($timePosition!='00:00')
                                                     {
-                                                      if (strtotime($timePosition)>=strtotime($time_start) && strtotime($timePosition)<=strtotime($time_end)) {
+                                                      if (strtotime($timePosition)>=strtotime($time_startTo) && strtotime($timePosition)<=strtotime($time_endTo)) {
                                                           echo '<option value="' .$timePosition. '">' .$timePosition. '</option>';
                                                       }
                                                         $timePosition = date('H:i',strtotime("+15 minutes", strtotime($timePosition)));
@@ -153,7 +153,7 @@
                                         <div class="efFieldContent">
                                             <div class="row efFieldContentRow">
                                                    <span class="col-md-5 addNextDayLabel"><?php _e( 'Kolejny', 'lingualab' );?><br><?php _e( 'dzień:', 'lingualab' );?></span>
-                                                    <button class="col-md-7 addNextDay" data-id="1"><?php _e( 'Dodaj', 'lingualab' );?></button>
+                                                    <button class="col-md-7 addNextDay" data-id="1" data-fromstart="<?php echo $time_startFrom; ?>" data-fromstop="<?php echo $time_endFrom; ?>" data-tostart="<?php echo $time_startTo; ?>" data-tostop="<?php echo $time_endTo; ?>"><?php _e( 'Dodaj', 'lingualab' );?></button>
                                             </div>
                                         </div>
                                     </div>

@@ -143,12 +143,17 @@ responsive: [
       $( '#evaluateResponse' ).fadeOut( 400, function(){ $( this ).html( '' ); } );
 
       var evaluationFormData = $(this).serialize();
-
       $.ajax({
-        method: "POST",
+      /*  method: "POST",
         url:"<?php echo admin_url( 'admin-ajax.php' );?>?action=evaluationformsend_action",
         data: evaluationFormData,
-        dataType: 'json',
+        dataType: 'json',*/
+        url: "<?php echo admin_url( 'admin-ajax.php' );?>?action=evaluationformsend_action",
+        type: "POST",
+        data:  new FormData( this ),
+        contentType: false,
+        cache: false,
+        processData:false,
 			})
 			.done(function( msg )
 			{
@@ -185,7 +190,7 @@ responsive: [
     {
       id=$(this).attr('id');
       fileInputText=$('#evaluationForm #'+id+'_fileName');
-      console.log(fileInputText);
+
       if(e.target.files.length)
       {
         fileInputText.text( e.target.files[0].name);
@@ -203,6 +208,10 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
     currentDay=$(this).data('id');
     $('.addDay[data-id="'+ currentDay +'"]').fadeOut().remove();
     nextDay=$('.daysList').data("nextday");
+    fromStart = $(this).data( 'fromstart' );
+    fromStop = $(this).data( 'fromstop' );
+    toStart = $(this).data( 'tostart' );
+    toStop = $(this).data( 'tostop' );
     if(nextDay<=5)
     {
       rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"> <label class="col-md-4 label">Od:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][from]"><option value="00:00">00:00</option></select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">Do:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][to]"><option value="00:00">00:00</option></select></div></div></div></div>';

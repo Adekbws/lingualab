@@ -419,7 +419,7 @@ function evaluationFormSend()
 	$evaluation_form['rodo']=0;
 	foreach($_POST['evaluation_form'] as $ek=>$einput)
 	{
-		if($ek != 'daylist')
+		if($ek == 'daylist')
 		{
 				$days=array();
 				foreach($_POST['evaluation_form']['daylist'] as $kd=>$day )
@@ -431,16 +431,13 @@ function evaluationFormSend()
 				}
 				$evaluation_form[$ek]=$days;
 		}
-		elseif( $ek != 'file' )
+		else
 		{
 			$evaluation_form[$ek]=filter_var(trim($einput),FILTER_SANITIZE_STRING);
 		}
-		else
-		{
-			$evaluation_form[$ek]=$einput;
-		}
 	}
-
+	echo json_encode(array('status'=>$evaluation_form));
+	die();
 	$status=1;
 	if((int)$evaluation_form['rodo'])
 	{
