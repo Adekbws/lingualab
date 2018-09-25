@@ -45,7 +45,6 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js" ></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/flatpickr.js" ></script>
-
 <?php
 if (pll_current_language()=='pl')
   echo '<script src="'.get_template_directory_uri() .'/js/flatpickr-pl.js" ></script>';
@@ -214,7 +213,12 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
     toStop = $(this).data( 'tostop' );
     if(nextDay<=5)
     {
-      rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"> <label class="col-md-4 label">Od:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][from]"><option value="00:00">00:00</option></select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">Do:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][to]"><option value="00:00">00:00</option></select></div></div></div></div>';
+      rowHTML='<div class="row efFieldRow dayRow"><div class="col-md-4 efField dayDate"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">'+ dayLabels[currentDay-1] +' <span>Data:</span></label><div class="col-md-8 input"><input id="deadline" class="dateInput" type="text" name="evaluation_form[daylist][1][deadline]" autocomplete="off" data-id="'+ nextDay +'" placeholder="dd , mm , rrrr"></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow">';
+      rowHTML = rowHTML + '<label class="col-md-4 label">Od:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][from]">'
+      rowHTML = rowHTML + $('.evaluationform_hours1').html();
+      rowHTML = rowHTML + '</select></div></div></div></div><div class="col-md-3 efField dayTime"><div class="efFieldContent"><div class="row efFieldContentRow"><label class="col-md-4 label">Do:</label><div class="col-md-8 input"><select name="evaluation_form[daylist][1][to]">';
+      rowHTML = rowHTML + $('.evaluationform_hours2').html();
+      rowHTML = rowHTML + '</select></div></div></div></div>';
 
       if(nextDay<5)
       {
