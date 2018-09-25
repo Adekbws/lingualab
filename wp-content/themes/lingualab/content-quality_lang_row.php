@@ -10,7 +10,7 @@
                 <div class="col-md-7 col-sm-7 smallBannerInfo">
                     <div>
                         <span class="smallBannerTitle">Języki</span>
-                        <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                        <a href="<?php echo get_term_link(126,'jezyki_category'); ?>" class="readMoreButton">dowiedz się więcej</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-md-7 col-sm-7 smallBannerInfo">
                     <div>
                         <span class="smallBannerTitle">Jakość</span>
-                        <a href="#" class="readMoreButton">dowiedz się więcej</a>
+                        <a href="<?php echo get_permalink(576); ?>" class="readMoreButton">dowiedz się więcej</a>
                     </div>
                 </div>
             </div>
