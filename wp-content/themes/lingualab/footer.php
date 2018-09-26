@@ -10,7 +10,7 @@
                 <?php wp_nav_menu(array('theme_location'=>'info_menu_2','menu_class'=>'info_menu','menu_id'=>'', 'container'=>'')); ?>
             </div>
             <div class="col-md-5 payLogos">
-              <div class="paypalWrapper">
+              <div class="paypalWrapper col-md-6">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                   <input type="hidden" name="cmd" value="_xclick">
                   <input type="hidden" name="business" value="sales@lingualab.pl">
@@ -23,7 +23,9 @@
                       <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" border="0">
                 </form>
               </div>
-                <a href="<?php echo esc_url(get_permalink(pll_get_post(465))); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
+              <div class="col-md-6">
+                  <a href="<?php echo esc_url(get_permalink(pll_get_post(465))); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/przelewy.png" alt=""></a>
+              </div>
             </div>
         </div>
     </div>
@@ -267,6 +269,7 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
       $('.subMenuCustomContent >ul >li').append('<span class="bt-expand">+</span>');
       $('.bt-close-menu').show();
       $('body').css("overflow","hidden");
+      $('.menuWrapper .subMenuCustomWrapper').prev('a').attr("href","#");
     }
 
 
@@ -274,7 +277,7 @@ $( document ).on('click','#evaluationForm .addNextDay' , function()
    $(document).on("click",".bt-expand",function(){
      $(this).prev("ul").toggle( "slow" );
    });
-   //$('.menuWrapper .siteMenu > li > a').attr("href","#");
+
 
    $('.bt-close-menu').click(function(){
      $(this).parent(".subMenuCustomWrapper").removeClass("mobileMenu");

@@ -31,12 +31,12 @@ class TopInformations_Widget extends WP_Widget {
 
 		echo '<div class="topContactPosition topContactPhone">';
 		echo '<span class="topContactLabel">'.$locationName1 .' </span>';
-		echo $phone1;
+		echo '<span class="topNumber">'.$phone1 .' </span>';
 		echo '</div>';
 
 		echo '<div class="topContactPosition">';
 		echo '<span class="topContactLabel">'.$locationName2 .' </span>';
-		echo $phone2;
+		echo '<span class="topNumber">'.$phone2 .' </span>';
 		echo '</div>';
 
 		echo '<div class="topContactPosition topContactMail">';

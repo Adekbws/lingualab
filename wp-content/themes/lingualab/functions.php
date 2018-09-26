@@ -76,7 +76,7 @@ function create_posttype() {
             'public' => true,
             'has_archive' => true,
 			'rewrite' => array('slug' => _x( 'jezyk', 'URL slug', 'lingualab' )),
-			'hierarchical' => TRUE,
+			'hierarchical' => false,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
@@ -93,7 +93,7 @@ function create_posttype() {
             'public' => true,
             'has_archive' => true,
 			'rewrite' => array('slug' => 'branze'),
-			'hierarchical' => TRUE,
+			'hierarchical' => false,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
         )
@@ -110,8 +110,8 @@ function create_posttype() {
 						'public' => true,
 						'has_archive' => false,
 						'taxonomies'  => array( 'uslugi_category' ),
-			'rewrite' => array('slug' => 'uslugi'),
-			'hierarchical' => TRUE,
+			'rewrite' => array('slug' => 'usluga'),
+			'hierarchical' => false,
 			'with_front' =>false,
 			'show_in_nav_menus'=>true,
 				)

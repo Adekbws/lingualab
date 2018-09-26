@@ -134,7 +134,7 @@ class LinguaLab_Menu_Walker extends Walker_Nav_Menu {
 		}
 		if(!is_null($this->haTemplateMenu) && !is_null($this->referenceClass) && (int)$depth==0)
 		{
-			$output .= '<div class="menuAskBox box-reference"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="'.get_permalink(103).'" class="menuAskBoxButton">'.__("Referencje","lingualab").'</a></div>';
+			$output .= '<div class="menuAskBox box-reference"><span class="menuAskBoxTitle">'.__("Zapytaj o interesującą Cię realizację.","lingualab").'</span><a href="'.get_permalink(581).'" class="menuAskBoxButton">'.__("Referencje","lingualab").'</a></div>';
 			//$this->referenceClass=null;
 		}
 		if((int)$depth==0)
