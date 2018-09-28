@@ -7271,6 +7271,7 @@ body {
   padding-right: 15px;
   line-height: 30px;
   transition: .3s;
+  text-transform: lowercase;
 }
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > .subMenuCustomWrapper > .subMenuCustomContent > ul > li > ul > li > a:hover {
   text-decoration: none;
@@ -7588,7 +7589,7 @@ body {
   display: block;
   margin: auto;
   background-repeat: no-repeat;
-  background-position: center -90px;
+  background-position: center 0px;
   margin-bottom: 23px;
 }
 .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent .serviceHeader .serviceTitle {
@@ -7615,7 +7616,7 @@ body {
   background: #ffd334;
 }
 .wrappPage .rangeOfServices .servicesRow .serviceWrapper .serviceWrapperContent:hover .serviceHeader .serviceImage {
-  background-position: center 0px;
+  background-position: center -90px;
 }
 .wrappPage .rangeOfServices .servicesRow:nth-child(even) .serviceWrapper:first-child .serviceWrapperContent {
   background: #f9f9f9;
@@ -8064,6 +8065,9 @@ body {
   width: auto;
   padding-left: 20px;
 }
+.wrappPage .contactArea .contactFormWrapper .rodoCheckLabel a {
+  color: #7d7c7d;
+}
 .wrappPage .contactArea .contactFormWrapper .sendButtonWrapp {
   text-align: center;
   padding-top: 30px;
@@ -8090,6 +8094,9 @@ body {
   font-weight: 300;
   font-size: 13px;
   line-height: 15px;
+}
+.wrappPage .contactArea .contactFormWrapper .rodoCheckLabel a {
+  color: #7d7c7d;
 }
 .wrappPage .infoArea {
   padding-left: 0;
@@ -8267,6 +8274,7 @@ body {
   font-size: 14px;
   color: #e2001a;
   transition: .3s;
+  font-weight: 500;
 }
 .wrappPage .bottomInfoWrapp .bottomInfo .payLogos {
   padding-left: 0;
@@ -8399,7 +8407,7 @@ body {
   font-size: 13px;
   color: #242424;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 60px;
   outline: 0;
   border-radius: 5px;
   border: 1px #cccccc solid;
@@ -8457,6 +8465,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input.fileInputWrapper label span {
   font-family: 'Montserrat', sans-serif;
@@ -8595,6 +8604,9 @@ body {
   font-size: 13px;
   line-height: 15px;
 }
+.wrappPage .evaluationFormArea #evaluationForm .rodoCheckWrapper .rodoCheckLabel a {
+  color: #7d7c7d;
+}
 .wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper {
   text-align: center;
   margin-top: 25px;
@@ -8624,6 +8636,9 @@ body {
   font-weight: 300;
   font-size: 13px;
   line-height: 15px;
+}
+.wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 .rodoCheckLabel a {
+  color: #7d7c7d;
 }
 .wrappPage .evaluationFormArea .formcontainer form .row .rodo-containier {
   padding-top: 20px;
@@ -8967,14 +8982,6 @@ body {
 .wrappPage .defaultPageWrapper .defaultPageRight.leftColumnExist {
   padding-left: 45px;
 }
-.wrappPage .defaultPageWrapper .defaultPageRight .contentTitle {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  color: #e2001a;
-  display: block;
-  margin-bottom: 7px;
-}
 .wrappPage .defaultPageWrapper .defaultPageRight img {
   display: inline-block;
   max-width: 100%;
@@ -8985,6 +8992,14 @@ body {
   font-weight: 300;
   font-size: 13px;
   color: #000;
+}
+.wrappPage .defaultPageWrapper .contentTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #e2001a;
+  display: block;
+  margin-bottom: 7px;
 }
 .wrappPage .branchesPageWrapper {
   padding: 50px;
@@ -9516,6 +9531,9 @@ body {
 .wrappPage .payment-page fieldset .row .col-md-6 img {
   max-width: 100%;
 }
+.wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects {
+  display: none;
+}
 .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a {
   padding-right: 25px;
 }
@@ -9648,6 +9666,10 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
 }
 @media (max-width: 1750px) {
   .wrappPage .smallBannersWrapper .smallBanners {
@@ -9775,6 +9797,9 @@ body {
 @media (max-width: 1200px) {
   .wrappPage .bottomInfoWrapp .size1 {
     padding: 0;
+  }
+  .wrappPage .defaultPageWrapper .defaultPageLeft .groupPostsList li a {
+    font-size: 16px;
   }
 }
 @media (min-width: 992px) and (max-width: 1150px) {
@@ -9921,6 +9946,33 @@ body {
   .wrappPage .formcontainer form fieldset .efFieldRow {
     flex-direction: column;
   }
+  .wrappPage .defaultPageWrapper .contentTitle {
+    padding-top: 20px;
+  }
+  .wrappPage .defaultPageWrapper .defaultPageLeft .mobile-expand {
+    display: none;
+  }
+  .wrappPage .defaultPageWrapper .defaultPageLeft .groupName:after {
+    content: "+";
+    color: #004178;
+    position: relative;
+    font-size: 29px;
+    line-height: 22px;
+    float: right;
+    cursor: pointer;
+  }
+  .wrappPage .blogPageWrapper .blogPageContent .leftBlog {
+    padding-right: 0;
+  }
+  .wrappPage .blogPageWrapper .blogPageContent .rightBlog {
+    padding-left: 0;
+  }
+  .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyTitle {
+    padding-top: 20px;
+  }
+  .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyImg {
+    padding-right: 15px;
+  }
 }
 @media (max-width: 768px) {
   .wrappPage .branchesPageWrapper .branches-container {
@@ -10046,10 +10098,55 @@ body {
   .wrappPage .contactPageWrapper .contactPageContent .contactPoints {
     flex-direction: column;
   }
-  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input select {
-    background-position: bottom 0 right 0;
-    background-size: 100% 10px;
-    padding-bottom: 20px;
+  .wrappPage .blogContactFootWrapper .blogContactFoot {
+    flex-direction: column;
+  }
+  .wrappPage .blogContactFootWrapper .blogContactFoot > div {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .wrappPage .blogContactFootWrapper .blogContactFoot > div:last-child {
+    padding-bottom: 0;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow {
+    flex-direction: column;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input {
+    width: 100% !important;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.threeColumn .efField .efFieldContent .efFieldContentRow .label.col-md-4,
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .label {
+    width: 100% !important;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: calc(100% - 59px);
+    min-height: 100%;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects div {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    width: 100%;
+    min-height: 100%;
+    outline: 0;
+    border-radius: 5px;
+    border: 1px #cccccc solid;
+    background: #fff;
+    border-top-right-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.oneInputRow .input {
+    padding: 0 !important;
   }
 }
 @media (max-width: 670px) {
@@ -10150,8 +10247,8 @@ body {
     flex-direction: column;
   }
   .wrappPage .formcontainer form fieldset .efFieldRow.threeColumn .efField .efFieldContent .efFieldContentRow .label.col-md-4 {
-    width: auto !important;
-    padding-left: 0;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 @media (max-width: 450px) {
@@ -10179,6 +10276,52 @@ body {
     padding-right: 0;
     width: 100%;
   }
+  .wrappPage .branchesPageWrapper .branches-container .branch {
+    font-size: 22px;
+  }
+  .wrappPage .formcontainer form button[type="submit"] {
+    width: 100%;
+  }
+  .wrappPage .titleSection {
+    font-size: 28px;
+  }
+  .wrappPage .bottomInfoWrapp .bottomInfo .bottomInfoTitle {
+    font-size: 18px;
+  }
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .navbar-header {
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-items: center;
+  }
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .siteLogo {
+    margin: 0;
+    display: inline-block;
+    max-width: 60%;
+  }
+  .pageMenu .pageMenuWrapper .navbar-header .buttonToggleWrapper {
+    margin-left: auto;
+  }
+  .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent {
+    font-size: 12px;
+  }
+  .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyContent strong span {
+    font-size: 14px !important;
+  }
+  .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyContentWrapper .caseStudyTitle {
+    font-size: 20px;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects div {
+    font-size: 12px;
+  }
+  .wrappPage .formcontainer form fieldset {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 @media (max-width: 350px) {
   .wrappPage .pageHeader .topBarWrapper .topBar .topBarContent .topContact .topContactPosition.topContactMail {
@@ -10193,6 +10336,14 @@ body {
     padding-right: 5px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+  }
+  .wrappPage .branchesPageWrapper .branches-container .branch {
+    font-size: 18px;
+  }
+  .wrappPage .blogContactFootWrapper .blogContactFoot .blogContactFootItemTitle,
+  .wrappPage .blogContactFootWrapper .blogContactFoot .blogContactFootItemContent {
+    font-size: 12px;
+    line-height: 12px;
   }
 }
 @media (max-width: 320px) {
@@ -10440,6 +10591,12 @@ body {
   }
   .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper > ul:first-child {
     margin-top: 0;
+  }
+}
+@media (max-height: 330px) {
+  .wrappPage .pageHeader .pageMenu .pageMenuWrapper .menuWrapper .siteMenu > li > a {
+    padding-bottom: 5px;
+    padding-top: 5px;
   }
 }
 @media (max-height: 650px) and (min-width: 768px) {

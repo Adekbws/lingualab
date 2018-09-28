@@ -112,6 +112,8 @@
                                             <option value="10"><?php _e( 'Tłumaczenie ustne wraz ze sprzętem', 'lingualab' );?></option>
 
                                         </select>
+
+                                        <div class="mobile-selects"><div>–––</div></div>
                                         </div>
                                     </div>
                                 </div>

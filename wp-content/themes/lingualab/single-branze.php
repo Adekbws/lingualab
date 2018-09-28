@@ -22,7 +22,7 @@ get_header(); ?>
 									<div class="row">
 											<div class="col-md-3 defaultPageLeft">
 													<span class="groupName">Branże</span>
-													<ul class="groupPostsList">
+													<ul class="groupPostsList mobile-expand">
 														<?php  // The Loop
 														if ( $the_query->have_posts() ) {
 														  while ( $the_query->have_posts() ) {

@@ -21,6 +21,7 @@ get_header(); ?>
        {
          ?>
          <div class="container-fluid caseStudiesPageWrapper">
+           <div class="row">
                <div class="container caseStudiesList">
          <?php
          while($caseStudies->have_posts())
@@ -50,6 +51,7 @@ get_header(); ?>
         }
         ?>
               </div>
+            </div>
         </div>
         <?php
       }
@@ -57,6 +59,7 @@ get_header(); ?>
       {
         ?>
         <div class="container-fluid caseStudiesPageWrapper">
+            <div class="row">
               <div class="container caseStudiesList">
                 <div class="row caseStudy">
                     <div class="col-md-6 caseStudyContentWrapper">
@@ -64,6 +67,7 @@ get_header(); ?>
                     </div>
                 </div>
               </div>
+            </div>
         </div>
         <?php
       }

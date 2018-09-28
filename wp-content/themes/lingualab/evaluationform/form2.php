@@ -48,6 +48,7 @@
                                                 <option value="<?php _e( 'TAK, dostarczę oryginał dokumentu', 'lingualab' );?>"><?php _e( 'TAK, dostarczę oryginał dokumentu', 'lingualab' );?></option>
                                                 <option value="<?php _e( 'NIE, nie dostarczę oryginału dokumentu', 'lingualab' );?>"><?php _e( 'NIE, nie dostarczę oryginału dokumentu', 'lingualab' );?></option>
                                             </select>
+                                            <div class="mobile-selects"><div><?php _e( 'TAK, dostarczę oryginał dokumentu', 'lingualab' );?></div></div>
                                             </div>
                                         </div>
                                     </div>
@@ -80,6 +81,7 @@
                                                 }
                                                 ?>
                                             </select>
+                                            <div class="mobile-selects"><div><?php echo $pieces[0]; ?></div></div>
                                             </div>
                                         </div>
                                     </div>

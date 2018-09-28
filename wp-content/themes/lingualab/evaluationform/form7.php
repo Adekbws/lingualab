@@ -15,6 +15,7 @@
                                           }
                                           ?>
                                         </select>
+                                        <div class="mobile-selects"><div><?php echo $pieces[0]; ?></div></div>
                                         </div>
                                     </div>
                                 </div>

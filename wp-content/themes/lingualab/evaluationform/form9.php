@@ -34,6 +34,7 @@
                                             <option value="<?php _e( 'NIE, jest dostępne na sali', 'lingualab' );?>"><?php _e( 'NIE, jest dostępne na sali', 'lingualab' );?></option>
                                             <option value=""><?php _e( 'Nie wiem', 'lingualab' );?></option>
                                         </select>
+                                        <div class="mobile-selects"><div><?php _e( 'TAK, należy zapewnić', 'lingualab' );?></div></div>
                                         </div>
                                     </div>
                                 </div>

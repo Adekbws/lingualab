@@ -39,7 +39,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
 												?>
 
 																					<span class="groupName"><?php echo $term->name; ?></span>
-																					<ul class="groupPostsList" <?php if ($category[0]->name!=$term->name) echo'style="display:none;"'?>>
+																					<ul class="groupPostsList mobile-expand" <?php if ($category[0]->name!=$term->name) echo'style="display:none;"'?>>
 																						<?php  // The Loop
 																						if ( $the_query->have_posts() ) {
 																							while ( $the_query->have_posts() ) {

@@ -16,6 +16,7 @@
                                               ?>
 
                                           </select>
+                                          <div class="mobile-selects"><div><?php echo $pieces[0]; ?></div></div>
                                           </div>
                                       </div>
                                   </div>
@@ -181,6 +182,7 @@
                                                   <option value="<?php _e( 'Nagłośnienie', 'lingualab' );?>"><?php _e( 'Nagłośnienie', 'lingualab' );?></option>
                                                   <option value="<?php _e( 'Nie wiem', 'lingualab' );?>"><?php _e( 'Nie wiem', 'lingualab' );?></option>
                                               </select>
+                                              <div class="mobile-selects"><div><?php _e( 'TAK, należy zapewnić', 'lingualab' );?></div></div>
                                             </div>
                                         </div>
                                     </div>

@@ -1,4 +1,5 @@
 <div class="container-fluid bottomInfoWrapp">
+  <div class="row">
     <div class="container size1">
         <div class="row bottomInfo">
             <div class="col-md-3">
@@ -29,6 +30,7 @@
             </div>
         </div>
     </div>
+  </div>
 </div>
 </div>
 <div class="container-fluid siteFooter">
@@ -55,6 +57,14 @@ if (pll_current_language()=='pl')
 <script>
   $(document).ready(function()
   {
+
+    $(document).on('change', '#evaluationForm select', function() {
+      console.log("zmianaa");
+      var str = $( this ).children('option:selected').text();
+      $( this ).next(".mobile-selects").children('div').text( str );
+    });
+
+
 
     $('.defaultPageLeft .groupName').click(function(){
       $(this).next('.groupPostsList').toggle(200);

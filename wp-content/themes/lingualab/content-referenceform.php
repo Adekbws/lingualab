@@ -2,7 +2,7 @@
   <div class="container size1">
       <div class="row">
           <div class="col-md-12">
-              <span class="titleSection">Referencje</span>
+              <span class="titleSection">Formularz referencji</span>
           </div>
           <div class="col-md-12 contentTextBlock">
           Jeśli nie lubisz wypełniać formularzy, wyślij wiadomość na <a href="#">info@lingualab.pl</a> lub zadzwoń - Warszawa: (+48) 22 379 79 41 lub Kraków: (+48) 12 350 59 20.<br>

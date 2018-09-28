@@ -33,7 +33,7 @@ get_header(); ?>
                                   ?>
                                   <div class="col-md-3 defaultPageLeft">
                                     <span class="groupName <?php if(empty($childrens)) echo 'empty-ul' ; ?>"><?php echo $groupName; ?></span>
-                                    <ul class="groupPostsList">
+                                    <ul class="groupPostsList mobile-expand">
                                     <?php
                                       foreach ( $childrens as $key => $value) {
                                       ?>
@@ -47,7 +47,10 @@ get_header(); ?>
                               }
                           ?>
                           <div class="<?php echo $colClass;?>">
-                              <?php the_content();?>
+                              <span class="contentTitle"><?php the_title(); ?></span>
+                              <div class="contentBox">
+                                  <?php the_content(); ?>
+                              </div>
                           </div>
                       </div>
                   </div>
