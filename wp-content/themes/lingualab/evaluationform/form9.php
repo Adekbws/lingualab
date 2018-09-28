@@ -80,7 +80,7 @@
                                             <div class="row efFieldContentRow">
                                                 <label class="col-md-4 label" ><?php _e( 'Od:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="evaluation_form[daylist][0][from]">
+                                                <select name="evaluation_form[daylist][0][from]" class="evaluationform_hours1">
                                                     <?php
                                                     $time_startFrom = get_field('earliest_hour',pll_get_post(103));
                                                     $time_endFrom = get_field('latest_hour',pll_get_post(103));
@@ -108,7 +108,7 @@
                                             <div class="row efFieldContentRow">
                                                 <label class="col-md-4 label" for=""><?php _e( 'Do:', 'lingualab' );?></label>
                                                 <div class="col-md-8 input">
-                                                <select name="evaluation_form[daylist][0][to]">
+                                                <select name="evaluation_form[daylist][0][to]" class="evaluationform_hours2">
                                                     <?php
                                                     $time_startTo = get_field('earliest_hour',pll_get_post(103));
                                                     $time_endTo = get_field('latest_hour',pll_get_post(103));
