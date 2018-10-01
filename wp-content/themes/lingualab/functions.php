@@ -415,8 +415,10 @@ add_action( 'wp_ajax_nopriv_evaluationformsend_action', 'evaluationFormSend' );
 function evaluationFormSend()
 {
 	//sanitize
+
 	$evaluation_form=array();
 	$evaluation_form['rodo']=0;
+
 	foreach($_POST['evaluation_form'] as $ek=>$einput)
 	{
 		if($ek == 'daylist')
@@ -436,8 +438,8 @@ function evaluationFormSend()
 			$evaluation_form[$ek]=filter_var(trim($einput),FILTER_SANITIZE_STRING);
 		}
 	}
-	echo json_encode(array('status'=>$evaluation_form));
-	die();
+	//echo json_encode(array('status'=>$evaluation_form));
+	//die();
 	$status=1;
 	if((int)$evaluation_form['rodo'])
 	{
@@ -721,6 +723,43 @@ function evaluationFormSend()
 					break;
 				}
 
+
+
+
+					$file_result = "brak pliku";
+				if(!empty($_FILES["evaluation_form"])){
+					$file_result = "";
+					$target_dir = "tmpuploads/";
+					$target_file = get_template_directory(). '/' . $target_dir . basename($_FILES["evaluation_form"]["name"]["file"]);
+					$tmp_directory = get_template_directory(). '/' . $target_dir;
+
+					$uploadOk = 1;
+					$fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+					// Check file size
+					if ($_FILES["fileToUpload"]["size"] > 30000000) {
+					    $file_result .= "Sorry, your file is too large.";
+					    $uploadOk = 0;
+					}
+					// Allow certain file formats
+					if($fileType == "exe" || $fileType == "php" || $fileType == "js" || $fileType == "bin") {
+					    $file_result .= "Sorry, only document files are allowed.";
+					    $uploadOk = 0;
+					}
+					// Check if $uploadOk is set to 0 by an error
+					if ($uploadOk == 0) {
+					    $file_result .= "Sorry, your file was not uploaded.";
+					// if everything is ok, try to upload file
+					} else {
+					    if (move_uploaded_file($_FILES["evaluation_form"]["tmp_name"]["file"], $target_file)) {
+					        $file_result .= "The file ". basename( $_FILES["evaluation_form"]["name"]["file"]). " has been uploaded.";
+									$ulpoad_status = true;
+					    } else {
+					        $file_result .= "Sorry, there was an error uploading your file.";
+					    }
+					}
+				}
+
+
 				//rodo
 
 				$contentHTML .= '<br><br><br><b>' . __( 'Wyrażone zgody:', 'lingualab' ) . '</b><br>';
@@ -732,13 +771,26 @@ function evaluationFormSend()
 				//$headers[] = 'From: Lingualab <no-reply@example.net>';
 				$headers[] = 'Content-Type: text/html; charset=UTF-8';
 				//wp_mail
-				if( wp_mail( $to, $subject, $contentHTML, $headers ) )
+				if($ulpoad_status)
 				{
+						if (wp_mail( $to, $subject, $contentHTML, $headers, $target_file )) {
+							$status=4;
+						}else{
+							$status=5;
+						}
+
+						$files = glob($tmp_directory); // get all file names
+						foreach($files as $file){ // iterate files
+						  if(is_file($file))
+						    unlink($file); // delete file
+						}
+				}elseif (wp_mail( $to, $subject, $contentHTML, $headers, $target_file )) {
 						$status=4;
 				}
 				else
 				{
 						$status=5;
+
 				}
 			}
 			else
@@ -746,14 +798,7 @@ function evaluationFormSend()
 				$status=3;
 			}
 
-			/*
-			$to = 'sendto@example.com';
-			$subject = 'The subject';
-			$body = 'The email body content';
-			$headers = array('Content-Type: text/html; charset=UTF-8');
 
-			wp_mail( $to, $subject, $body, $headers );
-			*/
 
 
 
@@ -769,7 +814,7 @@ function evaluationFormSend()
 
 
 
-	echo json_encode(array('status'=>$status));
+	echo json_encode(array('status'=>$status, 'file_result'=>$file_result, 'Wyslanie maila'=>$mail_result));
 	die();
 }
 

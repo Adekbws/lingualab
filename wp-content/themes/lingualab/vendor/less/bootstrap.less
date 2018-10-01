@@ -1436,6 +1436,11 @@ body
       .rodo-box{
         text-align: center;
       }
+      .captcha-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       label
       {
         display:block;
@@ -2166,7 +2171,6 @@ body
       .evaluationFormSemdWrapper
       {
         text-align:center;
-        margin-top:25px;
         button[type="submit"] {
 
         }
@@ -2199,6 +2203,7 @@ body
     .row {
       .col-md-12{
       text-align: center;
+      padding-top: 35px;
         .rodoCheckLabel {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
@@ -2210,8 +2215,12 @@ body
         }
       }
         .rodo-containier{
-          padding-top: 20px;
-          padding-bottom: 20px;
+
+        }
+        .captcha-box{
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
     }
     button[type="submit"]{
@@ -2588,6 +2597,7 @@ body
         }
         .empty-ul{
           border-bottom: 1px #004179 solid;
+          cursor: default;
         }
         .groupName:first-child
         {
@@ -3115,6 +3125,22 @@ body
               background:#ffd334;
             }
           }
+          .rodo-box{
+            display: flex;
+            input{
+              margin-top: 6px;
+              margin-right: 5px;
+            }
+            input, label{
+              width: auto;
+            }
+          }
+          .captcha-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+          }
         }
         .blogSearchForm{
           h3{
@@ -3292,6 +3318,10 @@ body
       }
     }
   }
+}
+
+div.wpcf7 .ajax-loader {
+  display: none;
 }
 
 .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects{
@@ -3852,6 +3882,12 @@ body
   }
   .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyImg {
       padding-right: 15px;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.oneInputRow .label {
+      width: 24%;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.oneInputRow .input {
+      width: 76%;
   }
 }
 @media (max-width:768px)

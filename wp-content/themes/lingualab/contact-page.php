@@ -172,7 +172,7 @@ get_header(); ?>
                                  ?>
                                 <div class="col-md-6 mapPoint">
                                     <div class="mapPointContent">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10261.150516083148!2d20.044684069250486!3d49.98721668031563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1533809920696" width="600" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        <iframe src="<?php the_field('map_link_1'); ?>" width="600" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
                                     </div>
                                 </div>
                                  <?php
@@ -184,7 +184,7 @@ get_header(); ?>
                                  ?>
                                 <div class="col-md-6 mapPoint">
                                     <div class="mapPointContent">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10261.150516083148!2d20.044684069250486!3d49.98721668031563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1533809920696" width="600" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        <iframe src="<?php the_field('map_link_2'); ?>" width="600" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
                                     </div>
                                 </div>
                                  <?php

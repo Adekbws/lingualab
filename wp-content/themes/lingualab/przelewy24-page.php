@@ -75,6 +75,7 @@ get_template_part( 'content', 'subheader' );
                           <input type="checkbox" name="rodo" id="rodoCheck" required="">
                           <label for="rodoCheck"><?php _e( 'Zgadzam się na przetwarzanie danych', 'lingualab' );?></label>
                       </div>
+                      <div class="col-md-12 captcha-box"><div class="g-recaptcha" data-sitekey="6Lev7XIUAAAAAFoBFVF-4cIsZYkaRJNu7EdFCEWx"></div></div>
                       <div class="col-md-12">
                           <button type="submit"><?php _e( 'Wyślij', 'lingualab' );?></button>
                       </div>

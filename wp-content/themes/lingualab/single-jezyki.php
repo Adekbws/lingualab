@@ -1,5 +1,7 @@
 <?php
-get_header(); ?>
+get_header();
+get_template_part( 'content', 'subheader' );
+?>
 
 <div class="container-fluid defaultPageWrapper">
 		<div class="row">

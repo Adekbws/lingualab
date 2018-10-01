@@ -58,7 +58,6 @@ if (pll_current_language()=='pl')
   {
 
     $(document).on('change', '#evaluationForm select', function() {
-      console.log("zmianaa");
       var str = $( this ).children('option:selected').text();
       $( this ).next(".mobile-selects").children('div').text( str );
     });

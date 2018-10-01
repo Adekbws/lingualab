@@ -8016,6 +8016,11 @@ body {
 .wrappPage .contactArea .contactFormWrapper .rodo-box {
   text-align: center;
 }
+.wrappPage .contactArea .contactFormWrapper .captcha-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .wrappPage .contactArea .contactFormWrapper label {
   display: block;
   width: 100%;
@@ -8609,7 +8614,6 @@ body {
 }
 .wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper {
   text-align: center;
-  margin-top: 25px;
 }
 .wrappPage .evaluationFormArea #evaluationForm .evaluationFormSemdWrapper .evaluateResponse {
   padding-top: 8px;
@@ -8630,6 +8634,7 @@ body {
 }
 .wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 {
   text-align: center;
+  padding-top: 35px;
 }
 .wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 .rodoCheckLabel {
   font-family: 'Montserrat', sans-serif;
@@ -8640,9 +8645,10 @@ body {
 .wrappPage .evaluationFormArea .formcontainer form .row .col-md-12 .rodoCheckLabel a {
   color: #7d7c7d;
 }
-.wrappPage .evaluationFormArea .formcontainer form .row .rodo-containier {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.wrappPage .evaluationFormArea .formcontainer form .row .captcha-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wrappPage .evaluationFormArea .formcontainer form button[type="submit"] {
   display: inline-block;
@@ -8939,6 +8945,7 @@ body {
 }
 .wrappPage .defaultPageWrapper .defaultPageLeft .empty-ul {
   border-bottom: 1px #004179 solid;
+  cursor: default;
 }
 .wrappPage .defaultPageWrapper .defaultPageLeft .groupName:first-child {
   padding-top: 0px;
@@ -9384,6 +9391,23 @@ body {
 .wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm input[type="submit"]:hover {
   background: #ffd334;
 }
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm .rodo-box {
+  display: flex;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm .rodo-box input {
+  margin-top: 6px;
+  margin-right: 5px;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm .rodo-box input,
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm .rodo-box label {
+  width: auto;
+}
+.wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogContactForm .captcha-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
 .wrappPage .blogPageWrapper .blogPageContent .rightBlog .blogSearchForm h3 {
   display: block;
   font-family: 'Montserrat', sans-serif;
@@ -9530,6 +9554,9 @@ body {
 }
 .wrappPage .payment-page fieldset .row .col-md-6 img {
   max-width: 100%;
+}
+div.wpcf7 .ajax-loader {
+  display: none;
 }
 .wrappPage .formcontainer form fieldset .efFieldRow .efField .efFieldContent .efFieldContentRow .input .mobile-selects {
   display: none;
@@ -9972,6 +9999,12 @@ body {
   }
   .wrappPage .caseStudiesPageWrapper .caseStudiesList .caseStudy .caseStudyImg {
     padding-right: 15px;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.oneInputRow .label {
+    width: 24%;
+  }
+  .wrappPage .formcontainer form fieldset .efFieldRow.oneInputRow .input {
+    width: 76%;
   }
 }
 @media (max-width: 768px) {

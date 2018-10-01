@@ -1,5 +1,7 @@
 <?php
-get_header(); ?>
+get_header();
+get_template_part( 'content', 'subheader' );
+?>
 
 <div class="container-fluid defaultPageWrapper">
 		<div class="row">
@@ -67,33 +69,33 @@ if ( $terms && !is_wp_error( $terms ) ) :
 </div>
 
         <?php
-				$princing_form = get_field( "princing_form" );
+				$princing_form = get_field( "princing_form",$category[0] );
         if($princing_form)
         {
             get_template_part( 'content', 'evaluationform' );
         }
-				$reference_form = get_field( "reference_form" );
+				$reference_form = get_field( "reference_form",$category[0] );
 				if($reference_form)
 				{
 						get_template_part( 'content', 'referenceform' );
 				}
-        $show_contactblog_box = get_field( "show_contactblog_box" );
+        $show_contactblog_box = get_field( "show_contactblog_box",$category[0] );
         if($show_contactblog_box)
         {
           get_template_part( 'content', 'contact_blog' );
         }
-				$range_of_services = get_field( "range_of_services" );
+				$range_of_services = get_field( "range_of_services",$category[0] );
         if($range_of_services)
         {
             get_template_part( 'content', 'range_of_services' );
         }
-				$branches_block = get_field( "branches_block" );
+				$branches_block = get_field( "branches_block",$category[0]);
         if($branches_block)
         {
             get_template_part( 'content', 'branches' );
         }
 
-				$quality_lang_row = get_field( "quality_lang_row" );
+				$quality_lang_row = get_field( "quality_lang_row",$category[0] );
         if($quality_lang_row)
         {
             get_template_part( 'content', 'quality_lang_row' );
